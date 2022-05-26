@@ -1,0 +1,1036 @@
+type,condition1,condition2,condition3,trialNo,target,stim1,stim2,key,ITI,presTime,ISI,presTimeS2,stimFormat,title,content,trialText,button1,feedbackIncorrect,feedbackTime,random,keyboard,subjectGroup,responseWindow,randomBlock
+instructions,na,na,na,na,na,na,na, ,600,na,na,na,na,Instructions,"In this study, we'd like you to make judgments about whether certain statements are true or false. To indicate that something is false, you'll press the [f] key. To indicate that something is true, please press the [j] key. To get you used to this, you will first go through a warm-up phase. On these trials, press [f] if you see the word ""False"" and [j] if you see the word ""True.""",na,na,na,na,na, ,na,na,na
+practice,na,na,na,1,FALSE,na,na,f,600,na,na,na,word,That's not right! False is [f],na,na,na, ,1000,1,f j,na,na,na
+practice,na,na,na,2,TRUE,na,na,j,600,na,na,na,word,That's not right! True is [j] ,na,na,na, ,1000,1,f j,na,na,na
+practice,na,na,na,3,FALSE,na,na,f,600,na,na,na,word,That's not right! False is [f],na,na,na, ,1000,1,f j,na,na,na
+practice,na,na,na,4,TRUE,na,na,j,600,na,na,na,word,That's not right! True is [j] ,na,na,na, ,1000,1,f j,na,na,na
+practice,na,na,na,5,FALSE,na,na,f,600,na,na,na,word,That's not right! False is [f],na,na,na, ,1000,1,f j,na,na,na
+practice,na,na,na,6,TRUE,na,na,j,600,na,na,na,word,That's not right! True is [j] ,na,na,na, ,1000,1,f j,na,na,na
+practice,na,na,na,7,FALSE,na,na,f,600,na,na,na,word,That's not right! False is [f],na,na,na, ,1000,1,f j,na,na,na
+practice,na,na,na,8,TRUE,na,na,j,600,na,na,na,word,That's not right! True is [j] ,na,na,na, ,1000,1,f j,na,na,na
+practice,na,na,na,9,FALSE,na,na,f,600,na,na,na,word,That's not right! False is [f],na,na,na, ,1000,1,f j,na,na,na
+practice,na,na,na,10,TRUE,na,na,j,600,na,na,na,word,That's not right! True is [j] ,na,na,na, ,1000,1,f j,na,na,na
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,"In this part of the study, you will be shown 24 short stories about different people and then you will have to answer a question about the story you read.","***Please pay very close attention and answer as quickly and accurately as you possibly can. If you don't respond within 5 seconds, we will go to the next question.***",na,na,na,na,na,na,na,na,na
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,"Before starting there will be two practice examples of the sort of task you'll be doing. Remember, you'll have to read and respond quickly.",Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,na,na,na
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Kevin is out grocery shopping at the local market. His wife told him to get sourdough bread and pasta for dinner that evening.,na,na,na,na,na,na,na,na,na,na
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"At the market, Kevin picks up some pasta, but he cannot find any sourdough bread anywhere. He looks up and down every aisle and then finally asks someone who works at the market.",na,na,na,na,na,na,na,na,na,na
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,It turns out that the bakery at the market no longer makes sourdough bread because it was never very popular. ,na,na,na,na,na,na,na,na,na,na
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Kevin goes home without bread of any kind. His wife is slightly annoyed. ,na,na,na,na,na,na,na,na,na,na
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,na,na,na
+practice,na,na,na,1,Kevin asked someone at the store if they sold bread.,na,na,j,600,na,na,na,word,That's not right! Please read more carefully! ,na,na,na,na,5000,na,fj,na,5000,na
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,"Okay, one more practice example.",Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,na,na,na
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Sara's younger sister is late for dance class. Sara has a scooter that she could lend her sister for the afternoon.,na,na,na,na,na,na,na,na,na,na
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The scooter is brand-new and will get Sara's sister to her dance class right on time. But Sara wants to use her scooter to get to her friend's house for dinner later on.,na,na,na,na,na,na,na,na,na,na
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Sara doesn't think that her sister's dance class will be over in time for her to also be able to use the scooter to get to dinner.,na,na,na,na,na,na,na,na,na,na
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Sara doesn't lend the scooter to her sister. Her sister walks to dance class and is late.,na,na,na,na,na,na,na,na,na,na
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,na,na,na
+practice,na,na,na,1,Sara wanted to take her scooter to the park.,na,na,f,600,na,na,na,word,That's not right! Please read more carefully! ,na,na,na,na,5000,na,fj,na,5000,na
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,"Okay, that's it. Now we'll start the actual study. Get ready!",***Remember that you will have to read and respond quickly***,na,na,na,na,na, ,na,na,na
+instructions,na,na,na,na,na,na,na, ,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na,na,1,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,John is a New Yorker who is on his lunch break at his favorite restaurant. He eats there every day.,na,na,na,na,na,na,na,1,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"After finishing his meal he decides to go to the bathroom, just like he does every day at the end of lunch.",na,na,na,na,na,na,na,1,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"He pays his bill, gives a generous tip, and walks to the building next door to find the bathroom.",na,na,na,na,na,na,na,1,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The bathroom is in the building next door. John walks in and heads to his favorite stall.,na,na,na,na,na,na,na,1,na,1
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,1
+test,Knows,TB,1,na,John knows the bathroom is in the building next door.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,1
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Simon cannot wait to find out what his parents are giving him for his birthday tomorrow. He looks all over the house for his present.,na,na,na,na,na,na,na,1,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"In the back of his parents' closet, Simon finds the pair of shoes that he told his parents that he wanted earlier that month.",na,na,na,na,na,na,na,1,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"He is so excited to find the pair of shoes. It's just what he wanted, and he can't wait to wear them.",na,na,na,na,na,na,na,1,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Simon's uncle actually had just left his new pair of shoes in the closet. Simon's parents actually bought him a video game for his birthday.,na,na,na,na,na,na,na,1,na,2
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,2
+test,Thinks,FB,2,na,Simon thinks he is getting a video game for his birthday.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,2
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie is shopping at the local mall. She finds a blue blouse that she likes a lot.,na,na,na,na,na,na,na,1,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie sees that there is no price tag on the blouse. Genie likes the blouse so much that she doesn't care about the price.,na,na,na,na,na,na,na,1,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie tries on the blouse and it fits. She stands in the back of a long line to purchase the blouse.,na,na,na,na,na,na,na,1,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Genie leaves the store because of the long line. The blouse is actually on sale for $22.22, although it used to be much more expensive.",na,na,na,na,na,na,na,1,na,3
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,3
+test,Knows,IG,3,na,Genie knows the blouse costs $22.22.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,3
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Every day before school, Mike's mother packs him lunch in his red lunch box. Sometimes she puts a special dessert in the lunchbox.",na,na,na,na,na,na,na,1,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Today before school, Mike sees his mother put a piece of chocolate cake in his lunch box.",na,na,na,na,na,na,na,1,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Mike works hard in class all morning long and is really looking forward to having a break for lunch.,na,na,na,na,na,na,na,1,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The chocolate cake that his mother packed him sits in his lunch box all morning. Soon he'll get to eat it.,na,na,na,na,na,na,na,1,na,4
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,4
+test,Thinks,TB,4,na,Mike thinks there is chocolate cake in his lunchbox.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,4
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Ed is an American who took German classes in highschool. He's eating at a restaurant in Berlin and wants to order a sausage.,na,na,na,na,na,na,na,1,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Ed was taught in high school that the German word for sausage is ""Speisekarte"" He looks at the menu and sees the word ""Speisekarte.""",na,na,na,na,na,na,na,1,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Ed calls the waiter over, says he would like to order and points to ""Speisekarte"" on the menu.",na,na,na,na,na,na,na,1,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The waiter takes down Ed's order and goes to the kitchen. The German word for sausage is actually ""Wurst.""",na,na,na,na,na,na,na,1,na,5
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,5
+test,Knows,FB,5,na,"Ed knows the German word for sausage is ""Wurst.""",na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,5
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Brent is five years old and colorblind. Like the majority of colorblind people, he can't tell the difference between red and green.",na,na,na,na,na,na,na,1,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Forgetting that Brent is colorblind, his aunt sends him to the grocery store to buy some green apples.",na,na,na,na,na,na,na,1,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When Brent gets to the grocery store, he can't tell whether the apples are red or green. So he takes some apples at random.",na,na,na,na,na,na,na,1,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When Brent gets home, his aunt isn't there. So he leaves the apples on the counter, hoping that they are the kind she wanted.",na,na,na,na,na,na,na,1,na,6
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,6
+test,Thinks,IG,6,na,Brent thinks he brought his aunt green apples.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,6
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Darcy is blind but has a very trustworthy seeing-eye dog, Spot, who takes her wherever she tells him to go.",na,na,na,na,na,na,na,1,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,One day Spot falls ill. Darcy takes him to the vet. The vet takes a look at Spot and tells Darcy that he'll be fine.,na,na,na,na,na,na,na,1,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Later that day Darcy decides to go on a walk and says, ""Spot, let's go to the pet-food store.""",na,na,na,na,na,na,na,1,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Her dog understands her orders and the two start walking down their usual route to the pet food store.,na,na,na,na,na,na,na,1,na,7
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,7
+test,Knows,TB,7,na,Darcy knows she's going to the pet-food store.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,7
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Misha and Anna are flipping a coin. They have decided that if the coin lands on tails then Misha wins Anna's car.,na,na,na,na,na,na,na,1,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Since the toss has such high stakes, Misha has prepared his own loaded coin that has tails on both sides.",na,na,na,na,na,na,na,1,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Misha confidently takes a coin out of his pocket. The coin he accidentally takes out of his pocket actually has heads on both sides.,na,na,na,na,na,na,na,1,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Misha smiles. With his eyes closed, he flips the coin, catches it, and shows it to Anna without looking.",na,na,na,na,na,na,na,1,na,8
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,8
+test,Thinks,FB,8,na,Misha thinks the coin has landed on heads.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,8
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Ted is playing hide and seek with his son James. Ted closes his eyes and James runs to a hiding place.,na,na,na,na,na,na,na,1,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When Ted goes to look for James, he remembers that there is a leak in James' shower and quickly goes to fix the leak.",na,na,na,na,na,na,na,1,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Ted goes up the stairs to Jame's room, heads straight for James' shower and looks for the leak.",na,na,na,na,na,na,na,1,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,James is hiding in his bedroom closet. He hears some water dripping from the leak in the bathroom.,na,na,na,na,na,na,na,1,na,9
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,9
+test,Knows,IG,9,na,Ted knows James is in the closet.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,9
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Mira looks at the night sky with her telescope. She owns the most accurate books on the locations of the different planets throughout the year.,na,na,na,na,na,na,na,1,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Mira reads in her astronomy books that she can see Neptune through her telescope, and she waits until it's dark enough outside.",na,na,na,na,na,na,na,1,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"She points her telescope towards the coordinates that her books specify for Neptune, and sees a bright dot in the middle of the sky.",na,na,na,na,na,na,na,1,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,That bright dot is Neptune. She is excited that she found the planet she was looking for so easily.,na,na,na,na,na,na,na,1,na,10
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,10
+test,Thinks,TB,10,na,Mira thinks she is looking at Neptune.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,10
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"While visiting Paris, Scott goes to the Louvre. There, he hears a tour guide say that the Mona Lisa is in the next room.",na,na,na,na,na,na,na,1,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Scott is excited. During homeschool, his mother taught him that the Mona Lisa is a painting of a beautiful mountain.",na,na,na,na,na,na,na,1,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"In the next room, Scott sees two paintings. One is of a woman smiling and one is of a beautiful mountain.",na,na,na,na,na,na,na,1,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Scott looks at the two paintings, and then walks up to the painting of the woman smiling, which is actually the Mona Lisa.",na,na,na,na,na,na,na,1,na,11
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,11
+test,Knows,FB,11,na,Scott knows he is looking at the Mona Lisa.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,11
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bert is an amateur tree enthusiast. He goes for hikes and writes down the different types of trees he sees along the trail.,na,na,na,na,na,na,na,1,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"On one hike, he sees many trees he recognizes. Near the end of the trail, he sees a tree that he has never seen before. ",na,na,na,na,na,na,na,1,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Bert takes out his pen and writes down ""?"" in his notebook after the previous trees he has seen.",na,na,na,na,na,na,na,1,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The tree is actually an American Oak. These aren't very common in the area where Bert lives.,na,na,na,na,na,na,na,1,na,12
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,12
+test,Thinks,IG,12,na,Bert thinks the tree is an oak.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,12
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bradley is at a fourth of July barbeque with his family. He was supposed to bring drinks for everybody.,na,na,na,na,na,na,na,1,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bradley only bought alcoholic drinks since he forgot that his thirteen year old nephew was coming to the barbeque.,na,na,na,na,na,na,na,1,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Two hours into the barbeque, Bradley is drunk and making fun of his nephew for being underage.",na,na,na,na,na,na,na,1,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,His nephew decides to drink some of the wine so that Bradley will stop making fun of him.,na,na,na,na,na,na,na,1,na,13
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,13
+test,Distractor,Distractor,Distractor,na,Bradley's nephew drank the wine.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,13
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Teeg Qwerty is a computer scientist working in the year 2070. He specializes in making human-like robots with artificial intelligence.,na,na,na,na,na,na,na,1,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Teeg modeled his latest robot on his lab-partner Janet. The robot looks identical to Janet, and its artificial brain functions identically to Janet's brain.",na,na,na,na,na,na,na,1,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"One day, Teeg leaves the robot in the lab with Janet for an hour. When Teeg comes back he finds Janet missing.",na,na,na,na,na,na,na,1,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The robot is honestly convinced that it is the real Janet. Teeg can't tell whether the being talking to him is the robot or Janet.,na,na,na,na,na,na,na,1,na,14
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,14
+test,Distractor,Distractor,Distractor,na,The Robot looks like Janet.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,14
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Betina is looking to make lots of money. One day she is approached by her friend Martha who lets her into a lucrative business venture.,na,na,na,na,na,na,na,1,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Betina decides to enter into the business venture with Martha. Betina knows nothing about business, but she trusts Marsha.",na,na,na,na,na,na,na,1,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Unbeknownst to Betina, the business venture is a corrupt pyramid scheme that Betina is getting in on right at the beginning.",na,na,na,na,na,na,na,1,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Betina winds up making a lot of money but causes hundreds of innocent people to go bankrupt.,na,na,na,na,na,na,na,1,na,15
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,15
+test,Distractor,Distractor,Distractor,na,Betina joined a corrupt venture.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,15
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Sid is a terrible train track repairman. One day he realizes that he has to repair an intersection quickly before the next train crosses it.,na,na,na,na,na,na,na,1,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,If he doesn't do anything fast then the train will surely crash killing many of its passengers.,na,na,na,na,na,na,na,1,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sid considers grabbing a nearby hobo and throwing him onto the tracks. This would kill the hobo, but stop the train before it crashes.",na,na,na,na,na,na,na,1,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sid decides it's immoral to throw the homeless man onto the tracks, so he lets the train crash killing twelve passengers.",na,na,na,na,na,na,na,1,na,16
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,16
+test,Distractor,Distractor,Distractor,na,Sid is a train track repairman.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,16
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Markus' mom is throwing him a surprise birthday party. She bakes a chocolate cake and invites all of Markus' friends over to Markus' house.,na,na,na,na,na,na,na,1,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Markus, however has already planned a birthday party for himself in the park, to which he also invited all of his friends.",na,na,na,na,na,na,na,1,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Some of Markus' friends show up in the park. The rest of his friends are waiting to surprise him at home.,na,na,na,na,na,na,na,1,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Both Markus and his mom are very disappointed. Neither of them talks to the other for a whole week.,na,na,na,na,na,na,na,1,na,17
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,17
+test,Distractor,Distractor,Distractor,na,Markus' mom baked a cake.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,17
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie is an experienced airline pilot. She is flying near Beijing when her airplane's engine suddenly malfunctions.,na,na,na,na,na,na,na,1,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie can either crash the plane in the field right below killing herself and all her passengers or try a dangerous landing in Beijing itself.,na,na,na,na,na,na,na,1,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie decides to crash the plane in the field because she does not want to risk killing hundreds of citizens if she crashes in Beijing.,na,na,na,na,na,na,na,1,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Marie lets the plane crash in the field, killing herself and all of her passengers. Marie is celebrated as a hero.",na,na,na,na,na,na,na,1,na,18
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,18
+test,Distractor,Distractor,Distractor,na,Marie tried to land the plane in Beijing.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,18
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When he was a three year-old boy, Hank liked building block towers, and liked to destroy them even more.",na,na,na,na,na,na,na,1,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,When Hank grows up he becomes an architect and designs many famous buildings in large cities around the world.,na,na,na,na,na,na,na,1,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Hank has a wife and children, all of whom he loves. He has many friends, and his colleagues are very nice to him.",na,na,na,na,na,na,na,1,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Despite this Hank is unsatisfied with his life. He never feels satisfied after one of his buildings gets built.,na,na,na,na,na,na,na,1,na,19
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,19
+test,Distractor,Distractor,Distractor,na,Hank has no family.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,19
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Alice wants to go on a long vacation, so she takes a private plane to the Amazon Rainforest and spends some time with the natives.",na,na,na,na,na,na,na,1,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Alice lands in the rainforest and takes an hour to machette her way to the nearest tribal village.,na,na,na,na,na,na,na,1,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Alice befriends the village elders and spends the next two weeks in the village living communally and learning the language.,na,na,na,na,na,na,na,1,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,After two weeks Alice gets bored and flies her private Jet to Texas where she watches rodeos and visits her uncle Klaus.,na,na,na,na,na,na,na,1,na,20
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,20
+test,Distractor,Distractor,Distractor,na,Alice flew to the Amazon in a private plane.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,20
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Eustice is a CEO of a multi-million dollar company. One day he is sitting in his office, reading the newspaper and drinking a dark coffee.",na,na,na,na,na,na,na,1,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Eustice is considering a new program which would make huge profits for the company and also happens to help the environment.,na,na,na,na,na,na,na,1,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Eustice doesn't care what happens to the environment, but is thrilled that this program will make huge profits, so he goes through with the program.",na,na,na,na,na,na,na,1,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The program is put into effect. As a result, many forests are saved from deforestation but the company unforeseeably goes bankrupt.",na,na,na,na,na,na,na,1,na,21
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,21
+test,Distractor,Distractor,Distractor,na,The company is destroying the environment.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,21
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Jackie is having her sister over for dinner. She prepares a huge meal with mashed potatoes, swiss chard and peanut-butter custard for dessert.",na,na,na,na,na,na,na,1,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"She sets the table, opens a very expensive bottle of 1984 Pinot Noire and waits for her sister to arrive.",na,na,na,na,na,na,na,1,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,After half an hour Jackie's sister still hasn't arrived. Jackie is very hungry and begins to eat the dinner she prepared.,na,na,na,na,na,na,na,1,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"After another half hour, Jackie's sister finally arrives only to see that Jackie has eaten almost the whole dinner. She is very disappointed.",na,na,na,na,na,na,na,1,na,22
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,22
+test,Distractor,Distractor,Distractor,na,Jackie's sister is on time.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,22
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Harold likes to paint landscapes. He travels across the country, sleeping on trains and painting the landscapes he sees.",na,na,na,na,na,na,na,1,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"He begs for food in the towns he visits, and sometimes eats out of the garbage. He also begs for art supplies.",na,na,na,na,na,na,na,1,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Harold is very talented, he paints landscapes as beautifully as the best 19th century painters. Harold is also working on developing his own unique style.",na,na,na,na,na,na,na,1,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Harold does not show his paintings to anybody but himself and plans on having them burnt when dies.,na,na,na,na,na,na,na,1,na,23
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,23
+test,Distractor,Distractor,Distractor,na,Harold doesn't live in a house.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,23
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,1,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Sandra is the president of a small island in the pacific ocean. She has followed up on all of the promises she made.,na,na,na,na,na,na,na,1,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Some of the things she promised include better infrastructure, increased tax-breaks for the rich, and a new oil-drilling campaign.",na,na,na,na,na,na,na,1,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The oil-drilling campaign is slowly destroying a neighboring island, but Sandra doesn't care much about the environment.",na,na,na,na,na,na,na,1,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sandra is considering building a nuclear power plant, but only because it's cheaper to run than the current coal plant.",na,na,na,na,na,na,na,1,na,24
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,1,na,24
+test,Distractor,Distractor,Distractor,na,Sandra is in office.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,1,5000,24
+instructions,na,na,na,na,na,na,na, ,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,John is a New Yorker who is on his lunch break at his favorite restaurant. He eats there every day.,na,na,na,na,na,na,na,2,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"After finishing his meal he decides to go to the bathroom, just like he does every day at the end of lunch.",na,na,na,na,na,na,na,2,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"He pays his bill, gives a generous tip, and walks to the building next door to find the bathroom.",na,na,na,na,na,na,na,2,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The bathroom is in the building next door. John walks in and heads to his favorite stall.,na,na,na,na,na,na,na,2,na,1
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,1
+test,Thinks,TB,1,na,John thinks that the bathroom is in the building next door.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,1
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Simon cannot wait to find out what his parents are giving him for his birthday tomorrow. He looks all over the house for his present.,na,na,na,na,na,na,na,2,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"In the back of his parents' closet, Simon finds the pair of shoes that he told his parents that he wanted earlier that month.",na,na,na,na,na,na,na,2,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"He is so excited to find the pair of shoes. It's just what he wanted, and he can't wait to wear them.",na,na,na,na,na,na,na,2,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Simon's uncle actually had just left his new pair of shoes in the closet. Simon's parents actually bought him a video game for his birthday.,na,na,na,na,na,na,na,2,na,2
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,2
+test,Knows,FB,2,na,Simon knows that he is getting a video game for his birthday.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,2
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie is shopping at the local mall. She finds a blue blouse that she likes a lot.,na,na,na,na,na,na,na,2,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie sees that there is no price tag on the blouse. Genie likes the blouse so much that she doesn't care about the price.,na,na,na,na,na,na,na,2,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie tries on the blouse and it fits. She stands in the back of a long line to purchase the blouse.,na,na,na,na,na,na,na,2,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Genie leaves the store because of the long line. The blouse is actually on sale for $22.22, although it used to be much more expensive.",na,na,na,na,na,na,na,2,na,3
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,3
+test,Thinks,IG,3,na,Genie thinks that the blouse costs $22.22.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,3
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Every day before school, Mike's mother packs him lunch in his red lunch box. Sometimes she puts a special dessert in the lunchbox.",na,na,na,na,na,na,na,2,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Today before school, Mike sees his mother put a piece of chocolate cake in his lunch box.",na,na,na,na,na,na,na,2,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Mike works hard in class all morning long and is really looking forward to having a break for lunch.,na,na,na,na,na,na,na,2,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The chocolate cake that his mother packed him sits in his lunch box all morning. Soon he'll get to eat it.,na,na,na,na,na,na,na,2,na,4
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,4
+test,Knows,TB,4,na,Mike knows that there is chocolate cake in his lunchbox.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,4
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Ed is an American who took German classes in highschool. He's eating at a restaurant in Berlin and wants to order a sausage.,na,na,na,na,na,na,na,2,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Ed was taught in high school that the German word for sausage is ""Speisekarte"" He looks at the menu and sees the word ""Speisekarte."" ",na,na,na,na,na,na,na,2,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Ed calls the waiter over, says he would like to order and points to ""Speisekarte"" on the menu.",na,na,na,na,na,na,na,2,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The waiter takes down Ed's order and goes to the kitchen. The German word for sausage is actually ""Wurst.""",na,na,na,na,na,na,na,2,na,5
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,5
+test,Thinks,FB,5,na,"Ed thinks the German word for sausage is ""Wurst.""",na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,5
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Brent is five years old and colorblind. Like the majority of colorblind people, he can't tell the difference between red and green.",na,na,na,na,na,na,na,2,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Forgetting that Brent is colorblind, his aunt sends him to the grocery store to buy some green apples.",na,na,na,na,na,na,na,2,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When Brent gets to the grocery store, he can't tell whether the apples are red or green. So he takes some apples at random.",na,na,na,na,na,na,na,2,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When Brent gets home, his aunt isn't there. So he leaves the apples on the counter, hoping that they are the kind she wanted.",na,na,na,na,na,na,na,2,na,6
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,6
+test,Knows,IG,6,na,Brent knows he brought his aunt green apples.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,6
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Darcy is blind but has a very trustworthy seeing-eye dog, Spot, who takes her wherever she tells him to go.",na,na,na,na,na,na,na,2,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,One day Spot falls ill. Darcy takes him to the vet. The vet takes a look at Spot and tells Darcy that he'll be fine.,na,na,na,na,na,na,na,2,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Later that day Darcy decides to go on a walk and says, ""Spot, let's go to the pet-food store.""",na,na,na,na,na,na,na,2,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Her dog understands her orders and the two start walking down their usual route to the pet food store.,na,na,na,na,na,na,na,2,na,7
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,7
+test,Thinks,TB,7,na,Darcy thinks she's going to the pet-food store.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,7
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Misha and Anna are flipping a coin. They have decided that if the coin lands on tails then Misha wins Anna's car.,na,na,na,na,na,na,na,2,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Since the toss has such high stakes, Misha has prepared his own loaded coin that has tails on both sides.",na,na,na,na,na,na,na,2,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Misha confidently takes a coin out of his pocket. The coin he accidentally takes out of his pocket actually has heads on both sides.,na,na,na,na,na,na,na,2,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Misha smiles. With his eyes closed, he flips the coin, catches it, and shows it to Anna without looking.",na,na,na,na,na,na,na,2,na,8
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,8
+test,Knows,FB,8,na,Misha knows the coin has landed on heads.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,8
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Ted is playing hide and seek with his son James. Ted closes his eyes and James runs to a hiding place.,na,na,na,na,na,na,na,2,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When Ted goes to look for James, he remembers that there is a leak in James' shower and quickly goes to fix the leak.",na,na,na,na,na,na,na,2,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Ted goes up the stairs to Jame's room, heads straight for James' shower and looks for the leak.",na,na,na,na,na,na,na,2,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,James is hiding in his bedroom closet. He hears some water dripping from the leak in the bathroom.,na,na,na,na,na,na,na,2,na,9
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,9
+test,Thinks,IG,9,na,Ted thinks James is in the closet.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,9
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Mira looks at the night sky with her telescope. She owns the most accurate books on the locations of the different planets throughout the year.,na,na,na,na,na,na,na,2,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Mira reads in her astronomy books that she can see Neptune through her telescope, and she waits until it's dark enough outside.",na,na,na,na,na,na,na,2,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"She points her telescope towards the coordinates that her books specify for Neptune, and sees a bright dot in the middle of the sky.",na,na,na,na,na,na,na,2,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,That bright dot is Neptune. She is excited that she found the planet she was looking for so easily.,na,na,na,na,na,na,na,2,na,10
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,10
+test,Knows,TB,10,na,Mira knows she is looking at Neptune.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,10
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"While visiting Paris, Scott goes to the Louvre. There, he hears a tour guide say that the Mona Lisa is in the next room.",na,na,na,na,na,na,na,2,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Scott is excited. During homeschool, his mother taught him that the Mona Lisa is a painting of a beautiful mountain.",na,na,na,na,na,na,na,2,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"In the next room, Scott sees two paintings. One is of a woman smiling and one is of a beautiful mountain.",na,na,na,na,na,na,na,2,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Scott looks at the two paintings, and then walks up to the painting of the woman smiling, which is actually the Mona Lisa.",na,na,na,na,na,na,na,2,na,11
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,11
+test,Thinks,FB,11,na,Scott thinks he is looking at the Mona Lisa.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,11
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bert is an amateur tree enthusiast. He goes for hikes and writes down the different types of trees he sees along the trail.,na,na,na,na,na,na,na,2,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"On one hike, he sees many trees he recognizes. Near the end of the trail, he sees a tree that he has never seen before. ",na,na,na,na,na,na,na,2,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Bert takes out his pen and writes down ""?"" in his notebook after the previous trees he has seen.",na,na,na,na,na,na,na,2,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The tree is actually an American Oak. These aren't very common in the area where Bert lives.,na,na,na,na,na,na,na,2,na,12
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,12
+test,Knows,IG,12,na,Bert knows the tree is an oak.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,12
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bradley is at a fourth of July barbeque with his family. He was supposed to bring drinks for everybody.,na,na,na,na,na,na,na,2,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bradley only bought alcoholic drinks since he forgot that his thirteen year old nephew was coming to the barbeque.,na,na,na,na,na,na,na,2,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Two hours into the barbeque, Bradley is drunk and making fun of his nephew for being underage.",na,na,na,na,na,na,na,2,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,His nephew decides to drink some of the wine so that Bradley will stop making fun of him.,na,na,na,na,na,na,na,2,na,13
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,13
+test,Distractor,Distractor,Distractor,na,Bradley's nephew drank the wine.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,13
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Teeg Qwerty is a computer scientist working in the year 2070. He specializes in making human-like robots with artificial intelligence.,na,na,na,na,na,na,na,2,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Teeg modeled his latest robot on his lab-partner Janet. The robot looks identical to Janet, and its artificial brain functions identically to Janet's brain.",na,na,na,na,na,na,na,2,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"One day, Teeg leaves the robot in the lab with Janet for an hour. When Teeg comes back he finds Janet missing.",na,na,na,na,na,na,na,2,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The robot is honestly convinced that it is the real Janet. Teeg can't tell whether the being talking to him is the robot or Janet.,na,na,na,na,na,na,na,2,na,14
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,14
+test,Distractor,Distractor,Distractor,na,The Robot looks like Janet.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,14
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Betina is looking to make lots of money. One day she is approached by her friend Martha who lets her into a lucrative business venture.,na,na,na,na,na,na,na,2,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Betina decides to enter into the business venture with Martha. Betina knows nothing about business, but she trusts Marsha.",na,na,na,na,na,na,na,2,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Unbeknownst to Betina, the business venture is a corrupt pyramid scheme that Betina is getting in on right at the beginning.",na,na,na,na,na,na,na,2,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Betina winds up making a lot of money but causes hundreds of innocent people to go bankrupt.,na,na,na,na,na,na,na,2,na,15
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,15
+test,Distractor,Distractor,Distractor,na,Betina joined a corrupt venture.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,15
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Sid is a terrible train track repairman. One day he realizes that he has to repair an intersection quickly before the next train crosses it.,na,na,na,na,na,na,na,2,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,If he doesn't do anything fast then the train will surely crash killing many of its passengers.,na,na,na,na,na,na,na,2,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sid considers grabbing a nearby hobo and throwing him onto the tracks. This would kill the hobo, but stop the train before it crashes.",na,na,na,na,na,na,na,2,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sid decides it's immoral to throw the homeless man onto the tracks, so he lets the train crash killing twelve passengers.",na,na,na,na,na,na,na,2,na,16
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,16
+test,Distractor,Distractor,Distractor,na,Sid is a train track repairman.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,16
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Markus' mom is throwing him a surprise birthday party. She bakes a chocolate cake and invites all of Markus' friends over to Markus' house.,na,na,na,na,na,na,na,2,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Markus, however has already planned a birthday party for himself in the park, to which he also invited all of his friends.",na,na,na,na,na,na,na,2,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Some of Markus' friends show up in the park. The rest of his friends are waiting to surprise him at home.,na,na,na,na,na,na,na,2,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Both Markus and his mom are very disappointed. Neither of them talks to the other for a whole week.,na,na,na,na,na,na,na,2,na,17
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,17
+test,Distractor,Distractor,Distractor,na,Markus' mom baked a cake.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,17
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie is an experienced airline pilot. She is flying near Beijing when her airplane's engine suddenly malfunctions.,na,na,na,na,na,na,na,2,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie can either crash the plane in the field right below killing herself and all her passengers or try a dangerous landing in Beijing itself.,na,na,na,na,na,na,na,2,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie decides to crash the plane in the field because she does not want to risk killing hundreds of citizens if she crashes in Beijing.,na,na,na,na,na,na,na,2,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Marie lets the plane crash in the field, killing herself and all of her passengers. Marie is celebrated as a hero.",na,na,na,na,na,na,na,2,na,18
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,18
+test,Distractor,Distractor,Distractor,na,Marie tried to land the plane in Beijing.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,18
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When he was a three year-old boy, Hank liked building block towers, and liked to destroy them even more.",na,na,na,na,na,na,na,2,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,When Hank grows up he becomes an architect and designs many famous buildings in large cities around the world.,na,na,na,na,na,na,na,2,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Hank has a wife and children, all of whom he loves. He has many friends, and his colleagues are very nice to him.",na,na,na,na,na,na,na,2,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Despite this Hank is unsatisfied with his life. He never feels satisfied after one of his buildings gets built.,na,na,na,na,na,na,na,2,na,19
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,19
+test,Distractor,Distractor,Distractor,na,Hank has no family.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,19
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Alice wants to go on a long vacation, so she takes a private plane to the Amazon Rainforest and spends some time with the natives.",na,na,na,na,na,na,na,2,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Alice lands in the rainforest and takes an hour to machette her way to the nearest tribal village.,na,na,na,na,na,na,na,2,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Alice befriends the village elders and spends the next two weeks in the village living communally and learning the language.,na,na,na,na,na,na,na,2,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,After two weeks Alice gets bored and flies her private Jet to Texas where she watches rodeos and visits her uncle Klaus.,na,na,na,na,na,na,na,2,na,20
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,20
+test,Distractor,Distractor,Distractor,na,Alice flew to the Amazon in a private plane.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,20
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Eustice is a CEO of a multi-million dollar company. One day he is sitting in his office, reading the newspaper and drinking a dark coffee.",na,na,na,na,na,na,na,2,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Eustice is considering a new program which would make huge profits for the company and also happens to help the environment.,na,na,na,na,na,na,na,2,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Eustice doesn't care what happens to the environment, but is thrilled that this program will make huge profits, so he goes through with the program.",na,na,na,na,na,na,na,2,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The program is put into effect. As a result, many forests are saved from deforestation but the company unforeseeably goes bankrupt.",na,na,na,na,na,na,na,2,na,21
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,21
+test,Distractor,Distractor,Distractor,na,The company is destroying the environment.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,21
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Jackie is having her sister over for dinner. She prepares a huge meal with mashed potatoes, swiss chard and peanut-butter custard for dessert.",na,na,na,na,na,na,na,2,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"She sets the table, opens a very expensive bottle of 1984 Pinot Noire and waits for her sister to arrive.",na,na,na,na,na,na,na,2,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,After half an hour Jackie's sister still hasn't arrived. Jackie is very hungry and begins to eat the dinner she prepared.,na,na,na,na,na,na,na,2,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"After another half hour, Jackie's sister finally arrives only to see that Jackie has eaten almost the whole dinner. She is very disappointed.",na,na,na,na,na,na,na,2,na,22
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,22
+test,Distractor,Distractor,Distractor,na,Jackie's sister is on time.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,22
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Harold likes to paint landscapes. He travels across the country, sleeping on trains and painting the landscapes he sees.",na,na,na,na,na,na,na,2,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"He begs for food in the towns he visits, and sometimes eats out of the garbage. He also begs for art supplies.",na,na,na,na,na,na,na,2,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Harold is very talented, he paints landscapes as beautifully as the best 19th century painters. Harold is also working on developing his own unique style.",na,na,na,na,na,na,na,2,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Harold does not show his paintings to anybody but himself and plans on having them burnt when dies.,na,na,na,na,na,na,na,2,na,23
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,23
+test,Distractor,Distractor,Distractor,na,Harold doesn't live in a house.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,23
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,2,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Sandra is the president of a small island in the pacific ocean. She has followed up on all of the promises she made.,na,na,na,na,na,na,na,2,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Some of the things she promised include better infrastructure, increased tax-breaks for the rich, and a new oil-drilling campaign.",na,na,na,na,na,na,na,2,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The oil-drilling campaign is slowly destroying a neighboring island, but Sandra doesn't care much about the environment.",na,na,na,na,na,na,na,2,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sandra is considering building a nuclear power plant, but only because it's cheaper to run than the current coal plant.",na,na,na,na,na,na,na,2,na,24
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,2,na,24
+test,Distractor,Distractor,Distractor,na,Sandra is in office.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,2,5000,24
+instructions,na,na,na,na,na,na,na, ,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,John is a New Yorker who is on his lunch break at a new restaurant. He has never eaten there before.,na,na,na,na,na,na,na,3,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"After finishing his meal he decides to go to the bathroom, just like he does every day at the end of lunch.",na,na,na,na,na,na,na,3,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,He pays his bill and then follows the signs that say the bathroom is in the back of the building.,na,na,na,na,na,na,na,3,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,John is heading towards the back of the building. But there is actually no bathroom there. The bathroom is in the building next door.,na,na,na,na,na,na,na,3,na,1
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,1
+test,Knows,FB,1,na,John knows that the bathroom is in the building next door.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,1
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Simon cannot wait to find out what his parents are giving him for his birthday tomorrow. He looks all over the house for his present.,na,na,na,na,na,na,na,3,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"In a box in the back of his parents' closet, Simon finds a new pair of shoes that his uncle left in the closet.",na,na,na,na,na,na,na,3,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,He is disappointed that he can't find a present. He hoped to find a new video game.,na,na,na,na,na,na,na,3,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Simon's parents actually bought him a new video game for his birthday tomorrow. They just hid it very well.,na,na,na,na,na,na,na,3,na,2
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,2
+test,Thinks,IG,2,na,Simon thinks that he is getting a video game for his birthday.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,2
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie is shopping at the local mall. She finds a blue blouse that she likes a lot.,na,na,na,na,na,na,na,3,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie sees a price tag on the blouse that reads $22.22. Genie likes the blouse so much that she doesn't care about the price.,na,na,na,na,na,na,na,3,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie tries on the blouse and it fits. She stands in the back of a long line to purchase the blouse.,na,na,na,na,na,na,na,3,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Genie leaves the store because the line is too long. The blouse is on sale for $22.22, although it used to be much more expensive.",na,na,na,na,na,na,na,3,na,3
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,3
+test,Knows,TB,3,na,Genie knows that the blouse costs $22.22.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,3
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Every day before school, Mike's mother packs him lunch in his red lunch box. Sometimes she puts a special dessert in the lunchbox.",na,na,na,na,na,na,na,3,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Today before school, Mike's mother tells him that she put a piece of apple pie in his lunch box.",na,na,na,na,na,na,na,3,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Mike works hard in class all morning long and is really looking forward to having a break for lunch.,na,na,na,na,na,na,na,3,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Mike's mother mistakenly put chocolate cake in Mike's lunch and not apple pie. Soon Mike will go to eat lunch.,na,na,na,na,na,na,na,3,na,4
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,4
+test,Thinks,FB,4,na,Mike thinks that there is chocolate cake in his lunchbox.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,4
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Ed is an American who took German classes in highschool. He's eating at a restaurant in Berlin and wants to order a hot meal.,na,na,na,na,na,na,na,3,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Ed was never taught any German words for food in high school. So when he looks at the menu, he can't recognize any words.",na,na,na,na,na,na,na,3,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Ed calls the waiter over, says he would like to order and points randomly to the word ""Wurst"" on the menu.",na,na,na,na,na,na,na,3,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The waiter takes down Ed's order and goes to the kitchen. The German word for sausage is ""Wurst.""",na,na,na,na,na,na,na,3,na,5
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,5
+test,Knows,IG,5,na,"Ed knows the German word for sausage is ""Wurst.""",na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,5
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Brent is five years old and colorblind. Like the majority of colorblind people, he can't tell the difference between red and green.",na,na,na,na,na,na,na,3,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Forgetting that Brent is colorblind, his aunt sends him to the grocery store to buy some green apples.",na,na,na,na,na,na,na,3,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Brent runs to the grocery store and asks the grocer for green apples. The grocer hands Brent some green apples and Brent pays for them.,na,na,na,na,na,na,na,3,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,When Brent gives his aunt the green apples. She thanks him for going all the way to the store.,na,na,na,na,na,na,na,3,na,6
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,6
+test,Thinks,TB,6,na,Brent thinks he brought his aunt green apples.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,6
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Darcy is blind but has a very trustworthy seeing-eye dog, Spot, who takes her wherever she tells him to go.",na,na,na,na,na,na,na,3,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,One day Spot falls ill. Darcy takes him to the vet. The vet accidentally returns a different seeing-eye dog to Darcy. She leaves without Spot.,na,na,na,na,na,na,na,3,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Later that day Darcy decides to go on a walk and says, ""Spot, let's go to the bank.",na,na,na,na,na,na,na,3,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The new dog does not understand her order and smelling the nearby pet-food store, he starts walking toward the store.",na,na,na,na,na,na,na,3,na,7
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,7
+test,Knows,FB,7,na,Darcy knows she's going to the pet-food store.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,7
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Misha and Anna are flipping a coin. They have decided that if the coin lands on heads then Misha wins Anna's car.,na,na,na,na,na,na,na,3,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Since the toss has such high stakes, Misha has made sure that the coin they are using is completely fair. ",na,na,na,na,na,na,na,3,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Misha takes a coin out of his pocket. The coin he takes out of his pocket is completely fair.,na,na,na,na,na,na,na,3,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Misha bites his lip. With his eyes closed, he flips the coin, catches it, and shows it to Anna without looking.",na,na,na,na,na,na,na,3,na,8
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,8
+test,Thinks,IG,8,na,Misha thinks the coin has landed on heads.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,8
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Ted is playing hide and seek with his son James. Ted closes his eyes and James runs to a hiding place.,na,na,na,na,na,na,na,3,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When Ted goes to look for James, he sees James' shoe sticking out from the bottom of James' closet.",na,na,na,na,na,na,na,3,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"""I'm going to get you!"" Ted says and heads slowly for James' closet and grabs the handle.",na,na,na,na,na,na,na,3,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,James is actually hiding in the closet. This is always where he hides when they play hide and seek.,na,na,na,na,na,na,na,3,na,9
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,9
+test,Knows,TB,9,na,Ted knows James is in the closet.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,9
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Mira looks at the night sky with her telescope. She owns the most accurate books on the locations of the different planets throughout the year.,na,na,na,na,na,na,na,3,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Mira reads in her astronomy books that she can see Mars through her telescope, and she waits until it's dark enough outside.",na,na,na,na,na,na,na,3,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Misreading her book, she accidentally points her telescope towards the coordinates for Neptune. She sees a bright dot in the middle of the sky.",na,na,na,na,na,na,na,3,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"She is excited that she found the planet she was looking for so easily. However, that bright dot is actually Neptune.",na,na,na,na,na,na,na,3,na,10
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,10
+test,Thinks,FB,10,na,Mira thinks she is looking at Neptune.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,10
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"While visiting Paris, Scott goes to the Louvre. There, he hears a tour guide say that the Mona Lisa is in the next room.",na,na,na,na,na,na,na,3,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Scott doesn't think anything of it. He has never heard of the Mona Lisa before and really doesn't care about art at all.,na,na,na,na,na,na,na,3,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"In the next room, Scott sees two paintings. One is of a woman smiling and one is of a beautiful mountain.",na,na,na,na,na,na,na,3,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Scott looks at the two paintings, and then walks up to the painting of the woman smiling, which is actually the Mona Lisa.",na,na,na,na,na,na,na,3,na,11
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,11
+test,Knows,IG,11,na,Scott knows he is looking at the Mona Lisa.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,11
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bert is an amateur tree enthusiast. He goes for hikes and writes down the different types of trees he sees along the trail.,na,na,na,na,na,na,na,3,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"On one hike, he sees many trees he recognizes. Near the end of the trail, he sees a tree that looks like an oak tree.",na,na,na,na,na,na,na,3,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Bert takes out his pen and writes down ""Oak"" in his notebook after the previous trees he has seen.",na,na,na,na,na,na,na,3,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The tree is an American Oak. This type of tree is common in the area where Bret lives.,na,na,na,na,na,na,na,3,na,12
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,12
+test,Thinks,TB,12,na,Bert thinks the tree is an oak.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,12
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bradley is at a fourth of July barbeque with his family. He was supposed to bring drinks for everybody.,na,na,na,na,na,na,na,3,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bradley only bought alcoholic drinks since he forgot that his thirteen year old nephew was coming to the barbeque.,na,na,na,na,na,na,na,3,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Two hours into the barbeque, Bradley is drunk and making fun of his nephew for being underage.",na,na,na,na,na,na,na,3,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,His nephew decides to drink some of the wine so that Bradley will stop making fun of him.,na,na,na,na,na,na,na,3,na,13
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,13
+test,Distractor,Distractor,Distractor,na,Bradley's nephew drank the wine.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,13
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Teeg Qwerty is a computer scientist working in the year 2070. He specializes in making human-like robots with artificial intelligence.,na,na,na,na,na,na,na,3,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Teeg modeled his latest robot on his lab-partner Janet. The robot looks identical to Janet, and its artificial brain functions identically to Janet's brain.",na,na,na,na,na,na,na,3,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"One day, Teeg leaves the robot in the lab with Janet for an hour. When Teeg comes back he finds Janet missing.",na,na,na,na,na,na,na,3,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The robot is honestly convinced that it is the real Janet. Teeg can't tell whether the being talking to him is the robot or Janet.,na,na,na,na,na,na,na,3,na,14
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,14
+test,Distractor,Distractor,Distractor,na,The Robot looks like Janet.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,14
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Betina is looking to make lots of money. One day she is approached by her friend Martha who lets her into a lucrative business venture.,na,na,na,na,na,na,na,3,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Betina decides to enter into the business venture with Martha. Betina knows nothing about business, but she trusts Marsha.",na,na,na,na,na,na,na,3,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Unbeknownst to Betina, the business venture is a corrupt pyramid scheme that Betina is getting in on right at the beginning.",na,na,na,na,na,na,na,3,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Betina winds up making a lot of money but causes hundreds of innocent people to go bankrupt.,na,na,na,na,na,na,na,3,na,15
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,15
+test,Distractor,Distractor,Distractor,na,Betina joined a corrupt venture.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,15
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Sid is a terrible train track repairman. One day he realizes that he has to repair an intersection quickly before the next train crosses it.,na,na,na,na,na,na,na,3,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,If he doesn't do anything fast then the train will surely crash killing many of its passengers.,na,na,na,na,na,na,na,3,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sid considers grabbing a nearby hobo and throwing him onto the tracks. This would kill the hobo, but stop the train before it crashes.",na,na,na,na,na,na,na,3,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sid decides it's immoral to throw the homeless man onto the tracks, so he lets the train crash killing twelve passengers.",na,na,na,na,na,na,na,3,na,16
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,16
+test,Distractor,Distractor,Distractor,na,Sid is a train track repairman.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,16
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Markus' mom is throwing him a surprise birthday party. She bakes a chocolate cake and invites all of Markus' friends over to Markus' house.,na,na,na,na,na,na,na,3,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Markus, however has already planned a birthday party for himself in the park, to which he also invited all of his friends.",na,na,na,na,na,na,na,3,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Some of Markus' friends show up in the park. The rest of his friends are waiting to surprise him at home.,na,na,na,na,na,na,na,3,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Both Markus and his mom are very disappointed. Neither of them talks to the other for a whole week.,na,na,na,na,na,na,na,3,na,17
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,17
+test,Distractor,Distractor,Distractor,na,Markus' mom baked a cake.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,17
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie is an experienced airline pilot. She is flying near Beijing when her airplane's engine suddenly malfunctions.,na,na,na,na,na,na,na,3,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie can either crash the plane in the field right below killing herself and all her passengers or try a dangerous landing in Beijing itself.,na,na,na,na,na,na,na,3,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie decides to crash the plane in the field because she does not want to risk killing hundreds of citizens if she crashes in Beijing.,na,na,na,na,na,na,na,3,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Marie lets the plane crash in the field, killing herself and all of her passengers. Marie is celebrated as a hero.",na,na,na,na,na,na,na,3,na,18
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,18
+test,Distractor,Distractor,Distractor,na,Marie tried to land the plane in Beijing.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,18
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When he was a three year-old boy, Hank liked building block towers, and liked to destroy them even more.",na,na,na,na,na,na,na,3,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,When Hank grows up he becomes an architect and designs many famous buildings in large cities around the world.,na,na,na,na,na,na,na,3,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Hank has a wife and children, all of whom he loves. He has many friends, and his colleagues are very nice to him.",na,na,na,na,na,na,na,3,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Despite this Hank is unsatisfied with his life. He never feels satisfied after one of his buildings gets built.,na,na,na,na,na,na,na,3,na,19
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,19
+test,Distractor,Distractor,Distractor,na,Hank has no family.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,19
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Alice wants to go on a long vacation, so she takes a private plane to the Amazon Rainforest and spends some time with the natives.",na,na,na,na,na,na,na,3,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Alice lands in the rainforest and takes an hour to machette her way to the nearest tribal village.,na,na,na,na,na,na,na,3,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Alice befriends the village elders and spends the next two weeks in the village living communally and learning the language.,na,na,na,na,na,na,na,3,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,After two weeks Alice gets bored and flies her private Jet to Texas where she watches rodeos and visits her uncle Klaus.,na,na,na,na,na,na,na,3,na,20
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,20
+test,Distractor,Distractor,Distractor,na,Alice flew to the Amazon in a private plane.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,20
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Eustice is a CEO of a multi-million dollar company. One day he is sitting in his office, reading the newspaper and drinking a dark coffee.",na,na,na,na,na,na,na,3,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Eustice is considering a new program which would make huge profits for the company and also happens to help the environment.,na,na,na,na,na,na,na,3,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Eustice doesn't care what happens to the environment, but is thrilled that this program will make huge profits, so he goes through with the program.",na,na,na,na,na,na,na,3,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The program is put into effect. As a result, many forests are saved from deforestation but the company unforeseeably goes bankrupt.",na,na,na,na,na,na,na,3,na,21
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,21
+test,Distractor,Distractor,Distractor,na,The company is destroying the environment.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,21
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Jackie is having her sister over for dinner. She prepares a huge meal with mashed potatoes, swiss chard and peanut-butter custard for dessert.",na,na,na,na,na,na,na,3,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"She sets the table, opens a very expensive bottle of 1984 Pinot Noire and waits for her sister to arrive.",na,na,na,na,na,na,na,3,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,After half an hour Jackie's sister still hasn't arrived. Jackie is very hungry and begins to eat the dinner she prepared.,na,na,na,na,na,na,na,3,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"After another half hour, Jackie's sister finally arrives only to see that Jackie has eaten almost the whole dinner. She is very disappointed.",na,na,na,na,na,na,na,3,na,22
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,22
+test,Distractor,Distractor,Distractor,na,Jackie's sister is on time.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,22
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Harold likes to paint landscapes. He travels across the country, sleeping on trains and painting the landscapes he sees.",na,na,na,na,na,na,na,3,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"He begs for food in the towns he visits, and sometimes eats out of the garbage. He also begs for art supplies.",na,na,na,na,na,na,na,3,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Harold is very talented, he paints landscapes as beautifully as the best 19th century painters. Harold is also working on developing his own unique style.",na,na,na,na,na,na,na,3,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Harold does not show his paintings to anybody but himself and plans on having them burnt when dies.,na,na,na,na,na,na,na,3,na,23
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,23
+test,Distractor,Distractor,Distractor,na,Harold doesn't live in a house.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,23
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,3,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Sandra is the president of a small island in the pacific ocean. She has followed up on all of the promises she made.,na,na,na,na,na,na,na,3,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Some of the things she promised include better infrastructure, increased tax-breaks for the rich, and a new oil-drilling campaign.",na,na,na,na,na,na,na,3,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The oil-drilling campaign is slowly destroying a neighboring island, but Sandra doesn't care much about the environment.",na,na,na,na,na,na,na,3,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sandra is considering building a nuclear power plant, but only because it's cheaper to run than the current coal plant.",na,na,na,na,na,na,na,3,na,24
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,3,na,24
+test,Distractor,Distractor,Distractor,na,Sandra is in office.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,3,5000,24
+instructions,na,na,na,na,na,na,na, ,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,John is a New Yorker who is on his lunch break at a new restaurant. He has never eaten there before.,na,na,na,na,na,na,na,4,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"After finishing his meal he decides to go to the bathroom, just like he does every day at the end of lunch.",na,na,na,na,na,na,na,4,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,He pays his bill and then follows the signs that say the bathroom is in the back of the building.,na,na,na,na,na,na,na,4,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,John is heading towards the back of the building. But there is actually no bathroom there. The bathroom is in the building next door.,na,na,na,na,na,na,na,4,na,1
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,1
+test,Thinks,FB,1,na,John thinks that the bathroom is in the building next door.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,1
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Simon cannot wait to find out what his parents are giving him for his birthday tomorrow. He looks all over the house for his present.,na,na,na,na,na,na,na,4,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"In a box in the back of his parents' closet, Simon finds a new pair of shoes that his uncle left in the closet.",na,na,na,na,na,na,na,4,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,He is disappointed that he can't find a present. He hoped to find a new video game.,na,na,na,na,na,na,na,4,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Simon's parents actually bought him a new video game for his birthday tomorrow. They just hid it very well.,na,na,na,na,na,na,na,4,na,2
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,2
+test,Knows,IG,2,na,Simon knows that he is getting a video game for his birthday.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,2
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie is shopping at the local mall. She finds a blue blouse that she likes a lot.,na,na,na,na,na,na,na,4,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie sees a price tag on the blouse that reads $22.22. Genie likes the blouse so much that she doesn't care about the price.,na,na,na,na,na,na,na,4,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie tries on the blouse and it fits. She stands in the back of a long line to purchase the blouse.,na,na,na,na,na,na,na,4,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Genie leaves the store because the line is too long. The blouse is on sale for $22.22, although it used to be much more expensive.",na,na,na,na,na,na,na,4,na,3
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,3
+test,Thinks,TB,3,na,Genie thinks that the blouse costs $22.22.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,3
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Every day before school, Mike's mother packs him lunch in his red lunch box. Sometimes she puts a special dessert in the lunchbox.",na,na,na,na,na,na,na,4,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Today before school, Mike's mother tells him that she put a piece of apple pie in his lunch box.",na,na,na,na,na,na,na,4,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Mike works hard in class all morning long and is really looking forward to having a break for lunch.,na,na,na,na,na,na,na,4,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Mike's mother mistakenly put chocolate cake in Mike's lunch and not apple pie. Soon Mike will go to eat lunch.,na,na,na,na,na,na,na,4,na,4
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,4
+test,Knows,FB,4,na,Mike knows that there is chocolate cake in his lunchbox.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,4
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Ed is an American who took German classes in highschool. He's eating at a restaurant in Berlin and wants to order a hot meal.,na,na,na,na,na,na,na,4,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Ed was never taught any German words for food in high school. So when he looks at the menu, he can't recognize any words.",na,na,na,na,na,na,na,4,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Ed calls the waiter over, says he would like to order and points randomly to the word ""Wurst"" on the menu.",na,na,na,na,na,na,na,4,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The waiter takes down Ed's order and goes to the kitchen. The German word for sausage is ""Wurst.""",na,na,na,na,na,na,na,4,na,5
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,5
+test,Thinks,IG,5,na,"Ed thinks the German word for sausage is ""Wurst.""",na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,5
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Brent is five years old and colorblind. Like the majority of colorblind people, he can't tell the difference between red and green.",na,na,na,na,na,na,na,4,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Forgetting that Brent is colorblind, his aunt sends him to the grocery store to buy some green apples.",na,na,na,na,na,na,na,4,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Brent runs to the grocery store and asks the grocer for green apples. The grocer hands Brent some green apples and Brent pays for them.,na,na,na,na,na,na,na,4,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,When Brent gives his aunt the green apples. She thanks him for going all the way to the store.,na,na,na,na,na,na,na,4,na,6
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,6
+test,Knows,TB,6,na,Brent knows he brought his aunt green apples.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,6
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Darcy is blind but has a very trustworthy seeing-eye dog, Spot, who takes her wherever she tells him to go.",na,na,na,na,na,na,na,4,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,One day Spot falls ill. Darcy takes him to the vet. The vet accidentally returns a different seeing-eye dog to Darcy. She leaves without Spot.,na,na,na,na,na,na,na,4,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Later that day Darcy decides to go on a walk and says, ""Spot, let's go to the bank.""",na,na,na,na,na,na,na,4,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The new dog does not understand her order and smelling the nearby pet-food store, he starts walking toward the store.",na,na,na,na,na,na,na,4,na,7
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,7
+test,Thinks,FB,7,na,Darcy thinks she's going to the pet-food store.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,7
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Misha and Anna are flipping a coin. They have decided that if the coin lands on heads then Misha wins Anna's car.,na,na,na,na,na,na,na,4,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Since the toss has such high stakes, Misha has made sure that the coin they are using is completely fair. ",na,na,na,na,na,na,na,4,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Misha takes the coin out of his pocket. The coin he takes out of his pocket is completely fair.,na,na,na,na,na,na,na,4,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Misha bites his lip. With his eyes closed, he flips the coin, catches it, and shows it to Anna without looking.",na,na,na,na,na,na,na,4,na,8
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,8
+test,Knows,IG,8,na,Misha knows the coin has landed on heads.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,8
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Ted is playing hide and seek with his son James. Ted closes his eyes and James runs to a hiding place.,na,na,na,na,na,na,na,4,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When Ted goes to look for James, he sees James' shoe sticking out from the bottom of James' closet.",na,na,na,na,na,na,na,4,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"""I'm going to get you!"" Ted says and heads slowly for James' closet and grabs the handle.",na,na,na,na,na,na,na,4,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,James is actually hiding in the closet. This is always where he hides when they play hide and seek.,na,na,na,na,na,na,na,4,na,9
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,9
+test,Thinks,TB,9,na,Ted thinks James is in the closet.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,9
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Mira looks at the night sky with her telescope. She owns the most accurate books on the locations of the different planets throughout the year.,na,na,na,na,na,na,na,4,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Mira reads in her astronomy books that she can see Mars through her telescope, and she waits until it's dark enough outside.",na,na,na,na,na,na,na,4,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Misreading her book, she accidentally points her telescope towards the coordinates for Neptune. She sees a bright dot in the middle of the sky.",na,na,na,na,na,na,na,4,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"She is excited that she found the planet she was looking for so easily. However, that bright dot is actually Neptune.",na,na,na,na,na,na,na,4,na,10
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,10
+test,Knows,FB,10,na,Mira knows she is looking at Neptune.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,10
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"While visiting Paris, Scott goes to the Louvre. There, he hears a tour guide say that the Mona Lisa is in the next room.",na,na,na,na,na,na,na,4,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Scott doesn't think anything of it. He has never heard of the Mona Lisa before and really doesn't care about art at all.,na,na,na,na,na,na,na,4,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"In the next room, Scott sees two paintings. One is of a woman smiling and one is of a beautiful mountain.",na,na,na,na,na,na,na,4,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Scott looks at the two paintings, and then walks up to the painting of the woman smiling, which is actually the Mona Lisa.",na,na,na,na,na,na,na,4,na,11
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,11
+test,Thinks,IG,11,na,Scott thinks he is looking at the Mona Lisa.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,11
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bert is an amateur tree enthusiast. He goes for hikes and writes down the different types of trees he sees along the trail.,na,na,na,na,na,na,na,4,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"On one hike, he sees many trees he recognizes. Near the end of the trail, he sees a tree that looks like an oak tree. ",na,na,na,na,na,na,na,4,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Bert takes out his pen and writes down ""Oak"" in his notebook after the previous trees he has seen.",na,na,na,na,na,na,na,4,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The tree is an American Oak. This type of tree is common in the area where Bret lives.,na,na,na,na,na,na,na,4,na,12
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,12
+test,Knows,TB,12,na,Bert knows the tree is an oak.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,12
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bradley is at a fourth of July barbeque with his family. He was supposed to bring drinks for everybody.,na,na,na,na,na,na,na,4,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bradley only bought alcoholic drinks since he forgot that his thirteen year old nephew was coming to the barbeque.,na,na,na,na,na,na,na,4,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Two hours into the barbeque, Bradley is drunk and making fun of his nephew for being underage.",na,na,na,na,na,na,na,4,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,His nephew decides to drink some of the wine so that Bradley will stop making fun of him.,na,na,na,na,na,na,na,4,na,13
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,13
+test,Distractor,Distractor,Distractor,na,Bradley's nephew drank the wine.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,13
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Teeg Qwerty is a computer scientist working in the year 2070. He specializes in making human-like robots with artificial intelligence.,na,na,na,na,na,na,na,4,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Teeg modeled his latest robot on his lab-partner Janet. The robot looks identical to Janet, and its artificial brain functions identically to Janet's brain.",na,na,na,na,na,na,na,4,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"One day, Teeg leaves the robot in the lab with Janet for an hour. When Teeg comes back he finds Janet missing.",na,na,na,na,na,na,na,4,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The robot is honestly convinced that it is the real Janet. Teeg can't tell whether the being talking to him is the robot or Janet.,na,na,na,na,na,na,na,4,na,14
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,14
+test,Distractor,Distractor,Distractor,na,The Robot looks like Janet.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,14
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Betina is looking to make lots of money. One day she is approached by her friend Martha who lets her into a lucrative business venture.,na,na,na,na,na,na,na,4,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Betina decides to enter into the business venture with Martha. Betina knows nothing about business, but she trusts Marsha.",na,na,na,na,na,na,na,4,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Unbeknownst to Betina, the business venture is a corrupt pyramid scheme that Betina is getting in on right at the beginning.",na,na,na,na,na,na,na,4,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Betina winds up making a lot of money but causes hundreds of innocent people to go bankrupt.,na,na,na,na,na,na,na,4,na,15
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,15
+test,Distractor,Distractor,Distractor,na,Betina joined a corrupt venture.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,15
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Sid is a terrible train track repairman. One day he realizes that he has to repair an intersection quickly before the next train crosses it.,na,na,na,na,na,na,na,4,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,If he doesn't do anything fast then the train will surely crash killing many of its passengers.,na,na,na,na,na,na,na,4,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sid considers grabbing a nearby hobo and throwing him onto the tracks. This would kill the hobo, but stop the train before it crashes.",na,na,na,na,na,na,na,4,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sid decides it's immoral to throw the homeless man onto the tracks, so he lets the train crash killing twelve passengers.",na,na,na,na,na,na,na,4,na,16
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,16
+test,Distractor,Distractor,Distractor,na,Sid is a train track repairman.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,16
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Markus' mom is throwing him a surprise birthday party. She bakes a chocolate cake and invites all of Markus' friends over to Markus' house.,na,na,na,na,na,na,na,4,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Markus, however has already planned a birthday party for himself in the park, to which he also invited all of his friends.",na,na,na,na,na,na,na,4,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Some of Markus' friends show up in the park. The rest of his friends are waiting to surprise him at home.,na,na,na,na,na,na,na,4,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Both Markus and his mom are very disappointed. Neither of them talks to the other for a whole week.,na,na,na,na,na,na,na,4,na,17
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,17
+test,Distractor,Distractor,Distractor,na,Markus' mom baked a cake.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,17
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie is an experienced airline pilot. She is flying near Beijing when her airplane's engine suddenly malfunctions.,na,na,na,na,na,na,na,4,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie can either crash the plane in the field right below killing herself and all her passengers or try a dangerous landing in Beijing itself.,na,na,na,na,na,na,na,4,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie decides to crash the plane in the field because she does not want to risk killing hundreds of citizens if she crashes in Beijing.,na,na,na,na,na,na,na,4,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Marie lets the plane crash in the field, killing herself and all of her passengers. Marie is celebrated as a hero.",na,na,na,na,na,na,na,4,na,18
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,18
+test,Distractor,Distractor,Distractor,na,Marie tried to land the plane in Beijing.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,18
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When he was a three year-old boy, Hank liked building block towers, and liked to destroy them even more.",na,na,na,na,na,na,na,4,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,When Hank grows up he becomes an architect and designs many famous buildings in large cities around the world.,na,na,na,na,na,na,na,4,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Hank has a wife and children, all of whom he loves. He has many friends, and his colleagues are very nice to him.",na,na,na,na,na,na,na,4,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Despite this Hank is unsatisfied with his life. He never feels satisfied after one of his buildings gets built.,na,na,na,na,na,na,na,4,na,19
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,19
+test,Distractor,Distractor,Distractor,na,Hank has no family.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,19
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Alice wants to go on a long vacation, so she takes a private plane to the Amazon Rainforest and spends some time with the natives.",na,na,na,na,na,na,na,4,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Alice lands in the rainforest and takes an hour to machette her way to the nearest tribal village.,na,na,na,na,na,na,na,4,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Alice befriends the village elders and spends the next two weeks in the village living communally and learning the language.,na,na,na,na,na,na,na,4,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,After two weeks Alice gets bored and flies her private Jet to Texas where she watches rodeos and visits her uncle Klaus.,na,na,na,na,na,na,na,4,na,20
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,20
+test,Distractor,Distractor,Distractor,na,Alice flew to the Amazon in a private plane.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,20
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Eustice is a CEO of a multi-million dollar company. One day he is sitting in his office, reading the newspaper and drinking a dark coffee.",na,na,na,na,na,na,na,4,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Eustice is considering a new program which would make huge profits for the company and also happens to help the environment.,na,na,na,na,na,na,na,4,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Eustice doesn't care what happens to the environment, but is thrilled that this program will make huge profits, so he goes through with the program.",na,na,na,na,na,na,na,4,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The program is put into effect. As a result, many forests are saved from deforestation but the company unforeseeably goes bankrupt.",na,na,na,na,na,na,na,4,na,21
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,21
+test,Distractor,Distractor,Distractor,na,The company is destroying the environment.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,21
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Jackie is having her sister over for dinner. She prepares a huge meal with mashed potatoes, swiss chard and peanut-butter custard for dessert.",na,na,na,na,na,na,na,4,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"She sets the table, opens a very expensive bottle of 1984 Pinot Noire and waits for her sister to arrive.",na,na,na,na,na,na,na,4,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,After half an hour Jackie's sister still hasn't arrived. Jackie is very hungry and begins to eat the dinner she prepared.,na,na,na,na,na,na,na,4,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"After another half hour, Jackie's sister finally arrives only to see that Jackie has eaten almost the whole dinner. She is very disappointed.",na,na,na,na,na,na,na,4,na,22
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,22
+test,Distractor,Distractor,Distractor,na,Jackie's sister is on time.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,22
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Harold likes to paint landscapes. He travels across the country, sleeping on trains and painting the landscapes he sees.",na,na,na,na,na,na,na,4,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"He begs for food in the towns he visits, and sometimes eats out of the garbage. He also begs for art supplies.",na,na,na,na,na,na,na,4,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Harold is very talented, he paints landscapes as beautifully as the best 19th century painters. Harold is also working on developing his own unique style.",na,na,na,na,na,na,na,4,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Harold does not show his paintings to anybody but himself and plans on having them burnt when dies.,na,na,na,na,na,na,na,4,na,23
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,23
+test,Distractor,Distractor,Distractor,na,Harold doesn't live in a house.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,23
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,4,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Sandra is the president of a small island in the pacific ocean. She has followed up on all of the promises she made.,na,na,na,na,na,na,na,4,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Some of the things she promised include better infrastructure, increased tax-breaks for the rich, and a new oil-drilling campaign.",na,na,na,na,na,na,na,4,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The oil-drilling campaign is slowly destroying a neighboring island, but Sandra doesn't care much about the environment.",na,na,na,na,na,na,na,4,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sandra is considering building a nuclear power plant, but only because it's cheaper to run than the current coal plant.",na,na,na,na,na,na,na,4,na,24
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,4,na,24
+test,Distractor,Distractor,Distractor,na,Sandra is in office.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,4,5000,24
+instructions,na,na,na,na,na,na,na, ,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,John is a New Yorker who is on his lunch break at a new restaurant. He has never eaten there before.,na,na,na,na,na,na,na,5,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"After finishing his meal he decides to go to the bathroom, just like he does every day at the end of lunch.",na,na,na,na,na,na,na,5,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"He pays his bill, gives a generous tip, and then he gets up to find the bathroom.",na,na,na,na,na,na,na,5,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The bathroom is actually in the building next door. The restaurant has actually never had a bathroom.,na,na,na,na,na,na,na,5,na,1
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,1
+test,Knows,IG,1,na,John knows that the bathroom is in the building next door.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,1
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Simon cannot wait to find out what his parents are giving him for his birthday tomorrow. He looks all over the house for his present.,na,na,na,na,na,na,na,5,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,In the back of his parents' closet Simon finds the video game that he told his parents that he wanted earlier that month.,na,na,na,na,na,na,na,5,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"He is so excited to find the video game. It's just what he wanted, and he can't wait to play it.",na,na,na,na,na,na,na,5,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Simon's parents bought him the video game for his birthday tomorrow. His parents hid the video game behind a pair of shoes.,na,na,na,na,na,na,na,5,na,2
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,2
+test,Thinks,TB,2,na,Simon thinks that he is getting a video game for his birthday.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,2
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie is shopping at the local mall. She finds a blue blouse that she likes a lot.,na,na,na,na,na,na,na,5,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie sees a price tag on the blouse that reads $99.99. Genie likes the blouse so much that she doesn't care about the price.,na,na,na,na,na,na,na,5,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie tries on the blouse and it fits. She stands in the back of a long line to purchase the blouse.,na,na,na,na,na,na,na,5,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie leaves the store because of the long line. The blouse is actually on sale for $22.22 although it used to be much more expensive.,na,na,na,na,na,na,na,5,na,3
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,3
+test,Knows,FB,3,na,Genie knows that the blouse costs $22.22.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,3
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Every day before school, Mike's mother packs him lunch in his red lunch box. Sometimes she puts a special dessert in the lunchbox.",na,na,na,na,na,na,na,5,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Today before school, Mike's mother tells him that she put a surprise dessert in his lunch box. ",na,na,na,na,na,na,na,5,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Mike works hard in class all morning long and is really looking forward to having a break for lunch.,na,na,na,na,na,na,na,5,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The surprise dessert that Mike's mother put in his lunch box is a piece of chocolate cake. Soon he'll get to eat it.,na,na,na,na,na,na,na,5,na,4
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,4
+test,Thinks,IG,4,na,Mike thinks that there is chocolate cake in his lunchbox.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,4
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Ed is an American who took German classes in highschool. He's eating at a restaurant in Berlin and wants to order a sausage.,na,na,na,na,na,na,na,5,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Ed was taught in high school that the German word for sausage is ""Wurst."" He looks at the menu and sees the word ""Wurst.""",na,na,na,na,na,na,na,5,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Ed calls the waiter over, says he would like to order and points to ""Wurst"" on the menu.",na,na,na,na,na,na,na,5,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The waiter takes down Ed's order and goes to the kitchen. The German word for sausage actually is ""Wurst.""",na,na,na,na,na,na,na,5,na,5
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,5
+test,Knows,TB,5,na,"Ed knows the German word for sausage is ""Wurst.""",na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,5
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Brent is five years old and colorblind. Like the majority of colorblind people, he can't tell the difference between red and green.",na,na,na,na,na,na,na,5,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Forgetting that Brent is colorblind, his aunt sends him to the grocery store to buy some red apples.",na,na,na,na,na,na,na,5,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Brent runs to the grocery store and asks the grocer for red apples. The grocer accidentally hands Brent green apples and Brent pays for them.,na,na,na,na,na,na,na,5,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When Brent gives his aunt the green apples, she remembers that he is colorblind and thanks him for going all the way to the store.",na,na,na,na,na,na,na,5,na,6
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,6
+test,Thinks,FB,6,na,Brent thinks he brought his aunt green apples.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,6
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Darcy is blind but has a very trustworthy seeing-eye dog, Spot, who takes her wherever she tells him to go.",na,na,na,na,na,na,na,5,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,One day Spot falls ill. Darcy takes him to the vet. The vet takes a look at Spot and tells Darcy that he'll be fine.,na,na,na,na,na,na,na,5,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Later that day Darcy decides to go on a walk and says, ""Spot, let's go for a stroll.""",na,na,na,na,na,na,na,5,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Her dog wanders all around the neighborhood and then decides to take her to the pet-food store.,na,na,na,na,na,na,na,5,na,7
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,7
+test,Knows,IG,7,na,Darcy knows she's going to the pet-food store.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,7
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Misha and Anna are flipping a coin. They have decided that if the coin lands on heads then Misha wins Anna's car.,na,na,na,na,na,na,na,5,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Since the toss has such high stakes, Misha has prepared his own loaded coin that has heads on both sides.",na,na,na,na,na,na,na,5,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Misha confidently takes the coin out of his pocket. The coin he takes out of his pocket has heads on both sides.,na,na,na,na,na,na,na,5,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Misha smiles. With his eyes closed, he flips the coin, catches it, and shows it to Anna without looking.",na,na,na,na,na,na,na,5,na,8
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,8
+test,Thinks,TB,8,na,Misha thinks the coin has landed on heads.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,8
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Ted is playing hide and seek with his son James. Ted closes his eyes and James runs to a hiding place.,na,na,na,na,na,na,na,5,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When Ted goes to look for James, he sees James' shoe sticking out from under James' bed.",na,na,na,na,na,na,na,5,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"""I'm going to get you!"" Ted says and heads slowly for James' bed and says, ""Here I come!""",na,na,na,na,na,na,na,5,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,James is actually hiding in the closet. James smiles to himself because he's a very good hider.,na,na,na,na,na,na,na,5,na,9
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,9
+test,Knows,FB,9,na,Ted knows James is in the closet.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,9
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Mira looks at the night sky with her telescope. She's never read any books on the locations of the different planets throughout the year.,na,na,na,na,na,na,na,5,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Mira sets up her telescope in her backyard, eats dinner, and waits until it's dark enough outside.",na,na,na,na,na,na,na,5,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"She points her telescope towards a group of bright dots, and sees one very bright dot in the middle of the sky.",na,na,na,na,na,na,na,5,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Mira enjoys looking at the beautiful bright dot, and decides to do this more often. That bright dot is actually Neptune.",na,na,na,na,na,na,na,5,na,10
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,10
+test,Thinks,IG,10,na,Mira thinks she is looking at Neptune.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,10
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"While visiting Paris, Scott goes to the Louvre. There, he hears a tour guide say that the Mona Lisa is in the next room.",na,na,na,na,na,na,na,5,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Scott is excited. He has taken many art classes and has always wanted to see the Mona Lisa in person.,na,na,na,na,na,na,na,5,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"In the next room, Scott sees two paintings. One is of a woman smiling and one is of a beautiful mountain.",na,na,na,na,na,na,na,5,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Scott looks at the two paintings, and then walks up to the painting of the woman smiling, which is the Mona Lisa.",na,na,na,na,na,na,na,5,na,11
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,11
+test,Knows,TB,11,na,Scott knows he is looking at the Mona Lisa.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,11
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bert is an amateur tree enthusiast. He goes for hikes and writes down the different types of trees he sees along the trail.,na,na,na,na,na,na,na,5,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"On one hike, he sees many trees he recognizes. Near the end of the trail, he sees a tree that looks like an elm tree.",na,na,na,na,na,na,na,5,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Bert takes out his pen and writes down ""Elm"" in his notebook after the previous trees he has seen.",na,na,na,na,na,na,na,5,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The tree is actually an American Oak that happens to look like an elm tree. These are uncommon in the area where Bert lives.,na,na,na,na,na,na,na,5,na,12
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,12
+test,Thinks,FB,12,na,Bert thinks the tree is an oak.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,12
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bradley is at a fourth of July barbeque with his family. He was supposed to bring drinks for everybody.,na,na,na,na,na,na,na,5,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bradley only bought alcoholic drinks since he forgot that his thirteen year old nephew was coming to the barbeque.,na,na,na,na,na,na,na,5,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Two hours into the barbeque, Bradley is drunk and making fun of his nephew for being underage.",na,na,na,na,na,na,na,5,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,His nephew decides to drink some of the wine so that Bradley will stop making fun of him.,na,na,na,na,na,na,na,5,na,13
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,13
+test,Distractor,Distractor,Distractor,na,Bradley's nephew drank the wine.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,13
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Teeg Qwerty is a computer scientist working in the year 2070. He specializes in making human-like robots with artificial intelligence.,na,na,na,na,na,na,na,5,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Teeg modeled his latest robot on his lab-partner Janet. The robot looks identical to Janet, and its artificial brain functions identically to Janet's brain.",na,na,na,na,na,na,na,5,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"One day, Teeg leaves the robot in the lab with Janet for an hour. When Teeg comes back he finds Janet missing.",na,na,na,na,na,na,na,5,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The robot is honestly convinced that it is the real Janet. Teeg can't tell whether the being talking to him is the robot or Janet.,na,na,na,na,na,na,na,5,na,14
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,14
+test,Distractor,Distractor,Distractor,na,The Robot looks like Janet.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,14
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Betina is looking to make lots of money. One day she is approached by her friend Martha who lets her into a lucrative business venture.,na,na,na,na,na,na,na,5,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Betina decides to enter into the business venture with Martha. Betina knows nothing about business, but she trusts Marsha.",na,na,na,na,na,na,na,5,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Unbeknownst to Betina, the business venture is a corrupt pyramid scheme that Betina is getting in on right at the beginning.",na,na,na,na,na,na,na,5,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Betina winds up making a lot of money but causes hundreds of innocent people to go bankrupt.,na,na,na,na,na,na,na,5,na,15
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,15
+test,Distractor,Distractor,Distractor,na,Betina joined a corrupt venture.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,15
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Sid is a terrible train track repairman. One day he realizes that he has to repair an intersection quickly before the next train crosses it.,na,na,na,na,na,na,na,5,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,If he doesn't do anything fast then the train will surely crash killing many of its passengers.,na,na,na,na,na,na,na,5,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sid considers grabbing a nearby hobo and throwing him onto the tracks. This would kill the hobo, but stop the train before it crashes.",na,na,na,na,na,na,na,5,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sid decides it's immoral to throw the homeless man onto the tracks, so he lets the train crash killing twelve passengers.",na,na,na,na,na,na,na,5,na,16
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,16
+test,Distractor,Distractor,Distractor,na,Sid is a train track repairman.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,16
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Markus' mom is throwing him a surprise birthday party. She bakes a chocolate cake and invites all of Markus' friends over to Markus' house.,na,na,na,na,na,na,na,5,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Markus, however has already planned a birthday party for himself in the park, to which he also invited all of his friends.",na,na,na,na,na,na,na,5,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Some of Markus' friends show up in the park. The rest of his friends are waiting to surprise him at home.,na,na,na,na,na,na,na,5,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Both Markus and his mom are very disappointed. Neither of them talks to the other for a whole week.,na,na,na,na,na,na,na,5,na,17
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,17
+test,Distractor,Distractor,Distractor,na,Markus' mom baked a cake.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,17
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie is an experienced airline pilot. She is flying near Beijing when her airplane's engine suddenly malfunctions.,na,na,na,na,na,na,na,5,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie can either crash the plane in the field right below killing herself and all her passengers or try a dangerous landing in Beijing itself.,na,na,na,na,na,na,na,5,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie decides to crash the plane in the field because she does not want to risk killing hundreds of citizens if she crashes in Beijing.,na,na,na,na,na,na,na,5,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Marie lets the plane crash in the field, killing herself and all of her passengers. Marie is celebrated as a hero.",na,na,na,na,na,na,na,5,na,18
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,18
+test,Distractor,Distractor,Distractor,na,Marie tried to land the plane in Beijing.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,18
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When he was a three year-old boy, Hank liked building block towers, and liked to destroy them even more.",na,na,na,na,na,na,na,5,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,When Hank grows up he becomes an architect and designs many famous buildings in large cities around the world.,na,na,na,na,na,na,na,5,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Hank has a wife and children, all of whom he loves. He has many friends, and his colleagues are very nice to him.",na,na,na,na,na,na,na,5,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Despite this Hank is unsatisfied with his life. He never feels satisfied after one of his buildings gets built.,na,na,na,na,na,na,na,5,na,19
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,19
+test,Distractor,Distractor,Distractor,na,Hank has no family.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,19
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Alice wants to go on a long vacation, so she takes a private plane to the Amazon Rainforest and spends some time with the natives.",na,na,na,na,na,na,na,5,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Alice lands in the rainforest and takes an hour to machette her way to the nearest tribal village.,na,na,na,na,na,na,na,5,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Alice befriends the village elders and spends the next two weeks in the village living communally and learning the language.,na,na,na,na,na,na,na,5,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,After two weeks Alice gets bored and flies her private Jet to Texas where she watches rodeos and visits her uncle Klaus.,na,na,na,na,na,na,na,5,na,20
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,20
+test,Distractor,Distractor,Distractor,na,Alice flew to the Amazon in a private plane.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,20
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Eustice is a CEO of a multi-million dollar company. One day he is sitting in his office, reading the newspaper and drinking a dark coffee.",na,na,na,na,na,na,na,5,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Eustice is considering a new program which would make huge profits for the company and also happens to help the environment.,na,na,na,na,na,na,na,5,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Eustice doesn't care what happens to the environment, but is thrilled that this program will make huge profits, so he goes through with the program.",na,na,na,na,na,na,na,5,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The program is put into effect. As a result, many forests are saved from deforestation but the company unforeseeably goes bankrupt.",na,na,na,na,na,na,na,5,na,21
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,21
+test,Distractor,Distractor,Distractor,na,The company is destroying the environment.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,21
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Jackie is having her sister over for dinner. She prepares a huge meal with mashed potatoes, swiss chard and peanut-butter custard for dessert.",na,na,na,na,na,na,na,5,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"She sets the table, opens a very expensive bottle of 1984 Pinot Noire and waits for her sister to arrive.",na,na,na,na,na,na,na,5,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,After half an hour Jackie's sister still hasn't arrived. Jackie is very hungry and begins to eat the dinner she prepared.,na,na,na,na,na,na,na,5,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"After another half hour, Jackie's sister finally arrives only to see that Jackie has eaten almost the whole dinner. She is very disappointed.",na,na,na,na,na,na,na,5,na,22
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,22
+test,Distractor,Distractor,Distractor,na,Jackie's sister is on time.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,22
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Harold likes to paint landscapes. He travels across the country, sleeping on trains and painting the landscapes he sees.",na,na,na,na,na,na,na,5,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"He begs for food in the towns he visits, and sometimes eats out of the garbage. He also begs for art supplies.",na,na,na,na,na,na,na,5,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Harold is very talented, he paints landscapes as beautifully as the best 19th century painters. Harold is also working on developing his own unique style.",na,na,na,na,na,na,na,5,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Harold does not show his paintings to anybody but himself and plans on having them burnt when dies.,na,na,na,na,na,na,na,5,na,23
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,23
+test,Distractor,Distractor,Distractor,na,Harold doesn't live in a house.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,23
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,5,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Sandra is the president of a small island in the pacific ocean. She has followed up on all of the promises she made.,na,na,na,na,na,na,na,5,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Some of the things she promised include better infrastructure, increased tax-breaks for the rich, and a new oil-drilling campaign.",na,na,na,na,na,na,na,5,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The oil-drilling campaign is slowly destroying a neighboring island, but Sandra doesn't care much about the environment.",na,na,na,na,na,na,na,5,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sandra is considering building a nuclear power plant, but only because it's cheaper to run than the current coal plant.",na,na,na,na,na,na,na,5,na,24
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,5,na,24
+test,Distractor,Distractor,Distractor,na,Sandra is in office.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,5,5000,24
+instructions,na,na,na,na,na,na,na, ,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,John is a New Yorker who is on his lunch break at a new restaurant. He has never eaten there before.,na,na,na,na,na,na,na,6,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"After finishing his meal he decides to go to the bathroom, just like he does every day at the end of lunch.",na,na,na,na,na,na,na,6,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"He pays his bill, gives a generous tip, and then he gets up to find the bathroom.",na,na,na,na,na,na,na,6,na,1
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The bathroom is actually in the building next door. The restaurant has actually never had a bathroom.,na,na,na,na,na,na,na,6,na,1
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,1
+test,Thinks,IG,1,na,John thinks that the bathroom is in the building next door.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,1
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Simon cannot wait to find out what his parents are giving him for his birthday tomorrow. He looks all over the house for his present.,na,na,na,na,na,na,na,6,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,In the back of his parents' closet Simon finds the video game that he told his parents that he wanted earlier that month.,na,na,na,na,na,na,na,6,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"He is so excited to find the video game. It's just what he wanted, and he can't wait to play it.",na,na,na,na,na,na,na,6,na,2
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Simon's parents bought him the video game for his birthday tomorrow. His parents hid the video game behind a pair of shoes. ,na,na,na,na,na,na,na,6,na,2
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,2
+test,Knows,TB,2,na,Simon knows that he is getting a video game for his birthday.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,2
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie is shopping at the local mall. She finds a blue blouse that she likes a lot.,na,na,na,na,na,na,na,6,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie sees a price tag on the blouse that reads $99.99. Genie likes the blouse so much that she doesn't care about the price.,na,na,na,na,na,na,na,6,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie tries on the blouse and it fits. She stands in the back of a long line to purchase the blouse.,na,na,na,na,na,na,na,6,na,3
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Genie leaves the store because of the long line. The blouse is actually on sale for $22.22 although it used to be much more expensive.,na,na,na,na,na,na,na,6,na,3
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,3
+test,Thinks,FB,3,na,Genie thinks that the blouse costs $22.22.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,3
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Every day before school, Mike's mother packs him lunch in his red lunch box. Sometimes she puts a special dessert in the lunchbox.",na,na,na,na,na,na,na,6,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Today before school, Mike's mother tells him that she put a surprise dessert in his lunch box. ",na,na,na,na,na,na,na,6,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Mike works hard in class all morning long and is really looking forward to having a break for lunch.,na,na,na,na,na,na,na,6,na,4
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The surprise dessert that Mike's mother put in his lunch box is a piece of chocolate cake. Soon he'll get to eat it.,na,na,na,na,na,na,na,6,na,4
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,4
+test,Knows,IG,4,na,Mike knows that there is chocolate cake in his lunchbox.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,4
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Ed is an American who took German classes in highschool. He's eating at a restaurant in Berlin and wants to order a sausage.,na,na,na,na,na,na,na,6,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Ed was taught in high school that the German word for sausage is ""Wurst."" He looks at the menu and sees the word ""Wurst.""",na,na,na,na,na,na,na,6,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Ed calls the waiter over, says he would like to order and points to ""Wurst"" on the menu.",na,na,na,na,na,na,na,6,na,5
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The waiter takes down Ed's order and goes to the kitchen. The German word for sausage actually is ""Wurst."" ",na,na,na,na,na,na,na,6,na,5
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,5
+test,Thinks,TB,5,na,"Ed thinks the German word for sausage is ""Wurst.""",na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,5
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Brent is five years old and colorblind. Like the majority of colorblind people, he can't tell the difference between red and green.",na,na,na,na,na,na,na,6,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Forgetting that Brent is colorblind, his aunt sends him to the grocery store to buy some red apples.",na,na,na,na,na,na,na,6,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Brent runs to the grocery store and asks the grocer for red apples. The grocer accidentally hands Brent green apples and Brent pays for them.,na,na,na,na,na,na,na,6,na,6
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When Brent gives his aunt the green apples, she remembers that he is colorblind and thanks him for going all the way to the store.",na,na,na,na,na,na,na,6,na,6
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,6
+test,Knows,FB,6,na,Brent knows he brought his aunt green apples.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,6
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Darcy is blind but has a very trustworthy seeing-eye dog, Spot, who takes her wherever she tells him to go.",na,na,na,na,na,na,na,6,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,One day Spot falls ill. Darcy takes him to the vet. The vet takes a look at Spot and tells Darcy that he'll be fine.,na,na,na,na,na,na,na,6,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Later that day Darcy decides to go on a walk and says, ""Spot, let's go for a stroll.""",na,na,na,na,na,na,na,6,na,7
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Her dog wanders all around the neighborhood and then decides to take her to the pet-food store.,na,na,na,na,na,na,na,6,na,7
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,7
+test,Thinks,IG,7,na,Darcy thinks she's going to the pet-food store.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,7
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Misha and Anna are flipping a coin. They have decided that if the coin lands on heads then Misha wins Anna's car.,na,na,na,na,na,na,na,6,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Since the toss has such high stakes, Misha has prepared his own loaded coin that has heads on both sides.",na,na,na,na,na,na,na,6,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Misha confidently takes the coin out of his pocket. The coin he takes out of his pocket has heads on both sides.,na,na,na,na,na,na,na,6,na,8
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Misha smiles. With his eyes closed, he flips the coin, catches it, and shows it to Anna without looking.",na,na,na,na,na,na,na,6,na,8
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,8
+test,Knows,TB,8,na,Misha knows the coin has landed on heads.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,8
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Ted is playing hide and seek with his son James. Ted closes his eyes and James runs to a hiding place.,na,na,na,na,na,na,na,6,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When Ted goes to look for James, he sees James' shoe sticking out from under James' bed.",na,na,na,na,na,na,na,6,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"""I'm going to get you!"" Ted says and heads slowly for James' bed and says, ""Here I come!""",na,na,na,na,na,na,na,6,na,9
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,James is actually hiding in the closet. James smiles to himself because he's a very good hider.,na,na,na,na,na,na,na,6,na,9
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,9
+test,Thinks,FB,9,na,Ted thinks James is in the closet.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,9
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Mira looks at the night sky with her telescope. She's never read any books on the locations of the different planets throughout the year.,na,na,na,na,na,na,na,6,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Mira sets up her telescope in her backyard, eats dinner, and waits until it's dark enough outside.",na,na,na,na,na,na,na,6,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"She points her telescope towards a group of bright dots, and sees one very bright dot in the middle of the sky.",na,na,na,na,na,na,na,6,na,10
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Mira enjoys looking at the beautiful bright dot, and decides to do this more often. That bright dot is actually Neptune.",na,na,na,na,na,na,na,6,na,10
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,10
+test,Knows,IG,10,na,Mira knows she is looking at Neptune.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,10
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"While visiting Paris, Scott goes to the Louvre. There, he hears a tour guide say that the Mona Lisa is in the next room.",na,na,na,na,na,na,na,6,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Scott is excited. He has taken many art classes and has always wanted to see the Mona Lisa in person.,na,na,na,na,na,na,na,6,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"In the next room, Scott sees two paintings. One is of a woman smiling and one is of a beautiful mountain.",na,na,na,na,na,na,na,6,na,11
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Scott looks at the two paintings, and then walks up to the painting of the woman smiling, which is the Mona Lisa.",na,na,na,na,na,na,na,6,na,11
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,11
+test,Thinks,TB,11,na,Scott thinks he is looking at the Mona Lisa.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,11
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bert is an amateur tree enthusiast. He goes for hikes and writes down the different types of trees he sees along the trail.,na,na,na,na,na,na,na,6,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"On one hike, he sees many trees he recognizes. Near the end of the trail, he sees a tree that looks like an elm tree. ",na,na,na,na,na,na,na,6,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Bert takes out his pen and writes down ""Elm"" in his notebook after the previous trees he has seen.",na,na,na,na,na,na,na,6,na,12
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The tree is actually an American Oak that happens to look like an elm tree. These are uncommon in the area where Bert lives.,na,na,na,na,na,na,na,6,na,12
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,12
+test,Knows,FB,12,na,Bert knows the tree is an oak.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,12
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bradley is at a fourth of July barbeque with his family. He was supposed to bring drinks for everybody.,na,na,na,na,na,na,na,6,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Bradley only bought alcoholic drinks since he forgot that his thirteen year old nephew was coming to the barbeque.,na,na,na,na,na,na,na,6,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Two hours into the barbeque, Bradley is drunk and making fun of his nephew for being underage.",na,na,na,na,na,na,na,6,na,13
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,His nephew decides to drink some of the wine so that Bradley will stop making fun of him.,na,na,na,na,na,na,na,6,na,13
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,13
+test,Distractor,Distractor,Distractor,na,Bradley's nephew drank the wine.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,13
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Teeg Qwerty is a computer scientist working in the year 2070. He specializes in making human-like robots with artificial intelligence.,na,na,na,na,na,na,na,6,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Teeg modeled his latest robot on his lab-partner Janet. The robot looks identical to Janet, and its artificial brain functions identically to Janet's brain.",na,na,na,na,na,na,na,6,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"One day, Teeg leaves the robot in the lab with Janet for an hour. When Teeg comes back he finds Janet missing.",na,na,na,na,na,na,na,6,na,14
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,The robot is honestly convinced that it is the real Janet. Teeg can't tell whether the being talking to him is the robot or Janet.,na,na,na,na,na,na,na,6,na,14
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,14
+test,Distractor,Distractor,Distractor,na,The Robot looks like Janet.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,14
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Betina is looking to make lots of money. One day she is approached by her friend Martha who lets her into a lucrative business venture.,na,na,na,na,na,na,na,6,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Betina decides to enter into the business venture with Martha. Betina knows nothing about business, but she trusts Marsha.",na,na,na,na,na,na,na,6,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Unbeknownst to Betina, the business venture is a corrupt pyramid scheme that Betina is getting in on right at the beginning.",na,na,na,na,na,na,na,6,na,15
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Betina winds up making a lot of money but causes hundreds of innocent people to go bankrupt.,na,na,na,na,na,na,na,6,na,15
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,15
+test,Distractor,Distractor,Distractor,na,Betina joined a corrupt venture.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,15
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Sid is a terrible train track repairman. One day he realizes that he has to repair an intersection quickly before the next train crosses it.,na,na,na,na,na,na,na,6,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,If he doesn't do anything fast then the train will surely crash killing many of its passengers.,na,na,na,na,na,na,na,6,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sid considers grabbing a nearby hobo and throwing him onto the tracks. This would kill the hobo, but stop the train before it crashes.",na,na,na,na,na,na,na,6,na,16
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sid decides it's immoral to throw the homeless man onto the tracks, so he lets the train crash killing twelve passengers.",na,na,na,na,na,na,na,6,na,16
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,16
+test,Distractor,Distractor,Distractor,na,Sid is a train track repairman.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,16
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Markus' mom is throwing him a surprise birthday party. She bakes a chocolate cake and invites all of Markus' friends over to Markus' house.,na,na,na,na,na,na,na,6,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Markus, however has already planned a birthday party for himself in the park, to which he also invited all of his friends.",na,na,na,na,na,na,na,6,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Some of Markus' friends show up in the park. The rest of his friends are waiting to surprise him at home.,na,na,na,na,na,na,na,6,na,17
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Both Markus and his mom are very disappointed. Neither of them talks to the other for a whole week.,na,na,na,na,na,na,na,6,na,17
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,17
+test,Distractor,Distractor,Distractor,na,Markus' mom baked a cake.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,17
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie is an experienced airline pilot. She is flying near Beijing when her airplane's engine suddenly malfunctions.,na,na,na,na,na,na,na,6,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie can either crash the plane in the field right below killing herself and all her passengers or try a dangerous landing in Beijing itself.,na,na,na,na,na,na,na,6,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Marie decides to crash the plane in the field because she does not want to risk killing hundreds of citizens if she crashes in Beijing.,na,na,na,na,na,na,na,6,na,18
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Marie lets the plane crash in the field, killing herself and all of her passengers. Marie is celebrated as a hero.",na,na,na,na,na,na,na,6,na,18
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,18
+test,Distractor,Distractor,Distractor,na,Marie tried to land the plane in Beijing.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,18
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"When he was a three year-old boy, Hank liked building block towers, and liked to destroy them even more.",na,na,na,na,na,na,na,6,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,When Hank grows up he becomes an architect and designs many famous buildings in large cities around the world.,na,na,na,na,na,na,na,6,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Hank has a wife and children, all of whom he loves. He has many friends, and his colleagues are very nice to him.",na,na,na,na,na,na,na,6,na,19
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Despite this Hank is unsatisfied with his life. He never feels satisfied after one of his buildings gets built.,na,na,na,na,na,na,na,6,na,19
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,19
+test,Distractor,Distractor,Distractor,na,Hank has no family.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,19
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Alice wants to go on a long vacation, so she takes a private plane to the Amazon Rainforest and spends some time with the natives.",na,na,na,na,na,na,na,6,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Alice lands in the rainforest and takes an hour to machette her way to the nearest tribal village.,na,na,na,na,na,na,na,6,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Alice befriends the village elders and spends the next two weeks in the village living communally and learning the language.,na,na,na,na,na,na,na,6,na,20
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,After two weeks Alice gets bored and flies her private Jet to Texas where she watches rodeos and visits her uncle Klaus.,na,na,na,na,na,na,na,6,na,20
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,20
+test,Distractor,Distractor,Distractor,na,Alice flew to the Amazon in a private plane.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,20
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Eustice is a CEO of a multi-million dollar company. One day he is sitting in his office, reading the newspaper and drinking a dark coffee.",na,na,na,na,na,na,na,6,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Eustice is considering a new program which would make huge profits for the company and also happens to help the environment.,na,na,na,na,na,na,na,6,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Eustice doesn't care what happens to the environment, but is thrilled that this program will make huge profits, so he goes through with the program.",na,na,na,na,na,na,na,6,na,21
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The program is put into effect. As a result, many forests are saved from deforestation but the company unforeseeably goes bankrupt.",na,na,na,na,na,na,na,6,na,21
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,21
+test,Distractor,Distractor,Distractor,na,The company is destroying the environment.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,21
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Jackie is having her sister over for dinner. She prepares a huge meal with mashed potatoes, swiss chard and peanut-butter custard for dessert.",na,na,na,na,na,na,na,6,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"She sets the table, opens a very expensive bottle of 1984 Pinot Noire and waits for her sister to arrive.",na,na,na,na,na,na,na,6,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,After half an hour Jackie's sister still hasn't arrived. Jackie is very hungry and begins to eat the dinner she prepared.,na,na,na,na,na,na,na,6,na,22
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"After another half hour, Jackie's sister finally arrives only to see that Jackie has eaten almost the whole dinner. She is very disappointed.",na,na,na,na,na,na,na,6,na,22
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,22
+test,Distractor,Distractor,Distractor,na,Jackie's sister is on time.,na,na,f,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,22
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Harold likes to paint landscapes. He travels across the country, sleeping on trains and painting the landscapes he sees.",na,na,na,na,na,na,na,6,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"He begs for food in the towns he visits, and sometimes eats out of the garbage. He also begs for art supplies.",na,na,na,na,na,na,na,6,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Harold is very talented, he paints landscapes as beautifully as the best 19th century painters. Harold is also working on developing his own unique style.",na,na,na,na,na,na,na,6,na,23
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Harold does not show his paintings to anybody but himself and plans on having them burnt when dies.,na,na,na,na,na,na,na,6,na,23
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,23
+test,Distractor,Distractor,Distractor,na,Harold doesn't live in a house.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,23
+instructions,na,na,na,na,na,na,na,,600,na,na,na,na,Get ready for the next story.,Press [Next] to begin and then place your fingers on the [f] and [j] keys.,na,na,na,na,na, ,6,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,Sandra is the president of a small island in the pacific ocean. She has followed up on all of the promises she made.,na,na,na,na,na,na,na,6,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Some of the things she promised include better infrastructure, increased tax-breaks for the rich, and a new oil-drilling campaign.",na,na,na,na,na,na,na,6,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"The oil-drilling campaign is slowly destroying a neighboring island, but Sandra doesn't care much about the environment.",na,na,na,na,na,na,na,6,na,24
+instructions,na,na,na,na,na,na,na, ,600,4500,na,na,na,"Sandra is considering building a nuclear power plant, but only because it's cheaper to run than the current coal plant.",na,na,na,na,na,na,na,6,na,24
+instructions,na,na,na,na,na,na,na, ,600,1000,na,na,na,True or False?,na,na,na,na,na,na,na,6,na,24
+test,Distractor,Distractor,Distractor,na,Sandra is in office.,na,na,j,600,na,na,na,word,na,na,na,na,na,5000,na,fj,6,5000,24
