@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+{% block js %}
+    <script>
+
+
+    // store response
+    var response = {
+        PROLIFIC_PID: new URLSearchParams(window.location.search).get('PROLIFIC_PID'),
+        SESSION_ID: new URLSearchParams(window.location.search).get('SESSION_ID'),
+        keys_pressed: [],
+        rt: [],
+        target_onset: Date.now(),
+    };
+
+    function submit_tdat(){
+        $.ajax({
+            type: "POST",
+            url:"tf_practice",
+            data: JSON.stringify(response),
+            traditional: true,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(){ setTimeout(function(){window.location.pathname = "/fixation"; console.log('data sent from client')}, 1000)}
+        })
+    }
+
+    function subjectResponse(e){
+        response.keys_pressed.push(e.key)
+        response.rt.push(Date.now())
+        if (e.key === correct){
+            $('#practice_feedback p').text("Correct");
+            submit_tdat();
+
+        } else {
+            $('#practice_feedback p').text("That's not right! {{ prompt }} is the "+correct+" key")
+        }
+    }
+
+    var prompt = "{{ prompt }}"
+    var correct = "f"
+    if ( prompt === "False" ){
+        correct= "f";
+    } else { correct = "j"}
+
+    document.body.addEventListener("keydown", subjectResponse);
+
+    </script>
+{% endblock %}
+
+{% block stage %}
+    <div class="row justify-content-center align-self-center">
+        <div class="col" id="practice_p">
+            <p class="text-center" style="font-size: xxx-large;">
+                {{ prompt }}
+            </p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col" id="practice_feedback">
+            <p class="text-center" style="font-size: xx-large;" ></p>
+        </div>
+    </div>
+{% endblock %}
+</html>
