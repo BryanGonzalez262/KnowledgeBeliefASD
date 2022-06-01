@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+{% block js %}
+    <script>
+
+
+    // store response
+    var response = {
+        PROLIFIC_PID: new URLSearchParams(window.location.search).get('PROLIFIC_PID'),
+        SESSION_ID: new URLSearchParams(window.location.search).get('SESSION_ID'),
+        trl: {{ trl }},
+        keys_pressed: [],
+        rt: [],
+        target_onset: '',
+    };
+
+    function submit_tdat(){
+        $.ajax({
+            type: "POST",
+            url:window.location.pathname,
+            data: JSON.stringify(response),
+            traditional: true,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(){ setTimeout(function(){window.location.pathname = "/fixation"; console.log('data sent from client')}, 1000)}
+        })
+    }
+
+    function subjectResponse(e){
+        response.keys_pressed.push(e.key)
+        response.rt.push(Date.now())
+        if (e.key === correct){
+            $('#story p').text("Correct");
+            submit_tdat();
+        } else {
+            $('#story p').text("That's not right! Please read more carefully!")
+            submit_tdat();
+        }
+
+    }
+
+    var prompt = "{{ prompt }}"
+    var correct = "{{ correct }}"
+
+
+
+    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp text-center" style="font-size: xx-large;"> {{ s2 }}</p>')}, 4500 )
+    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp text-center" style="font-size: xx-large;"> {{ s3 }}</p>')}, 9000 )
+    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp text-center" style="font-size: xx-large;"> {{ s4 }}</p>')}, 13500 )
+    setTimeout(function(){$('#story p').remove();}, 18000)
+    setTimeout(function(){$('#story').append('<p class="text-center" style="font-size: xxx-large;"> True or False..</p>');}, 18600)
+    setTimeout(function(){
+        response.target_onset = Date.now();
+        $('#story p').text('{{target}}');
+        document.body.addEventListener("keydown", subjectResponse);
+        }, 19600)
+
+    </script>
+{% endblock %}
+
+{% block stage %}
+    <div class="row justify-content-center align-self-center">
+        <div class="col" id="story">
+            <p class=" animated bounceInUp text-center" style="font-size: xx-large;"> {{ s1 }}</p>
+        </div>
+    </div>
+
+{% endblock %}
+</html>
