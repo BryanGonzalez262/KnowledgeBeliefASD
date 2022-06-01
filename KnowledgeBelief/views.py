@@ -178,7 +178,7 @@ def story():
         sub_dat = request.get_json()
         tdat = Trial.query.filter_by(prolific_id=sub_dat['PROLIFIC_PID'], trial_num=sub_dat['trl'],
                                      response_key=None).first()
-        tdat.correct = [True if literal_eval(sub_dat['keys_pressed'])[-1] == tdat.correct_answer else False]
+        tdat.correct = [True if sub_dat['keys_pressed'][-1] == tdat.correct_answer else False][0]
         tdat.target_onset = datetime.fromtimestamp(sub_dat['target_onset'] / 1000.0)
         tdat.response_key = str(sub_dat['keys_pressed'])
         tdat.response_onset = datetime.fromtimestamp(sub_dat['rt'][-1] / 1000.0)
