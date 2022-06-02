@@ -13,9 +13,11 @@ class Subject(db.Model):
     operating_sys = db.Column(db.VARCHAR(80))
     operating_sys_lang = db.Column(db.VARCHAR(80))
     GMT_timestamp = db.Column(db.DateTime)
-    completion = db.Column(db.Boolean)
+    block1_complete = db.Column(db.Boolean)
+    block2_complete = db.Column(db.Boolean)
     completion_code = db.Column(db.VARCHAR(80))
     trials = db.relationship('Trial', backref='subject', lazy='dynamic', cascade="all, delete-orphan")
+    felicity = db.relationship('Felicity', backref='subject', lazy='dynamic', cascade="all, delete-orphan")
     demographics = db.relationship('Demographic', backref='subject', lazy='dynamic', cascade="all, delete-orphan")
 
 
@@ -59,7 +61,18 @@ class Trial(db.Model):
     target_onset = db.Column(db.DateTime)
     response_onset = db.Column(db.DateTime)
     response_key = db.Column(db.VARCHAR(20))
-    sound_weird = db.Column(db.Integer)
-    sound_normal = db.Column(db.Integer)
+    prolific_id = db.Column(db.String, db.ForeignKey('subjects.prolific_id'))
+
+
+class Felicity(db.Model):
+    __tablename__ = 'felicities'
+    id = db.Column(db.Integer, primary_key=True)
+    block1_trial_num = db.Column(db.Integer)
+    block2_trial_num = db.Column(db.Integer)
+    fel_scenario = db.Column(db.Integer)
+    fel_belief_type = db.Column(db.VARCHAR(3))
+    fel_ascription_type = db.Column(db.VARCHAR(10))  # "knows" or "thinks"
+    fel_target = db.Column(db.VARCHAR(400))
+    felicity_rating = db.Column(db.Integer)
     prolific_id = db.Column(db.String, db.ForeignKey('subjects.prolific_id'))
 

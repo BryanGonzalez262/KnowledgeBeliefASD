@@ -23,8 +23,6 @@ def randomize_trials():
         'target_onset': None,
         'response_onset': None,
         'response_key': None,
-        'sound weird': None,
-        'sound_normal': None,
     }).sample(frac=1)
     # balance balance acription types and shuffly
     s1['ascription'] = np.repeat(ascrip_types, len(vig_numbers) / len(ascrip_types))
@@ -69,4 +67,12 @@ def randomize_trials():
     s3a.target = pr_targ
     s3a.crrct_answer = ca
     s4 = s3a.append(s3, ignore_index=True)
-    return  s4
+    xx = s4.loc[s4.trial_type == 'test'].sample(frac=1)
+    fel = pd.DataFrame({'b2_trial_num': range(1, 13),
+                        'b1_trial_num': [int(x) for x in xx.trial_num.values],
+                        'fel_scenario': [int(x) for x in xx.scenario.values],
+                        'fel_belief_type': xx.belief.values,
+                        'fel_ascription_type': xx.ascription.values,  # "knows" or "thinks"
+                        'felicity_rating': None})
+
+    return s4, fel

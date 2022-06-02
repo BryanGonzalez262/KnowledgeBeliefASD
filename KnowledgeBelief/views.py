@@ -1,5 +1,5 @@
 from . import app, db
-from .models import Subject, Trial, Demographic, AutismScore
+from .models import Subject, Trial, Felicity, AutismScore
 from .utils import randomize_trials
 import numpy as np
 import pandas as pd
@@ -10,21 +10,29 @@ from datetime import datetime
 from ast import literal_eval
 
 
-@app.route('/')
-def index():  # put application's code here
-    # on remote set these
-    # prolific_id = request.args.get('PROLIFIC_PID'),
-    # flask_subId = request.args.get('flasker')
+json_fp = 'KnowledgeBelief/static/stim_data/KB_stim.json'
+with open(json_fp, 'r') as j:
+    stim = json.loads(j.read())
 
-    return redirect(url_for('welcome', PROLIFIC_PID=np.random.random(),
-                            SESSION_ID=np.random.random(), trial=0))
+n_trials = 2
+
+
+@app.route('/')
+def index():
+    # replace random with comments on prolific
+    prolific_id = np.random.random()  # request.args.get('PROLIFIC_PID')
+    session_id = np.random.random()  # request.args.get('SESSION_ID')
+
+    return redirect(url_for('welcome', PROLIFIC_PID=prolific_id, SESSION_ID=session_id,
+                            tf_practice='NotDone', story_practice='NotDone', trial=0))
 
 
 @app.route('/welcome', methods=['GET', 'POST'])
 def welcome():
-    msg = "Welcome!"
+    msg1 = "Welcome!"
+    msg2 = "Press the space bar to enter..."
     next = "/consent"
-    return render_template('welcome.html', msg=msg, next=next)
+    return render_template('message.html', msg1=msg1, msg2=msg2, next=next)
 
 
 @app.route('/consent', methods=['GET', 'POST'])
@@ -37,7 +45,7 @@ def consent():
 
 @app.route('/new_subject')
 def new_subject():
-    sub_trls = randomize_trials()
+    sub_trls, felicity = randomize_trials()
     print('You have a new Subject')
     ua = request.user_agent
     subj = Subject(prolific_id=request.args.get('PROLIFIC_PID'),
@@ -48,7 +56,8 @@ def new_subject():
                    operating_sys=ua.platform,
                    operating_sys_lang=ua.language,
                    GMT_timestamp=datetime.utcnow(),
-                   completion=False)
+                   block1_complete=False,
+                   block2_complete=False)
     db.session.add(subj)
 
 
@@ -57,9 +66,15 @@ def new_subject():
                         scenario=trl.scenario, belief_type=trl.belief, ascription_type=trl.ascription,
                         target=trl.target, correct_answer=trl.crrct_answer, prolific_id=subj.prolific_id))
 
+        if i <=11:
+            db.session.add(Felicity(block2_trial_num=felicity.b2_trial_num[i], block1_trial_num=felicity.b1_trial_num[i],
+                                    fel_scenario=felicity.fel_scenario[i], fel_belief_type=felicity.fel_belief_type[i],
+                                    fel_ascription_type=felicity.fel_ascription_type[i], prolific_id=subj.prolific_id))
+
     db.session.commit()
-    return redirect(url_for('instructions', PROLIFIC_PID=request.args.get('PROLIFIC_PID'),
-                            SESSION_ID=request.args.get('SESSION_ID'), trial=0))
+    return redirect(url_for('instructions',
+                            PROLIFIC_PID=request.args.get('PROLIFIC_PID'), SESSION_ID=request.args.get('SESSION_ID'),
+                            tf_practice='NotDone', story_practice='NotDone', trial=0))
 
 
 @app.route('/instructions', methods=['GET', 'POST'])
@@ -77,7 +92,11 @@ def tf_practice():
         if tdat is not None:
             return render_template('TF_practice.html', prompt=tdat.prompt)
         else:
-            return redirect(url_for('task_instruct', PROLIFIC_PID=request.args.get('PROLIFIC_PID'), SESSION_ID=request.args.get('SESSION_ID'), trial=0, tf_practice='Done'))
+            return redirect(url_for('task_instruct',
+                                    PROLIFIC_PID=request.args.get('PROLIFIC_PID'),
+                                    SESSION_ID=request.args.get('SESSION_ID'), tf_practice='Done',
+                                    story_practice='NotDone', trial=0))
+
     if request.method == 'POST':
         sub_dat = request.get_json()
         tdat = Trial.query.filter_by(prolific_id=sub_dat['PROLIFIC_PID'], trial_type='tf_practice', response_key=None).first()
@@ -94,13 +113,7 @@ def tf_practice():
 @app.route('/fixation', methods=['GET', 'POST'])
 def fixation():
     if request.method == 'GET':
-        if int(request.args.get('trial')) == 0:
-            next = "/tf_practice"
-            if request.args.get('tf_practice') == 'Done':
-                next = "/story_practice"
-        else:
-            next = "/next_trial"
-        return render_template('fixation.html', next=next)
+        return render_template('fixation.html')
 
 
 @app.route('/task_instruct', methods=["GET", "POST"])
@@ -110,22 +123,22 @@ def task_instruct():
 
 @app.route('/next_trial')
 def next_trial():
-    if int(request.args.get('trial')) == 0:
-        message = "Okay, one more practice example"
-        render_template('welcome.html', msg=message, next="/story_practice")
+    msg2 = "Press the space bar to continue, then place your fingers on the [f] and [j] keys.... "
+    if request.args.get('story_practice') == 'Done':
+        msg1 = "Get ready for the next story.."
+        return render_template('welcome.html', msg1=msg1, msg2=msg2, next="/story")
 
     else:
-        message = "Get ready for the next story.."
-        return render_template('welcome.html', msg=message, next="/story")
-
-            #redirect(url_for('invest', PROLIFIC_PID=request.args.get('PROLIFIC_PID'), SESSION_ID=request.args.get('SESSION_ID'),
-            #                trial=int(int(request.args.get('trial')) + 1)))
-
-
-# Opening JSON file
-json_fp = 'KnowledgeBelief/static/stim_data/KB_stim.json'
-with open(json_fp, 'r') as j:
-    stim = json.loads(j.read())
+        tdat = Trial.query.filter_by(prolific_id=request.args.get('PROLIFIC_PID'), trial_type='practice',
+                                     response_key=None).first()
+        if "story_practice" in request.referrer:
+            if tdat is None:
+                return redirect(url_for('next_trial', PROLIFIC_PID=request.args.get('PROLIFIC_PID'),
+                                    SESSION_ID=request.args.get('SESSION_ID'), tf_practice='Done',
+                                    story_practice='Done', trial=int(int(request.args.get('trial')) + 1)))
+            else:
+                msg1 = "Okay, one more practice example"
+                return render_template('welcome.html', msg1=msg1, msg2=msg2, next="/story_practice")
 
 
 @app.route('/story_practice', methods=['GET', 'POST'])
@@ -139,8 +152,8 @@ def story_practice():
                                    correct=tdat.correct_answer, trl=999)
         else:
             return redirect(url_for('next_trial', PROLIFIC_PID=request.args.get('PROLIFIC_PID'),
-                                    SESSION_ID=request.args.get('SESSION_ID'),
-                                    trial=int(int(request.args.get('trial')) + 1)))
+                                    SESSION_ID=request.args.get('SESSION_ID'), tf_practice='Done',
+                                    story_practice='Done', trial=int(int(request.args.get('trial')) + 1)))
 
     if request.method == 'POST':
         sub_dat = request.get_json()
