@@ -23,7 +23,7 @@
             traditional: true,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            success: function(){ setTimeout(function(){window.location.pathname = "/fixation"; console.log('data sent from client')}, 1000)}
+            success: function(){ setTimeout(function(){window.location.pathname = "/next_trial"; console.log('data sent from client')}, 1000)}
         })
     }
 
@@ -45,9 +45,9 @@
 
 
 
-    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp text-center" style="font-size: xx-large;"> {{ s2 }}</p>')}, 4500 )
-    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp text-center" style="font-size: xx-large;"> {{ s3 }}</p>')}, 9000 )
-    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp text-center" style="font-size: xx-large;"> {{ s4 }}</p>')}, 13500 )
+    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp animate__faster text-center " style="font-size: xx-large;"> {{ s2 }}</p>')}, 4500 )
+    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp animate__faster text-center " style="font-size: xx-large;"> {{ s3 }}</p>')}, 9000 )
+    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp animate__faster text-center " style="font-size: xx-large;"> {{ s4 }}</p>')}, 13500 )
     setTimeout(function(){$('#story p').remove();}, 18000)
     setTimeout(function(){$('#story').append('<p class="text-center" style="font-size: xxx-large;"> True or False..</p>');}, 18600)
     setTimeout(function(){
