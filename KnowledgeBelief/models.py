@@ -16,10 +16,42 @@ class Subject(db.Model):
     block1_complete = db.Column(db.Boolean)
     block2_complete = db.Column(db.Boolean)
     completion_code = db.Column(db.VARCHAR(80))
+    practices = db.relationship('Practice', backref='subject', lazy='dynamic', cascade="all, delete-orphan")
     trials = db.relationship('Trial', backref='subject', lazy='dynamic', cascade="all, delete-orphan")
     felicity = db.relationship('Felicity', backref='subject', lazy='dynamic', cascade="all, delete-orphan")
     demographics = db.relationship('Demographic', backref='subject', lazy='dynamic', cascade="all, delete-orphan")
 
+
+class Practice(db.Model):
+    __tablename__ = 'practices'
+    id = db.Column(db.Integer, primary_key=True)
+    trial_num = db.Column(db.Integer)
+    trial_type = db.Column(db.VARCHAR(50))
+    prompt = db.Column(db.VARCHAR(400))
+    correct = db.Column(db.Boolean)
+    target = db.Column(db.VARCHAR(400))
+    correct_answer = db.Column(db.VARCHAR(2))
+    response_key = db.Column(db.VARCHAR(20))
+    target_onset = db.Column(db.DateTime)
+    response_onset = db.Column(db.DateTime)
+    prolific_id = db.Column(db.String, db.ForeignKey('subjects.prolific_id'))
+
+
+
+class Trial(db.Model):
+    __tablename__ = 'trials'
+    id = db.Column(db.Integer, primary_key=True)
+    trial_num = db.Column(db.Integer, unique=False, index=True)
+    correct = db.Column(db.Boolean)
+    trial_type = db.Column(db.VARCHAR(10))
+    scenario = db.Column(db.Integer)
+    belief_type = db.Column(db.VARCHAR(3))  # True Belief (TB), False Belief (FB), No Belief/ignorance (IG)
+    ascription_type = db.Column(db.VARCHAR(10))  # "knows" or "thinks"
+    correct_answer = db.Column(db.VARCHAR(2))
+    target_onset = db.Column(db.DateTime)
+    response_onset = db.Column(db.DateTime)
+    response_key = db.Column(db.VARCHAR(20))
+    prolific_id = db.Column(db.String, db.ForeignKey('subjects.prolific_id'))
 
 
 class Demographic(db.Model):
@@ -45,23 +77,6 @@ class AutismScore(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
 
-
-class Trial(db.Model):
-    __tablename__ = 'trials'
-    id = db.Column(db.Integer, primary_key=True)
-    trial_num = db.Column(db.Integer, unique=False, index=True)
-    prompt = db.Column(db.VARCHAR(400))
-    correct = db.Column(db.Boolean)
-    trial_type = db.Column(db.VARCHAR(10))
-    scenario = db.Column(db.Integer)
-    belief_type = db.Column(db.VARCHAR(3))  # True Belief (TB), False Belief (FB), No Belief/ignorance (IG)
-    ascription_type = db.Column(db.VARCHAR(10))  # "knows" or "thinks"
-    target = db.Column(db.VARCHAR(400))
-    correct_answer = db.Column(db.VARCHAR(2))
-    target_onset = db.Column(db.DateTime)
-    response_onset = db.Column(db.DateTime)
-    response_key = db.Column(db.VARCHAR(20))
-    prolific_id = db.Column(db.String, db.ForeignKey('subjects.prolific_id'))
 
 
 class Felicity(db.Model):
