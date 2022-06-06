@@ -10,10 +10,12 @@
         PROLIFIC_PID: new URLSearchParams(window.location.search).get('PROLIFIC_PID'),
         SESSION_ID: new URLSearchParams(window.location.search).get('SESSION_ID'),
         trl: {{ trl }},
+        trl_type: "{{ ttype }}",
         keys_pressed: [],
         rt: [],
         target_onset: '',
     };
+
 
     function submit_tdat(){
         $.ajax({
@@ -23,22 +25,21 @@
             traditional: true,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            success: function(){ setTimeout(function(){window.location.pathname = "/next_trial"; console.log('data sent from client')}, 1000)}
+            success: function(){
+                setTimeout(function(){window.location.pathname = "/next_trial"; console.log('data sent from client')
+                }, 1000)}
         })
     }
 
     function subjectResponse(e){
         response.keys_pressed.push(e.key)
         response.rt.push(Date.now())
-        if (e.key === correct){
-            $('#story p').text("Correct");
-            submit_tdat();
-        } else {
-            $('#story p').text("That's not right! Please read more carefully!")
-            submit_tdat();
+        submit_tdat()
+        if (new URLSearchParams(window.location.search).get('exp_state') === "TRIAL_PRACTICE"){
+            if (e.key === correct){$('#story p').text("Correct");
+            }else { $('#story p').text("That's not right! Please read more carefully!")};
         }
-
-    }
+    };
 
     var prompt = "{{ prompt }}"
     var correct = "{{ correct }}"
