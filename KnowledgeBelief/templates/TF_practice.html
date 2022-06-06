@@ -9,6 +9,7 @@
     var response = {
         PROLIFIC_PID: new URLSearchParams(window.location.search).get('PROLIFIC_PID'),
         SESSION_ID: new URLSearchParams(window.location.search).get('SESSION_ID'),
+        trl: {{ trl }},
         keys_pressed: [],
         rt: [],
         target_onset: Date.now(),
@@ -22,7 +23,10 @@
             traditional: true,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            success: function(){ setTimeout(function(){window.location.pathname = "/fixation"; console.log('data sent from client')}, 1000)}
+            success: function(){ setTimeout(function(){
+                //jQuery.query.set("trial", '{{ trl }}')
+                ///new URL(window.location.href).searchParams.set("trial", "100")
+                window.location.pathname = "/fixation"; console.log('data sent from client')}, 1000)}
         })
     }
 
