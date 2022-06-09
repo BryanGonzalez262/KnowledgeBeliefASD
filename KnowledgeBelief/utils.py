@@ -94,3 +94,24 @@ def randomize_trials():
     trls = make_trials()
     fels = make_felicity(trls)
     return prac, trls, fels
+
+
+# Felicity Practice
+fel_p1 = ["John owed a lot of money to a bartender at a local bar.",
+          "One day he went into the bar to talk to the bartender about his debt.",
+          "While John was there, he accidentally slipped on some ice near the counter and fell, breaking his arm and wrist.",
+          "Feeling bad for him, the bartender told him not to worry about the money he owed."]
+fel_p1_target = "John went into the bar where the guy works and broke some bones."
+fel_p1_expln = "Even though it is true, it should sound weird to say that John broke some bones because it seems to imply that he settled his debt by breaking someone else's bones, not his own."
+
+fp1 = {'story': fel_p1, 'target': fel_p1_target, 'explain':fel_p1_expln, 'correct': [1, 2, 3]}
+
+fel_p2 = ["Carrie needed a hammer to hang a painting she just bought,",
+          "so she went over to David's house and borrowed a hammer from him.", ".", "."]
+
+fel_p2_target = "Carrie didn't borrow a hammer from David."
+fel_p2_expln = "Even though it is false, this statement sound completely normal. Saying this sentence doesn't imply anything strange at all - it is just straightforwardly false. This statement sounded normal but was false."
+
+fp2 = {'story': fel_p2, 'target': fel_p2_target, 'explain': fel_p2_expln, 'correct': [5, 6, 7]}
+
+fel_practice = {1: fp1, 2: fp2}

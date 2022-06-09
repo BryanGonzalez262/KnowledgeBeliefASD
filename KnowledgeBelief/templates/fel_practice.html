@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+{% block js %}
+    <script>
+
+
+
+
+    // store response
+    var response = {
+        PROLIFIC_PID: new URLSearchParams(window.location.search).get('PROLIFIC_PID'),
+        SESSION_ID: new URLSearchParams(window.location.search).get('SESSION_ID'),
+        trl: 999,
+        trl_type: "felicty_trial",
+        rating: [],
+    };
+    var space_count = 0
+    /*
+    function submit_tdat(){
+        $.ajax({
+            type: "POST",
+            url:window.location.pathname,
+            data: JSON.stringify(response),
+            traditional: true,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(){
+                setTimeout(function(){window.location.pathname = "/next_trial"; console.log('data sent from client')
+                }, 1000)}
+        })
+    }
+    */
+
+    function explainAnswer(){
+        //$("#fel_rating").css("display", "none");
+        if (({{ correct|safe }}).includes(Number($('#fel_rating input:radio:checked').val()))){
+            $('#continue_dir').prepend('<p class="text-center" style="font-size:xx-large;">Right!<br> {{ explain }} <br>So that statement sounded weird.</p>')
+        }else{$('#continue_dir').prepend('<p class="text-center" style="font-size:xx-large;">Hmm... that is not quite right.<br> {{ explain }} <br>So that statement sounded weird.</p>')
+}
+        //if (Number($('#fel_rating input:radio:checked').val()) >= 4 ){
+        //    $('#continue_dir').prepend('<p class="text-center" style="font-size:xx-large;">Hmm... that is not quite right.<br> {{ explain }} <br>So that statement sounded weird.</p>')
+        //} else {
+        //    $('#continue_dir').prepend('<p class="text-center" style="font-size:xx-large;">Right!<br> {{ explain }} <br>So that statement sounded weird.</p>')
+        //}
+        document.removeEventListener("keydown", subjectResponse)
+        document.addEventListener("keydown", function(e){
+            if(space_count > 1){window.location.pathname = "/next_trial"}
+        } )
+    }
+
+
+    function subjectResponse(e){
+        if (e.key === " "){
+            if ($('#fel_rating input:radio:checked').val() === undefined){
+                console.log('nothing picked')
+                $('#rating_group').toggleClass("animated tada")
+                setTimeout(function(){$('#rating_group').toggleClass("animated tada")}, 1000)
+            }else{
+                document.removeEventListener("keydown", subjectResponse)
+                space_count++
+                response.rating =$('#fel_rating input:radio:checked').val();
+                explainAnswer()
+            }
+        }
+    };
+
+
+    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp animate__faster text-center " style="font-size: xx-large;"> {{ s2 }}</p>')}, 4500 )
+    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp animate__faster text-center " style="font-size: xx-large;"> {{ s3 }}</p>')}, 9000 )
+    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp animate__faster text-center " style="font-size: xx-large;"> {{ s4 }}</p>')}, 13500 )
+    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp animate__faster text-center " style="font-size: xx-large;">Suppose someone says:<br><span style="font-style:italic;color:blue; font-size:xxx-large;"> {{ target }} </span> </p>');
+        $("#rating_group").css("opacity", 1);
+        $(".btn-group input").removeAttr('disabled');
+        document.body.addEventListener("keydown", subjectResponse);
+        }, 19600 )
+
+
+    $(".btn-group input").attr('disabled','disabled');
+    </script>
+{% endblock %}
+
+{% block stage %}
+    <div class="row justify-content-center align-self-center">
+        <div class="col-lg-11" id="story">
+            <p class=" animated bounceInUp text-center" style="font-size: xx-large;"> {{ s1 }}</p>
+        </div>
+    </div>
+    <div class="row justify-content-center align-self-center" id="rating_group" style="align-items: center; opacity: 0;">
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="fel_rating">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" value="1" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio1">Sounds very weird</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" value="2" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio2"></label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" value="3" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio3"></label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" value="4" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio4">In between</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio5" value="5" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio5"></label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio6" value="6" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio6"></label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio7" value="7" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio7">Sounds very normal</label>
+        </div>
+
+        <div class="row justify-content-center align-self-center" id="continue_dir">
+            <p class="text-center" style="font-size: large; font-style: italic;">After making your selection, press the space bar to continue</p>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+</html>

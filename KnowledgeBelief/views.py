@@ -1,6 +1,6 @@
 from . import app, db
 from .models import Subject, Trial, Felicity, Practice
-from .utils import randomize_trials
+from .utils import randomize_trials, fel_practice
 import numpy as np
 import pandas as pd
 import random
@@ -14,7 +14,7 @@ json_fp = 'KnowledgeBelief/static/stim_data/KB_stim.json'
 with open(json_fp, 'r') as j:
     stim = json.loads(j.read())
 
-n_trials = 2
+n_trials = 1
 n_fel_trials = 2
 
 
@@ -170,7 +170,7 @@ def next_trial():
                                     SESSION_ID=request.args.get('SESSION_ID'), exp_state="ASD", trial=1))
 
     elif request.args.get('exp_state') == "FELICITY_PRACTICE":
-        if t == 11: # CHANGE THIS AFTER FIGURING OUT FELICITAY PRACTIVE (switch the states)
+        if t == 3 :  # CHANGE THIS AFTER FIGURING OUT FELICITAY PRACTIVE (switch the states)
             state = "FELICITY_TRIAL"
             trl = 1
         else:
@@ -205,7 +205,7 @@ msgs["TF_TRIAL"][2] = "Press the space bar to continue, then place your fingers 
 msgs["TF_TRIAL"]['next'] = "/story"
 msgs["FELICITY_PRACTICE"][1] = "Great Job!"
 msgs["FELICITY_PRACTICE"][2] = "Press the space bar to continue.... "
-msgs["FELICITY_PRACTICE"]['next'] = "/felicity_instr"
+msgs["FELICITY_PRACTICE"]['next'] = {1: "/felicity_instr", 2:"/fel_story"}
 msgs["FELICITY_TRIAL"][1] = "Okay, get ready for the next story."
 msgs["FELICITY_TRIAL"][2] = "Press the space bar to continue, then place your fingers on the [f] and [j] keys.... "
 msgs["FELICITY_TRIAL"]['next'] = "/fel_story"
@@ -213,10 +213,14 @@ msgs["FELICITY_TRIAL"]['next'] = "/fel_story"
 
 @app.route('/ready', methods=['GET', 'POST'])
 def ready():
+    if request.args.get('exp_state') != "FELICITY_PRACTICE":
+        next=msgs[request.args.get('exp_state')]['next']
+    else:
+        next= msgs[request.args.get('exp_state')]['next'][int(request.args.get('trial'))]
 
     return render_template('message.html', msg1=msgs[request.args.get('exp_state')][1],
                            msg2=msgs[request.args.get('exp_state')][2],
-                           next=msgs[request.args.get('exp_state')]['next'])
+                           next=next)
 
 
 @app.route('/story', methods=['GET', 'POST'])
@@ -266,7 +270,7 @@ def story():
 
 @app.route('/felicity_instr')
 def felicity_instr():
-    title = "Great Job! Phase 2 Instructions"
+    title = "Phase 2 Instructions"
     stim = ["In the next part of the experiment you will be asked to judge whether things that people say sound weird or normal.",
             "Here's an example of what we mean.<br>Suppose that your friend has three apples in front of him and after looking at them, he says, \"I have an apple in front of me.\"  <br>That's a weird thing to say.  It's true that there is a apple in front of him, but it sounds weird because there's not just one apple, there are actually three.  <br>A more normal thing to say would be \"I have three apples in front of me.\"",
             "Here's another example.<br> Suppose that Mary got married and then had a baby two years later. Somebody then says, \"My friend Mary had a baby and got married.\"<br> Again, this is technically true because she did do both of those things.  But, it sounds weird because it seems to imply that she had the baby first and got married second, but she actually got married first and had the baby later. <br> A more normal thing to say would be \"Mary got married and had a baby.\"",
@@ -278,17 +282,25 @@ def felicity_instr():
     return render_template('instruct.html', title=title, stim=stim, next=next)
 
 
-
 @app.route('/fel_story', methods=['GET', 'POST'])
 def fel_story():
     if request.method == 'GET':
-        tdat = Felicity.query.filter_by(prolific_id=request.args.get('PROLIFIC_PID'),
-                                         block2_trial_num=int(request.args.get('trial'))).first()
-        story = stim['test'][str(tdat.fel_scenario)]['belief_manip'][tdat.fel_belief_type]
-        ascrip = stim['test'][str(tdat.fel_scenario)]['ascription'][tdat.fel_ascription_type]
-        return render_template('fel_story.html', s1=story[0], s2=story[1], s3=story[2], s4=story[3],
+        if request.args.get('exp_state') == "FELICITY_TRIAL":
+            tdat = Felicity.query.filter_by(prolific_id=request.args.get('PROLIFIC_PID'),
+                                            block2_trial_num=int(request.args.get('trial'))).first()
+            story = stim['test'][str(tdat.fel_scenario)]['belief_manip'][tdat.fel_belief_type]
+            ascrip = stim['test'][str(tdat.fel_scenario)]['ascription'][tdat.fel_ascription_type]
+            return render_template('fel_story.html', s1=story[0], s2=story[1], s3=story[2], s4=story[3],
                                    target=ascrip['target'], correct=ascrip['crrct_answr'],
                                    trl=int(request.args.get('trial')), ttype='test')
+
+        elif request.args.get('exp_state') == "FELICITY_PRACTICE":
+            story = fel_practice[int(request.args.get('trial'))]['story']
+            target = fel_practice[int(request.args.get('trial'))]['target']
+            explain = fel_practice[int(request.args.get('trial'))]['explain']
+            correct = fel_practice[int(request.args.get('trial'))]['correct']
+            return render_template("fel_practice.html", s1=story[0], s2=story[1], s3=story[2], s4=story[3],
+                                   target=target, explain=explain, correct=json.dumps(correct))
 
     if request.method == 'POST':
         sub_dat = request.get_json()
