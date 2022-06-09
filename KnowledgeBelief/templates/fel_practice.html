@@ -33,16 +33,10 @@
     */
 
     function explainAnswer(){
-        //$("#fel_rating").css("display", "none");
         if (({{ correct|safe }}).includes(Number($('#fel_rating input:radio:checked').val()))){
-            $('#continue_dir').prepend('<p class="text-center" style="font-size:xx-large;">Right!<br> {{ explain }} <br>So that statement sounded weird.</p>')
-        }else{$('#continue_dir').prepend('<p class="text-center" style="font-size:xx-large;">Hmm... that is not quite right.<br> {{ explain }} <br>So that statement sounded weird.</p>')
-}
-        //if (Number($('#fel_rating input:radio:checked').val()) >= 4 ){
-        //    $('#continue_dir').prepend('<p class="text-center" style="font-size:xx-large;">Hmm... that is not quite right.<br> {{ explain }} <br>So that statement sounded weird.</p>')
-        //} else {
-        //    $('#continue_dir').prepend('<p class="text-center" style="font-size:xx-large;">Right!<br> {{ explain }} <br>So that statement sounded weird.</p>')
-        //}
+            $('#continue_dir').prepend('<p class="text-center" style="font-size:xx-large;">Right!<br> {{ explain }}</p>')
+        }else{$('#continue_dir').prepend('<p class="text-center" style="font-size:xx-large;">Hmm... that is not quite right.<br> {{ explain }} </p>')
+        }
         document.removeEventListener("keydown", subjectResponse)
         document.addEventListener("keydown", function(e){
             if(space_count > 1){window.location.pathname = "/next_trial"}

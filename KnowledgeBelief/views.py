@@ -192,6 +192,9 @@ def next_trial():
             trl = t
         return redirect(url_for('ready', PROLIFIC_PID=request.args.get('PROLIFIC_PID'),
                                 SESSION_ID=request.args.get('SESSION_ID'), exp_state=state, trial=trl))
+    elif request.args.get('exp_state') == "AQ":
+        return redirect(url_for('welcome', PROLIFIC_PID=request.args.get('PROLIFIC_PID'),
+                                SESSION_ID=request.args.get('SESSION_ID')))
 
 
 msgs = {e_state: {var: None for var in [1, 2, 'next']} for e_state in ['TRIAL_PRACTICE', 'TF_TRIAL',
@@ -212,7 +215,6 @@ msgs["FELICITY_TRIAL"]['next'] = "/fel_story"
 msgs["AQ"][1] = "Great Job! - Now you will answer some short questions about yourself."
 msgs["AQ"][2] = "Press the space bar to continue.."
 msgs["AQ"]["next"] = "/aq_10"
-
 
 
 @app.route('/ready', methods=['GET', 'POST'])
@@ -344,7 +346,7 @@ def aq_10():
                             AQ_rating_9=s_dat['AQ_rating_9'],
                             AQ_rating_10=s_dat['AQ_rating_10'],
                             prolific_id=s_dat['prolific_id'])
-        subj = Subject.query.filter_by(prolific_id=t_dat.prolific_id).first()
+        subj = Subject.query.filter_by(prolific_id=s_dat['prolific_id']).first()
         subj.block3_complete = True
         db.session.add(t_dat, subj)
         db.session.commit()
