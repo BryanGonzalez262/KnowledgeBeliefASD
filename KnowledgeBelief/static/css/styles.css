@@ -3,3 +3,8 @@
     width: 100vw;
     background: rgb(211, 231, 231);
 }
+
+label.btn.btn-outline-primary{
+    width: inherit;
+    font-size: 1.5em;
+}
