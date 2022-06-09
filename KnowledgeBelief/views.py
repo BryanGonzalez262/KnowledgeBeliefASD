@@ -90,7 +90,8 @@ def instructions():
         stim = ["In this study, we'd like you to make judgments about whether certain statements are true or false.",
                 "To indicate that something is false, you'll press the <b>[f]</b> key.",
                 "To indicate that something is true, please press the <b>[j]</b> key.",
-                'To get you used to this, you will first go through a warm-up phase. <br> On these trials, press <b>f</b> if you see the word "False" <br> and press <b>j</b> if you see the word "True."']
+                'To get you used to this, you will first go through a warm-up phase. <br> On these trials, press <b>f</b> if you see the word "False" <br> and press <b>j</b> if you see the word "True."',
+                "Click Next to begin and then place your fingers on the [<b>f</b>] and [<b>j</b>] keys."]
         next = "/tf_practice"
         return render_template('instruct.html', title=title, stim=stim, next=next)
     else:
@@ -175,7 +176,7 @@ msgs = {e_state: {var: None for var in [1, 2, 'next']} for e_state in ['TRIAL_PR
 msgs["TRIAL_PRACTICE"][1] = "Okay, one more practice example"
 msgs["TRIAL_PRACTICE"][2] = "Press the space bar to continue, then place your fingers on the [f] and [j] keys.... "
 msgs["TRIAL_PRACTICE"]['next'] = "/story"
-msgs["TF_TRIAL"][1] = "Okay, get ready for the next story." #"Okay, get ready for story #" + request.args.get('trial') + "."
+msgs["TF_TRIAL"][1] = "Okay, get ready for the next story."
 msgs["TF_TRIAL"][2] = "Press the space bar to continue, then place your fingers on the [f] and [j] keys.... "
 msgs["TF_TRIAL"]['next'] = "/story"
 msgs["FELICITY_PRACTICE"][1] = "Great Job!"
@@ -235,6 +236,7 @@ def story():
 
         return make_response("200")
 
+
 @app.route('/felicity_instr')
 def felicity_instr():
     title = "Great Job! Phase 2 Instructions"
@@ -243,9 +245,36 @@ def felicity_instr():
             "Here's another example.<br> Suppose that Mary got married and then had a baby two years later. Somebody then says, \"My friend Mary had a baby and got married.\"<br> Again, this is technically true because she did do both of those things.  But, it sounds weird because it seems to imply that she had the baby first and got married second, but she actually got married first and had the baby later. <br> A more normal thing to say would be \"Mary got married and had a baby.\"",
             "Here's one last example.<br> Suppose Bruce accidentally hit his friend's hand with a hammer during a construction project.  Later somebody describes what happens by saying, \"Bruce broke a finger.\" <br> Again, this might be considered weird to say, because it seems to imply that Bruce broke his own finger, but he actually broke someone else's finger.  However, despite sounding weird, this sentence is technically true.",
             "In this part of the experiment you will read a number of stories, and after each story we will give you a statement that somebody made about the story.  <br>Your job is to judge whether the statement sounds weird or normal.",
-            "Please try to remember that whether or not a sentence is true or false is a completely separate question from whether or not the sentence sounds normal or weird. <br>Some true sentences can sound weird, and some false sentences can sound normal.<br> Before starting, we want to make sure you understood the instructions by giving you some example questions."]
-    next="/story"
+            "Please try to remember that whether or not a sentence is true or false is a completely separate question from whether or not the sentence sounds normal or weird. <br>Some true sentences can sound weird, and some false sentences can sound normal.<br>",
+            " Before starting, we want to make sure you understood the instructions by giving you some example questions."]
+    next="/fel_story"
     return render_template('instruct.html', title=title, stim=stim, next=next)
+
+
+
+@app.route('/fel_story', methods=['GET', 'POST'])
+def fel_story():
+    if request.method == 'GET':
+        tdat = Felicity.query.filter_by(prolific_id=request.args.get('PROLIFIC_PID'),
+                                         block2_trial_num=int(request.args.get('trial'))).first()
+        story = stim['test'][str(tdat.fel_scenario)]['belief_manip'][tdat.fel_belief_type]
+        ascrip = stim['test'][str(tdat.fel_scenario)]['ascription'][tdat.fel_ascription_type]
+        return render_template('fel_story.html', s1=story[0], s2=story[1], s3=story[2], s4=story[3],
+                                   target=ascrip['target'], correct=ascrip['crrct_answr'],
+                                   trl=int(request.args.get('trial')), ttype='test')
+
+    if request.method == 'POST':
+        sub_dat = request.get_json()
+        tdat = Felicity.query.filter_by(prolific_id=sub_dat['PROLIFIC_PID'],
+                                        block2_trial_num=int(sub_dat['trial'])).first()
+        tdat.felicity_rating = int(sub_dat['rating'])
+        db.session.add(tdat)
+        db.session.commit()
+
+        return make_response("200")
+
+
+
 
 if __name__ == '__main__':
     app.run()

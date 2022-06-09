@@ -13,7 +13,7 @@
         <div class="carousel-indicators">
             {% for m in stim %}
                 {% if loop.index0 == 0 %}
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 {% else %}
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ loop.index0 }}" aria-label="Slide {{ loop.index0 + 1 }}"></button>
                 {% endif %}
@@ -44,10 +44,13 @@
                 {% endif %}
             {% endfor %}
 
+            <script>
+                nxt = "{{ next }}"
+                $(".carousel-item p").eq(-1).append('<br><a href="#" type="button" id="start_bttn" class="btn btn-primary btn-lg" style="font-size: xx-large;" onclick="window.location.pathname=nxt">Next</a>')
+            </script>
 
 
-
-            <div class="carousel-item" style="font-family: monospace;">
+            <!--div class="carousel-item" style="font-family: monospace;">
                 <div class="row justify-content-center" style="height: 75vh;">
                     <div class="col-sm-9 text-center" style="align-self: center;">
                         <p style="font-size: xxx-large;">Click Next to begin and then place your fingers on the [f] and [j] keys.</p>
@@ -58,7 +61,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div -->
 
         </div>
 
@@ -66,7 +69,7 @@
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" onclick="endInstr()">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>

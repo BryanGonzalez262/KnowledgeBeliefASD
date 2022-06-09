@@ -87,7 +87,6 @@ class Felicity(db.Model):
     fel_scenario = db.Column(db.Integer)
     fel_belief_type = db.Column(db.VARCHAR(3))
     fel_ascription_type = db.Column(db.VARCHAR(10))  # "knows" or "thinks"
-    fel_target = db.Column(db.VARCHAR(400))
     felicity_rating = db.Column(db.Integer)
     prolific_id = db.Column(db.String, db.ForeignKey('subjects.prolific_id'))
 
