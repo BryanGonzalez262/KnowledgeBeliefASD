@@ -53,7 +53,7 @@
     setTimeout(function(){$('#story').append('<p class="text-center" style="font-size: xxx-large;"> True or False..</p>');}, 18600)
     setTimeout(function(){
         response.target_onset = Date.now();
-        $('#story p').text("{{ target|safe }}");
+        $('#story p').text("{{ target }}");
         document.body.addEventListener("keydown", subjectResponse);
         }, 19600)
 

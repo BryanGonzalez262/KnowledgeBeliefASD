@@ -15,6 +15,7 @@ class Subject(db.Model):
     GMT_timestamp = db.Column(db.DateTime)
     block1_complete = db.Column(db.Boolean)
     block2_complete = db.Column(db.Boolean)
+    block3_complete = db.Column(db.Boolean)
     completion_code = db.Column(db.VARCHAR(80))
     practices = db.relationship('Practice', backref='subject', lazy='dynamic', cascade="all, delete-orphan")
     trials = db.relationship('Trial', backref='subject', lazy='dynamic', cascade="all, delete-orphan")

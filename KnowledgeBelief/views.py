@@ -15,6 +15,7 @@ with open(json_fp, 'r') as j:
     stim = json.loads(j.read())
 
 n_trials = 2
+n_fel_trials = 2
 
 
 @app.route('/')
@@ -57,7 +58,8 @@ def new_subject():
                    operating_sys_lang=ua.language,
                    GMT_timestamp=datetime.utcnow(),
                    block1_complete=False,
-                   block2_complete=False)
+                   block2_complete=False,
+                   block3_complete=False)
     db.session.add(subj)
 
 
@@ -155,6 +157,28 @@ def next_trial():
             return redirect(url_for('ready', PROLIFIC_PID=request.args.get('PROLIFIC_PID'),
                                     SESSION_ID=request.args.get('SESSION_ID'), exp_state="FELICITY_PRACTICE", trial=1))
 
+    elif request.args.get('exp_state') == "FELICITY_TRIAL":
+        if t <= n_fel_trials:
+            return redirect(url_for('ready', PROLIFIC_PID=request.args.get('PROLIFIC_PID'),
+                                    SESSION_ID=request.args.get('SESSION_ID'), exp_state="FELICITY_TRIAL", trial=t))
+        else:
+            subj = Subject.query.filter_by(prolific_id=request.args.get('PROLIFIC_PID')).first()
+            subj.block2_complete = True
+            db.session.add(subj)
+            db.session.commit()
+            return redirect(url_for('ready', PROLIFIC_PID=request.args.get('PROLIFIC_PID'),
+                                    SESSION_ID=request.args.get('SESSION_ID'), exp_state="ASD", trial=1))
+
+    elif request.args.get('exp_state') == "FELICITY_PRACTICE":
+        if t == 11: # CHANGE THIS AFTER FIGURING OUT FELICITAY PRACTIVE (switch the states)
+            state = "FELICITY_TRIAL"
+            trl = 1
+        else:
+            state = "FELICITY_PRACTICE"
+            trl = t
+        return redirect(url_for('ready', PROLIFIC_PID=request.args.get('PROLIFIC_PID'),
+                                SESSION_ID=request.args.get('SESSION_ID'), exp_state=state, trial=trl))
+
     elif request.args.get('exp_state') == "TF_PRACTICE":
         return redirect(url_for('tf_practice', PROLIFIC_PID=request.args.get('PROLIFIC_PID'), SESSION_ID=request.args.get('SESSION_ID'),
                                 exp_state='TF_PRACTICE', trial=t))
@@ -170,8 +194,8 @@ def next_trial():
                                 SESSION_ID=request.args.get('SESSION_ID'), exp_state=state, trial=trl))
 
 
-
-msgs = {e_state: {var: None for var in [1, 2, 'next']} for e_state in ['TRIAL_PRACTICE', 'TF_TRIAL', 'FELICITY_PRACTICE']}
+msgs = {e_state: {var: None for var in [1, 2, 'next']} for e_state in ['TRIAL_PRACTICE', 'TF_TRIAL',
+                                                                       'FELICITY_PRACTICE', 'FELICITY_TRIAL']}
 
 msgs["TRIAL_PRACTICE"][1] = "Okay, one more practice example"
 msgs["TRIAL_PRACTICE"][2] = "Press the space bar to continue, then place your fingers on the [f] and [j] keys.... "
@@ -182,7 +206,9 @@ msgs["TF_TRIAL"]['next'] = "/story"
 msgs["FELICITY_PRACTICE"][1] = "Great Job!"
 msgs["FELICITY_PRACTICE"][2] = "Press the space bar to continue.... "
 msgs["FELICITY_PRACTICE"]['next'] = "/felicity_instr"
-
+msgs["FELICITY_TRIAL"][1] = "Okay, get ready for the next story."
+msgs["FELICITY_TRIAL"][2] = "Press the space bar to continue, then place your fingers on the [f] and [j] keys.... "
+msgs["FELICITY_TRIAL"]['next'] = "/fel_story"
 
 
 @app.route('/ready', methods=['GET', 'POST'])
@@ -198,7 +224,7 @@ def story():
     if request.method == 'GET':
         if request.args.get('exp_state') != "TRIAL_PRACTICE":
             tdat = Trial.query.filter_by(prolific_id=request.args.get('PROLIFIC_PID'),
-                                            trial_num=int(request.args.get('trial'))).first()
+                                         trial_num=int(request.args.get('trial'))).first()
             story = stim[tdat.trial_type][str(tdat.scenario)]['belief_manip'][tdat.belief_type]
             ascrip = stim[tdat.trial_type][str(tdat.scenario)]['ascription'][tdat.ascription_type]
 
@@ -210,10 +236,11 @@ def story():
                 tdat = Practice.query.filter_by(prolific_id=request.args.get('PROLIFIC_PID'),
                                                 trial_num=int(request.args.get('trial'))).first()
                 story = literal_eval(tdat.prompt)
-                return render_template('story.html', s1=story[0], s2=story[1], s3=story[2], s4=story[3], target=tdat.target,
-                                       correct=tdat.correct_answer, trl=tdat.trial_num, ttype=tdat.trial_type)
+                return render_template('story.html', s1=story[0], s2=story[1], s3=story[2], s4=story[3],
+                                       target=tdat.target, correct=tdat.correct_answer, trl=tdat.trial_num,
+                                       ttype=tdat.trial_type)
             else:
-                return redirect(url_for('ready',PROLIFIC_PID=request.args.get('PROLIFIC_PID'),
+                return redirect(url_for('ready', PROLIFIC_PID=request.args.get('PROLIFIC_PID'),
                                         SESSION_ID=request.args.get('SESSION_ID'), exp_state="TF_TRIAL", trial=1))
 
     if request.method == 'POST':
@@ -266,7 +293,7 @@ def fel_story():
     if request.method == 'POST':
         sub_dat = request.get_json()
         tdat = Felicity.query.filter_by(prolific_id=sub_dat['PROLIFIC_PID'],
-                                        block2_trial_num=int(sub_dat['trial'])).first()
+                                        block2_trial_num=int(sub_dat['trl'])).first()
         tdat.felicity_rating = int(sub_dat['rating'])
         db.session.add(tdat)
         db.session.commit()
