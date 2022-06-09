@@ -1,5 +1,5 @@
 from . import app, db
-from .models import Subject, Trial, Felicity, Practice
+from .models import Subject, Trial, Felicity, Practice, AutismScore
 from .utils import randomize_trials, fel_practice
 import numpy as np
 import pandas as pd
@@ -167,7 +167,7 @@ def next_trial():
             db.session.add(subj)
             db.session.commit()
             return redirect(url_for('ready', PROLIFIC_PID=request.args.get('PROLIFIC_PID'),
-                                    SESSION_ID=request.args.get('SESSION_ID'), exp_state="ASD", trial=1))
+                                    SESSION_ID=request.args.get('SESSION_ID'), exp_state="AQ", trial=1))
 
     elif request.args.get('exp_state') == "FELICITY_PRACTICE":
         if t == 3 :  # CHANGE THIS AFTER FIGURING OUT FELICITAY PRACTIVE (switch the states)
@@ -195,7 +195,7 @@ def next_trial():
 
 
 msgs = {e_state: {var: None for var in [1, 2, 'next']} for e_state in ['TRIAL_PRACTICE', 'TF_TRIAL',
-                                                                       'FELICITY_PRACTICE', 'FELICITY_TRIAL']}
+                                                                       'FELICITY_PRACTICE', 'FELICITY_TRIAL', 'AQ']}
 
 msgs["TRIAL_PRACTICE"][1] = "Okay, one more practice example"
 msgs["TRIAL_PRACTICE"][2] = "Press the space bar to continue, then place your fingers on the [f] and [j] keys.... "
@@ -209,6 +209,10 @@ msgs["FELICITY_PRACTICE"]['next'] = {1: "/felicity_instr", 2:"/fel_story"}
 msgs["FELICITY_TRIAL"][1] = "Okay, get ready for the next story."
 msgs["FELICITY_TRIAL"][2] = "Press the space bar to continue, then place your fingers on the [f] and [j] keys.... "
 msgs["FELICITY_TRIAL"]['next'] = "/fel_story"
+msgs["AQ"][1] = "Great Job! - Now you will answer some short questions about yourself."
+msgs["AQ"][2] = "Press the space bar to continue.."
+msgs["AQ"]["next"] = "/aq_10"
+
 
 
 @app.route('/ready', methods=['GET', 'POST'])
@@ -311,6 +315,41 @@ def fel_story():
         db.session.commit()
 
         return make_response("200")
+
+
+@app.route('/aq_10', methods=['GET', 'POST'])
+def aq_10():
+    if request.method == 'GET':
+        items = ["I often notice small sounds when others do not.",
+                 "I usually concentrate more on the whole picture rather than the small details.",
+                 "I find it easy to do more than one thing at once.",
+                 "If there is an interruption, I can switch back to what I was doing very quickly.",
+                 "I find it easy to “read between the lines” when someone is talking to me.",
+                 "I know how to tell if someone listening to me is getting bored.",
+                 "When I’m reading a story I find it difficult to work out the characters’ intentions.",
+                 "I like to collect information about characters of things (e.g. types of car, types of bird, types of train, types of plant, etc.)",
+                 "I find it easy to work out what someone is thinking or feeling just by looking at their face.",
+                 "I find it difficult to work out people’s intentions."]
+        return render_template('aq_10.html', q_items=items)
+    if request.method == 'POST':
+        s_dat = request.get_json()
+        t_dat = AutismScore(AQ_rating_1=s_dat['AQ_rating_1'],
+                            AQ_rating_2=s_dat['AQ_rating_2'],
+                            AQ_rating_3=s_dat['AQ_rating_3'],
+                            AQ_rating_4=s_dat['AQ_rating_4'],
+                            AQ_rating_5=s_dat['AQ_rating_5'],
+                            AQ_rating_6=s_dat['AQ_rating_6'],
+                            AQ_rating_7=s_dat['AQ_rating_7'],
+                            AQ_rating_8=s_dat['AQ_rating_8'],
+                            AQ_rating_9=s_dat['AQ_rating_9'],
+                            AQ_rating_10=s_dat['AQ_rating_10'],
+                            prolific_id=s_dat['prolific_id'])
+        subj = Subject.query.filter_by(prolific_id=t_dat.prolific_id).first()
+        subj.block3_complete = True
+        db.session.add(t_dat, subj)
+        db.session.commit()
+        return make_response("200")
+
 
 
 

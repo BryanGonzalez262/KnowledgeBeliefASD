@@ -76,6 +76,18 @@ class Demographic(db.Model):
 class AutismScore(db.Model):
     __tablename__ = 'autism_scores'
     id = db.Column(db.Integer, primary_key=True)
+    AQ_rating_1 = db.Column(db.Integer)
+    AQ_rating_2 = db.Column(db.Integer)
+    AQ_rating_3 = db.Column(db.Integer)
+    AQ_rating_4 = db.Column(db.Integer)
+    AQ_rating_5 = db.Column(db.Integer)
+    AQ_rating_6 = db.Column(db.Integer)
+    AQ_rating_7 = db.Column(db.Integer)
+    AQ_rating_8 = db.Column(db.Integer)
+    AQ_rating_9 = db.Column(db.Integer)
+    AQ_rating_10 = db.Column(db.Integer)
+    prolific_id = db.Column(db.String, db.ForeignKey('subjects.prolific_id'))
+
 
 
 

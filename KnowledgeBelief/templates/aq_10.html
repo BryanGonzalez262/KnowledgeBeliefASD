@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+{% block js %}
+    <script>
+    var s_response = {
+        AQ_rating_1:0,
+        AQ_rating_2:0,
+        AQ_rating_3:0,
+        AQ_rating_4:0,
+        AQ_rating_5:0,
+        AQ_rating_6:0,
+        AQ_rating_7:0,
+        AQ_rating_8:0,
+        AQ_rating_9:0,
+        AQ_rating_10:0,
+    }
+    var vname = null
+
+
+
+    function submit_tdat(){
+        s_response['prolific_id'] = new URLSearchParams(window.location.search).get('PROLIFIC_PID')
+        $.ajax({
+            type: "POST",
+            url:window.location.pathname,
+            data: JSON.stringify(s_response),
+            traditional: true,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(){window.location.pathname = "/next_trial"; console.log('data sent from client')}
+        })
+    }
+
+    function get_answers() {
+        $('.btn-group').each(function () {
+            vname = $(this).attr('id')
+            s_response[vname] = Number($(this).find('input:radio:checked').val()) || 0
+        })
+    }
+
+    function subjectResponse(e){
+        if (e.key === " "){
+            get_answers();
+            if (Object.values(s_response).includes(0)){
+                // find key in s_response where value is null
+                var notAnswered = Object.keys(s_response).find(key => s_response[key] === 0)
+                // toggle the class with animation
+                $('#'+notAnswered).toggleClass("animated tada")
+                setTimeout(function(){$('#'+notAnswered).toggleClass("animated tada")}, 800);
+            }else{
+                // submit s_response
+                console.log('answers posted')
+            }
+        }
+    }
+    document.addEventListener("keydown", subjectResponse);
+    </script>
+{% endblock %}
+
+{% block stage %}
+     <style>
+         label.btn.btn-outline-primary{
+             width: inherit;
+             font-size: 1em;
+         }
+     </style>
+    <div class="row justify-content-center align-self-center text-center"><h3>Please indicate your agreement with the following statements:</h3></div>
+    <div class="row justify-content-center align-self-center">
+        <div class="col-lg-11">
+            {% for item in q_items %}
+            <div class="row justify-content-center align-self-center" id="rating_group" style="align-items: center;">
+                <div class="col"><p class="text-center" style="font-size: large; font-style:italic;">{{ item }}</p></div>
+                <div class="col">
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="AQ_rating_{{ loop.index }}">
+                        <input type="radio" class="btn-check" name="btnradio_{{ loop.index }}" id="btnradio1_{{ loop.index }}" value="1" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio1_{{ loop.index }}">Definitely Disagree</label>
+
+                        <input type="radio" class="btn-check" name="btnradio_{{ loop.index }}" id="btnradio2_{{ loop.index }}" value="2" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio2_{{ loop.index }}">Slightly Disagree</label>
+
+                        <input type="radio" class="btn-check" name="btnradio_{{ loop.index }}" id="btnradio3_{{ loop.index }}" value="3" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio3_{{ loop.index }}">Slightly Agree</label>
+
+                        <input type="radio" class="btn-check" name="btnradio_{{ loop.index }}" id="btnradio4_{{ loop.index }}" value="4" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio4_{{ loop.index }}">Definitely Agree</label>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            {% endfor %}
+            <div class="row justify-content-center align-self-center">
+                <p class="text-center" style="font-size: large; font-style: italic;">After making ALL your selections, press the space bar to continue</p>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}
+</html>
