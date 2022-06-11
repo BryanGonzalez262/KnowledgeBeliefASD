@@ -110,7 +110,7 @@ fel_p2 = ["Carrie needed a hammer to hang a painting she just bought,",
           "so she went over to David's house and borrowed a hammer from him.", ".", "."]
 
 fel_p2_target = "Carrie didn't borrow a hammer from David."
-fel_p2_expln = "Even though it is false, this statement sound completely normal. Saying this sentence doesn't imply anything strange at all - it is just straightforwardly false. This statement sounded normal but was false."
+fel_p2_expln = "Even though it is false, this statement sounds completely normal. Saying this sentence doesn't imply anything strange at all - it is just straightforwardly false. This statement sounded normal but was false."
 
 fp2 = {'story': fel_p2, 'target': fel_p2_target, 'explain': fel_p2_expln, 'correct': [5, 6, 7]}
 

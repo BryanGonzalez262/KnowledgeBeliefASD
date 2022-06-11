@@ -14,7 +14,7 @@ with open(json_fp, 'r') as j:
 
 n_trials = 1
 n_fel_trials = 2
-
+comp_code = "XXXX"
 
 @app.route('/')
 def index():
@@ -227,10 +227,12 @@ def ready():
         next_pg = msgs[request.args.get('exp_state')]['next']
     else:
         next_pg = msgs[request.args.get('exp_state')]['next'][int(request.args.get('trial'))]
+    if (request.args.get('exp_state') in ["TF_TRIAL", "FELICITY_TRIAL"] ) & (request.args.get('trial') == "1"):
+        m1="Great Job. Now we will begin this part of the experiment"
+    else:
+        m1 = msgs[request.args.get('exp_state')][1]
 
-    return render_template('message.html', msg1=msgs[request.args.get('exp_state')][1],
-                           msg2=msgs[request.args.get('exp_state')][2],
-                           next=next_pg)
+    return render_template('message.html', msg1=m1, msg2=msgs[request.args.get('exp_state')][2], next=next_pg)
 
 
 @app.route('/story', methods=['GET', 'POST'])
@@ -367,9 +369,25 @@ def demos():
         t_dat = Demographic.query.filter_by(prolific_id=s_dat['prolific_id']).first()
         t_dat.age = int(s_dat['age'])
         t_dat.gender = s_dat['gender']
-        t_dat.ethnicity = s_dat['ethnicity']
+        t_dat.ethnicity = s_dat['race']
         t_dat.education = s_dat['education']
+        db.session.add(t_dat)
+        db.session.commit()
+        return make_response("200")
 
+
+@app.route('/debrief', methods=["GET", "POST"])
+def debrief():
+    if request.method =='GET':
+
+        return render_template('debrief.html', cc=comp_code)
+    if request.method == 'POST':
+        s_dat = request.get_json()
+        t_dat = Subject.query.filter_by(prolific_id=s_dat['prolific_id']).first()
+        t_dat.feedback = s_dat['feedback']
+        t_dat.completion_code = comp_code
+        db.session.add(t_dat)
+        db.session.commit()
         return make_response("200")
 
 

@@ -17,6 +17,7 @@ class Subject(db.Model):
     block2_complete = db.Column(db.Boolean)
     block3_complete = db.Column(db.Boolean)
     completion_code = db.Column(db.VARCHAR(80))
+    feedback = db.Column(db.VARCHAR(500))
     practices = db.relationship('Practice', backref='subject', lazy='dynamic', cascade="all, delete-orphan")
     trials = db.relationship('Trial', backref='subject', lazy='dynamic', cascade="all, delete-orphan")
     felicity = db.relationship('Felicity', backref='subject', lazy='dynamic', cascade="all, delete-orphan")
