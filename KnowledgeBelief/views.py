@@ -1,5 +1,5 @@
 from . import app, db
-from .models import Subject, Trial, Felicity, Practice, AutismScore
+from .models import Subject, Trial, Felicity, Practice, AutismScore, Demographic
 from .utils import randomize_trials, fel_practice
 import numpy as np
 import json
@@ -59,7 +59,7 @@ def new_subject():
                    block2_complete=False,
                    block3_complete=False)
     db.session.add(subj)
-
+    # Add Trials
     for i, trl in s_trls.iterrows():
         db.session.add(Trial(trial_num=trl.trial_num, trial_type=trl.trial_type, scenario=trl.scenario,
                              belief_type=trl.belief, ascription_type=trl.ascription, correct_answer=trl.crrct_answer,
@@ -74,7 +74,9 @@ def new_subject():
                 db.session.add(Practice(trial_num=int(s_prac.trial_num[i]), trial_type=s_prac.trial_type[i],
                                         prompt=str(s_prac.prompt[i]), target=s_prac.target[i],
                                         correct_answer=s_prac.correct_answer[i], prolific_id=subj.prolific_id))
-
+    # Add Autism & Demos Entry
+    db.session.add(Demographic(prolific_id=request.args.get('PROLIFIC_PID')))
+    db.session.add(AutismScore(prolific_id=request.args.get('PROLIFIC_PID')))
     db.session.commit()
     return redirect(url_for('instructions',
                             PROLIFIC_PID=request.args.get('PROLIFIC_PID'), SESSION_ID=request.args.get('SESSION_ID'),
@@ -189,13 +191,15 @@ def next_trial():
             trl = t
         return redirect(url_for('ready', PROLIFIC_PID=request.args.get('PROLIFIC_PID'),
                                 SESSION_ID=request.args.get('SESSION_ID'), exp_state=state, trial=trl))
+
     elif request.args.get('exp_state') == "AQ":
-        return redirect(url_for('welcome', PROLIFIC_PID=request.args.get('PROLIFIC_PID'),
-                                SESSION_ID=request.args.get('SESSION_ID')))
+        return redirect(url_for('ready', PROLIFIC_PID=request.args.get('PROLIFIC_PID'),
+                                SESSION_ID=request.args.get('SESSION_ID'), exp_state="DEMOS"))
 
 
 msgs = {e_state: {var: None for var in [1, 2, 'next']} for e_state in ['TRIAL_PRACTICE', 'TF_TRIAL',
-                                                                       'FELICITY_PRACTICE', 'FELICITY_TRIAL', 'AQ']}
+                                                                       'FELICITY_PRACTICE', 'FELICITY_TRIAL', 'AQ',
+                                                                       "DEMOS"]}
 
 msgs["TRIAL_PRACTICE"][1] = "Okay, one more practice example"
 msgs["TRIAL_PRACTICE"][2] = "Press the space bar to continue, then place your fingers on the [f] and [j] keys.... "
@@ -207,11 +211,14 @@ msgs["FELICITY_PRACTICE"][1] = "Great Job!"
 msgs["FELICITY_PRACTICE"][2] = "Press the space bar to continue.... "
 msgs["FELICITY_PRACTICE"]['next'] = {1: "/felicity_instr", 2: "/fel_story"}
 msgs["FELICITY_TRIAL"][1] = "Okay, get ready for the next story."
-msgs["FELICITY_TRIAL"][2] = "Press the space bar to continue, then place your fingers on the [f] and [j] keys.... "
+msgs["FELICITY_TRIAL"][2] = "Press the space bar to continue.... "
 msgs["FELICITY_TRIAL"]['next'] = "/fel_story"
 msgs["AQ"][1] = "Great Job! - Now you will answer some short questions about yourself."
 msgs["AQ"][2] = "Press the space bar to continue.."
 msgs["AQ"]["next"] = "/aq_10"
+msgs["DEMOS"][1] = "Thank You! - You're almost done. Just a few more short questions about yourself."
+msgs["DEMOS"][2] = "Press the space bar to continue.."
+msgs["DEMOS"]["next"] = "/demos"
 
 
 @app.route('/ready', methods=['GET', 'POST'])
@@ -332,22 +339,39 @@ def aq_10():
         return render_template('aq_10.html', q_items=items)
     if request.method == 'POST':
         s_dat = request.get_json()
-        t_dat = AutismScore(AQ_rating_1=s_dat['AQ_rating_1'],
-                            AQ_rating_2=s_dat['AQ_rating_2'],
-                            AQ_rating_3=s_dat['AQ_rating_3'],
-                            AQ_rating_4=s_dat['AQ_rating_4'],
-                            AQ_rating_5=s_dat['AQ_rating_5'],
-                            AQ_rating_6=s_dat['AQ_rating_6'],
-                            AQ_rating_7=s_dat['AQ_rating_7'],
-                            AQ_rating_8=s_dat['AQ_rating_8'],
-                            AQ_rating_9=s_dat['AQ_rating_9'],
-                            AQ_rating_10=s_dat['AQ_rating_10'],
-                            prolific_id=s_dat['prolific_id'])
+        t_dat = AutismScore.query.filter_by(prolific_id=s_dat['prolific_id']).first()
+        t_dat.AQ_rating_1=s_dat['AQ_rating_1']
+        t_dat.AQ_rating_2=s_dat['AQ_rating_2']
+        t_dat.AQ_rating_3=s_dat['AQ_rating_3']
+        t_dat.AQ_rating_4=s_dat['AQ_rating_4']
+        t_dat.AQ_rating_5=s_dat['AQ_rating_5']
+        t_dat.AQ_rating_6=s_dat['AQ_rating_6']
+        t_dat.AQ_rating_7=s_dat['AQ_rating_7']
+        t_dat.AQ_rating_8=s_dat['AQ_rating_8']
+        t_dat.AQ_rating_9=s_dat['AQ_rating_9']
+        t_dat.AQ_rating_10=s_dat['AQ_rating_10']
+
         subj = Subject.query.filter_by(prolific_id=s_dat['prolific_id']).first()
         subj.block3_complete = True
         db.session.add(t_dat, subj)
         db.session.commit()
         return make_response("200")
+
+
+@app.route('/demos', methods=['GET', 'POST'])
+def demos():
+    if request.method == 'GET':
+        return render_template('demos.html')
+    if request.method == "POST":
+        s_dat = request.get_json()
+        t_dat = Demographic.query.filter_by(prolific_id=s_dat['prolific_id']).first()
+        t_dat.age = int(s_dat['age'])
+        t_dat.gender = s_dat['gender']
+        t_dat.ethnicity = s_dat['ethnicity']
+        t_dat.education = s_dat['education']
+
+        return make_response("200")
+
 
 
 if __name__ == '__main__':

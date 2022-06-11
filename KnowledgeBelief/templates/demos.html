@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+{% block js %}
+    <script>
+    // Make the age drop down menu options
+    $(function() {
+        var $select = $(".age");
+        for (i = 18; i <= 100; i++) {
+            $select.append($('<option></option>').val(i).html(i))
+        }
+        for (i = 0; i<=3; i++){$(".gender").append($('<option></option>').val(gender_options[i]).html(gender_options[i]))}
+        for (i = 0; i<=6; i++){$(".race").append($('<option></option>').val(race_options[i]).html(race_options[i]))}
+
+        for (i = 0; i<=8; i++){$(".education").append($('<option></option>').val(edu_options[i]).html(edu_options[i]))}
+
+    });
+    // Make drop down
+    gender_options = ["male", "female", "other", "prefer not to disclose"]
+    race_options = ["White/Caucasian", "Black/African-American", "Hispanic/Latino", "Asian/Pacific Islander",
+        "Native American", "More than one race/ethnicity", "other"]
+    edu_options = ["Grammar school/ Elementary", "High School or equivalent", "Vocational/Technical School(2 year)",
+        "Some College", "College Graduate(4 year)", "Master's Degree (MS)", "Doctoral Degree (PhD)",
+        "Professional Degree (MD, JD, etc.)", "Other"]
+
+    var response = {
+        age:null,
+        gender:null,
+        race:null,
+        education:null
+    }
+
+    function get_answers(){
+        $('select').each(function () {
+            vname = $(this).attr('class')
+            response[vname] = $(this).val() || 0
+        })
+    }
+
+    function submit_tdat(){
+        response['prolific_id'] = new URLSearchParams(window.location.search).get('PROLIFIC_PID')
+        $.ajax({
+            type: "POST",
+            url:window.location.pathname,
+            data: JSON.stringify(response),
+            traditional: true,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(){console.log('data sent from client')} //window.location.pathname = '/debrief';
+        })
+    }
+
+    function subjectResponse(){
+        get_answers();
+        if (Object.values(response).includes(0)){
+            // find key in s_response where value is null
+            var notAnswered = Object.keys(response).find(key => response[key] === 0)
+            // toggle the class with animation
+            $('.'+notAnswered).toggleClass("animated tada")
+            setTimeout(function(){$('#'+notAnswered).toggleClass("animated tada")}, 800);
+        }else{
+            // submit s_response
+            submit_tdat()
+            console.log('answers posted')
+        }
+    }
+    </script>
+{% endblock %}
+
+{% block stage %}
+    <div class="row justify-content-center align-self-center" style="height: 50vh;">
+        <div class="row justify-content-center align-self-center">
+            <div class="col-lg-4">
+                <p class="text-right" style="font-size:x-large; ">Age:</p>
+            </div>
+            <div class="col">
+               <select class="age"><option disabled selected value> -- select an option -- </option></select>
+            </div>
+        </div>
+        <div class="row justify-content-center align-self-center">
+            <div class="col-lg-4">
+                <p class="text-right" style="font-size:x-large; ">Gender:</p>
+            </div>
+            <div class="col">
+               <select class="gender"><option disabled selected value> -- select an option -- </option></select>
+            </div>
+        </div>
+
+        <div class="row justify-content-center align-self-center">
+            <div class="col-lg-4">
+                <p class="text-right" style="font-size:x-large; ">Race/Ethnicity:</p>
+            </div>
+            <div class="col">
+                <select class="race"><option disabled selected value> -- select an option -- </option></select>
+            </div>
+        </div>
+        <div class="row justify-content-center align-self-center">
+            <div class="col-lg-4">
+                <p class="text-right" style="font-size:x-large; ">Highest Education Attained:</p>
+            </div>
+            <div class="col">
+                <select class="education"><option disabled selected value> -- select an option -- </option></select>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-2">
+            <button type="button" id="demobutton" class="btn btn-primary" onclick="subjectResponse()">Submit</button>
+        </div>
+    </div>
+
+
+{% endblock %}
+</html>

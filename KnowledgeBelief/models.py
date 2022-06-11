@@ -59,17 +59,9 @@ class Demographic(db.Model):
     __tablename__ = 'demographics'
     id = db.Column(db.Integer, primary_key=True)
     age = db.Column(db.Integer)
-    sex = db.Column(db.VARCHAR(20))
+    gender = db.Column(db.VARCHAR(20))
     ethnicity = db.Column(db.VARCHAR(80))
     education = db.Column(db.VARCHAR(80))
-    occupation = db.Column(db.VARCHAR(80))
-    country = db.Column(db.VARCHAR(80))
-    childhood_country = db.Column(db.VARCHAR(80))
-    affiliated_country = db.Column(db.VARCHAR(80))
-    language = db.Column(db.VARCHAR(80))
-    n_siblings = db.Column(db.Integer)
-    married = db.Column(db.Boolean)
-    n_children = db.Column(db.Integer)
     prolific_id = db.Column(db.String, db.ForeignKey('subjects.prolific_id'))
 
 
