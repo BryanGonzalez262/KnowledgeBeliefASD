@@ -3,7 +3,14 @@
 {% extends "base.html" %}
 {% block js %}
     <script>
-
+    // Add the 5 second timer
+    setTimeout(function (){
+        if (new URLSearchParams(window.location.search).get('exp_state') === 'TF_TRIAL'){
+            response.keys_pressed.push('999')
+            response.rt.push(Date.now())
+            submit_tdat();
+        }
+    }, 24700)
 
     // store response
     var response = {
@@ -26,8 +33,11 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function(){
-                setTimeout(function(){window.location.pathname = "/next_trial"; console.log('data sent from client')
+                if (new URLSearchParams(window.location.search).get('exp_state') === 'TF_TRIAL'){
+                    window.location.pathname = "/next_trial";
+                } else{setTimeout(function(){window.location.pathname = "/next_trial"; console.log('data sent from client')
                 }, 1000)}
+                }
         })
     }
 
