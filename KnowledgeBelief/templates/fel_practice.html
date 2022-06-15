@@ -33,10 +33,16 @@
     */
 
     function explainAnswer(){
-        if (({{ correct|safe }}).includes(Number($('#fel_rating input:radio:checked').val()))){
-            $('#continue_dir').prepend('<p class="text-center" style="font-size:xx-large;">Right!<br> {{ explain }}</p>')
-        }else{$('#continue_dir').prepend('<p class="text-center" style="font-size:xx-large;">Hmm... that is not quite right.<br> {{ explain }} </p>')
+        if (space_count <= 1){
+            // If checked button is correct
+            if (({{ correct|safe }}).includes(Number($('#fel_rating input:radio:checked').val()))){
+                $('#continue_dir').prepend('<p class="text-center" style="font-size:xx-large;">Right!<br> {{ explain }}</p>')
+            }else{
+                // If the checked button is NOT correct
+                $('#continue_dir').prepend('<p class="text-center" style="font-size:xx-large;">Hmm... that is not quite right.<br> {{ explain }} </p>')
+            }
         }
+
         document.removeEventListener("keydown", subjectResponse)
         document.addEventListener("keydown", function(e){
             if(space_count > 1){window.location.pathname = "/next_trial"}
