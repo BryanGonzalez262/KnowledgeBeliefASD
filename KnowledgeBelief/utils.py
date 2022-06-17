@@ -39,7 +39,7 @@ def make_practice():
     return pd.DataFrame(pract)
 
 
-# Trials
+# trials
 def make_trials():
     vig_numbers = list(range(1, 13))
     bel_types = ['TB', 'FB', 'IG']
@@ -57,18 +57,22 @@ def make_trials():
         'response_onset': None,
         'response_key': None,
     }).sample(frac=1)
-    # balance ascription types and shuffle
-    s1['ascription'] = np.repeat(ascrip_types, len(vig_numbers) / len(ascrip_types))
-    s1 = s1.sample(frac=1)
     # balance belief types and shuffle
     s1['belief'] = np.repeat(bel_types, len(vig_numbers) / len(bel_types))
+    # balance ascription types across belief types
+    aa = np.repeat(ascrip_types, (len(vig_numbers) / len(bel_types))/len(ascrip_types))
+    for bb in bel_types:
+        np.random.shuffle(aa)
+        s1.loc[s1.belief == bb, 'ascription'] = aa
+
+    s1 = s1.sample(frac=1)
     # add distractors
     s2 = s1.copy()
     s2['trial_type'] = 'distractor'
     s3 = pd.concat([s1, s2], ignore_index=True).sample(frac=1).reset_index(drop=True)
     s3['trial_num'] = range(1, len(s3) + 1)
     # add correct answers
-    json_fp = 'KnowledgeBelief/static/stim_data/KB_stim.json'
+    json_fp = '../KnowledgeBelief/static/stim_data/KB_stim.json'
     with open(json_fp, 'r') as j:
         stim = json.loads(j.read())
     for i, trl in s3.iterrows():
