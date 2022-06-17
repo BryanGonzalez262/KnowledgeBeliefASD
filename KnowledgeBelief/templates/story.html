@@ -56,9 +56,10 @@
 
 
 
-    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp animate__faster text-center " style="font-size: xx-large;"> {{ s2 }}</p>')}, 4500 )
-    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp animate__faster text-center " style="font-size: xx-large;"> {{ s3 }}</p>')}, 9000 )
-    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp animate__faster text-center " style="font-size: xx-large;"> {{ s4 }}</p>')}, 13500 )
+    setTimeout(function(){$('#s2').text({{ s2|tojson }})}, 4500)
+    setTimeout(function(){$('#s3').text({{ s3|tojson }})}, 9000)
+    setTimeout(function(){$('#s4').text({{ s4|tojson }})}, 13500)
+
     setTimeout(function(){$('#story p').remove();}, 18000)
     setTimeout(function(){$('#story').append('<p class="text-center" style="font-size: xxx-large;"> True or False..</p>');}, 18600)
     setTimeout(function(){
@@ -73,7 +74,11 @@
 {% block stage %}
     <div class="row justify-content-center align-self-center">
         <div class="col-lg-11" id="story">
-            <p class=" animated bounceInUp text-center" style="font-size: xx-large;"> {{ s1 }}</p>
+            <p class="text-center" id="s1" style="font-size: xx-large; height:10vh;"> {{ s1 }}</p>
+            <p class="text-center" id="s2" style="font-size: xx-large; height:10vh;"></p>
+            <p class="text-center" id="s3" style="font-size: xx-large; height:10vh;"></p>
+            <p class="text-center" id="s4" style="font-size: xx-large; height:10vh;"></p>
+
         </div>
     </div>
 
