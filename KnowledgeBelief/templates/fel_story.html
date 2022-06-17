@@ -44,11 +44,10 @@
         }
     };
 
-
-    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp animate__faster text-center " style="font-size: xx-large;"> {{ s2 }}</p>')}, 4500 )
-    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp animate__faster text-center " style="font-size: xx-large;"> {{ s3 }}</p>')}, 9000 )
-    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp animate__faster text-center " style="font-size: xx-large;"> {{ s4 }}</p>')}, 13500 )
-    setTimeout(function(){$('#story').append('<p class=" animated bounceInUp animate__faster text-center " style="font-size: xx-large;">Suppose someone says:<br><span style="font-style:italic;color:blue; font-size:xxx-large;"> {{ target }} </span> </p>');
+    setTimeout(function(){$('#s2').text({{ s2|tojson }})}, 4500)
+    setTimeout(function(){$('#s3').text({{ s3|tojson }})}, 9000)
+    setTimeout(function(){$('#s4').text({{ s4|tojson }})}, 13500)
+    setTimeout(function(){$('#story').append('<p class=" animated bounceInDown animate__faster text-center" style="font-size:calc(1rem + 1vw);">Suppose someone says:<br><span style="font-style:italic;color:blue; font-size:calc(1.2rem + 1.2vw);"> {{ target }} </span> </p>');
         $("#rating_group").css("opacity", 1);
         $(".btn-group input").removeAttr('disabled');
         document.body.addEventListener("keydown", subjectResponse);
@@ -62,11 +61,14 @@
 {% block stage %}
     <div class="row justify-content-center align-self-center">
         <div class="col-lg-11" id="story">
-            <p class=" animated bounceInUp text-center" style="font-size: xx-large;"> {{ s1 }}</p>
+            <p class="text-center" id="s1" style="font-size: calc(1rem + 1vw); height:13vh;"> {{ s1 }}</p>
+            <p class="text-center" id="s2" style="font-size: calc(1rem + 1vw); height:13vh;"></p>
+            <p class="text-center" id="s3" style="font-size: calc(1rem + 1vw); height:13vh;"></p>
+            <p class="text-center" id="s4" style="font-size: calc(1rem + 1vw); height:13vh;"></p>
         </div>
     </div>
     <div class="row justify-content-center align-self-center" id="rating_group" style="align-items: center; opacity: 0;">
-        <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="fel_rating">
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="fel_rating" style="width:80vw;">
             <input type="radio" class="btn-check" name="btnradio" id="btnradio1" value="1" autocomplete="off">
             <label class="btn btn-outline-primary" for="btnradio1">Sounds very weird</label>
 

@@ -107,7 +107,8 @@ fel_p1_expln = "Even though it is true, it should sound weird to say that John b
 fp1 = {'story': fel_p1, 'target': fel_p1_target, 'explain':fel_p1_expln, 'correct': [1, 2, 3]}
 
 fel_p2 = ["Carrie needed a hammer to hang a painting she just bought,",
-          "so she went over to David's house and borrowed a hammer from him.", ".", "."]
+          "so she went over to David's house and borrowed a hammer from him.",
+          "She used the hammer to hang the painting.", "Then returned the hammer to David."]
 
 fel_p2_target = "Carrie didn't borrow a hammer from David."
 fel_p2_expln = "Even though it is false, this statement sounds completely normal. Saying this sentence doesn't imply anything strange at all - it is just straightforwardly false. This statement sounded normal but was false."
