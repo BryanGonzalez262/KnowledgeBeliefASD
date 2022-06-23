@@ -3,12 +3,13 @@
 {% extends "base.html" %}
 {% block js %}
     <script>
-    // Add the 5 second timer
+    // Add the 5-second timer
     setTimeout(function (){
         if (new URLSearchParams(window.location.search).get('exp_state') === 'TF_TRIAL'){
             response.keys_pressed.push('999')
             response.rt.push(Date.now())
             submit_tdat();
+            window.removeEventListener("keydown", subjectResponse)
         }
     }, 24700)
 
@@ -47,9 +48,9 @@
         submit_tdat()
         if (new URLSearchParams(window.location.search).get('exp_state') === "TRIAL_PRACTICE"){
             if (e.key === correct){$('#story p').text("Correct");
-            }else { $('#story p').text("That's not right! Please read more carefully!")};
+            }else { $('#story p').text("That's not right! Please read more carefully!")}
         }
-    };
+    }
 
     var prompt = "{{ prompt }}"
     var correct = "{{ correct }}"
