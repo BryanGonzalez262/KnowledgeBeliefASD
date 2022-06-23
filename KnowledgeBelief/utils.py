@@ -72,11 +72,9 @@ def make_trials():
     s3 = pd.concat([s1, s2], ignore_index=True).sample(frac=1).reset_index(drop=True)
     s3['trial_num'] = range(1, len(s3) + 1)
     # add correct answers
-    json_fp = 'KnowledgeBelief/static/stim_data/KB_stim.json'
-    with open(json_fp, 'r') as j:
-        stim = json.loads(j.read())
-    for i, trl in s3.iterrows():
-        s3.loc[s3.trial_num == trl.trial_num, 'crrct_answer'] = stim[trl.trial_type][str(trl.scenario)]['ascription'][trl.ascription]['crrct_answr']
+    s3.loc[s3.belief == 'TB', 'crrct_answer'] = 'j'
+    s3.loc[s3.belief != 'TB', 'crrct_answer'] = 'f'
+
     return s3
 
 

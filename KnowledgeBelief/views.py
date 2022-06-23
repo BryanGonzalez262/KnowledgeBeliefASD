@@ -264,7 +264,7 @@ def story():
         if sub_dat['trl_type'] != 'story_practice':
             t_dat = Trial.query.filter_by(prolific_id=sub_dat['PROLIFIC_PID'],
                                           trial_num=int(sub_dat['trl'])).first()
-            t_dat.correct = [True if sub_dat['keys_pressed'][-1] == t_dat.correct_answer else False][0]
+            t_dat.correct = [True if sub_dat['keys_pressed'][-1].lower() == t_dat.correct_answer else False][0]
 
         else:
             t_dat = Practice.query.filter_by(prolific_id=sub_dat['PROLIFIC_PID'],
