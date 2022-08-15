@@ -12,8 +12,8 @@ json_fp = 'KnowledgeBelief/static/stim_data/KB_stim.json'
 with open(json_fp, 'r') as j:
     stim = json.loads(j.read())
 
-n_trials = 2
-n_fel_trials = 2
+n_trials = 24
+n_fel_trials = 12
 comp_code = "XXXX"
 
 @app.route('/')
