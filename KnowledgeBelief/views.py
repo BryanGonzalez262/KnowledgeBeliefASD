@@ -371,7 +371,11 @@ def demos():
         t_dat.gender = s_dat['gender']
         t_dat.ethnicity = s_dat['race']
         t_dat.education = s_dat['education']
+        t_dat.diag = s_dat['diag']
         db.session.add(t_dat)
+        subj = Subject.query.filter_by(prolific_id=s_dat['prolific_id']).first()
+        subj.email = s_dat['email']
+        db.session.add(subj)
         db.session.commit()
         return make_response("200")
 

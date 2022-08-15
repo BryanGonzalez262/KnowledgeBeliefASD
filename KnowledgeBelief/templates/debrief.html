@@ -11,42 +11,44 @@
 
 {% block stage %}
     <div class="row justify-content-center align-self-center">
-        <div class="col">
+        <div class="col" id="title">
             <p class="text-center" style="font-size: xxx-large;">Debrief</p>
-            <p style="font-size: x-large">Sometimes we think of other people as knowing something and sometimes we instead think of them as believing or thinking it. One key difference between the two is that we only think of people as knowing something when we think that thing is true. However, you can always think of people as believing something whether or not you think it is true. This study is looking at the relationship between knowledge and belief and how people think about different cases in which we either say someone knows something or someone believes something. In particular, we wanted to know how natural or weird different statements about knowledge and belief sound across a range of different cases.</p>
+            <p style="font-size: x-large" id="debrief">Sometimes we think of other people as knowing something and sometimes we instead think of them as believing or thinking it. One key difference between the two is that we only think of people as knowing something when we think that thing is true. However, you can always think of people as believing something whether or not you think it is true. This study is looking at the relationship between knowledge and belief and how people think about different cases in which we either say someone knows something or someone believes something. In particular, we wanted to know how natural or weird different statements about knowledge and belief sound across a range of different cases.</p>
         </div>
     </div>
     <hr/>
-    <div class="row justify-content-center align-self-center">
-    <br><br>
-    <h3><i>Tell us what you thought of the game?</i></h3>
-    <h4>Did you use a strategy? Did you find anything odd or confusing? experience technical difficulties?</h4>
-    <form method="post" >
-                <label></label>
-                <textarea type="text" id="trial_text" autocomplete="off" style="border-radius: .5em; font-size: x-large; width: inherit;"></textarea>
-                <br>
-    </form>
-    <div class="col" id="done">
-        <button href="#"  type="button"  onclick="submit_tdat()" id="done" class="btn btn-primary" style="font-size: xx-large;">Finish</button>
-    </div>
+    <div class="row justify-content-center align-self-center" id="fb">
+        <br><br>
+        <h3><i>Tell us what you thought of the game?</i></h3>
+        <h4>Did you use a strategy? Did you find anything odd or confusing? experience technical difficulties?</h4>
+        <form method="post" >
+                    <label></label>
+                    <textarea type="text" id="trial_text" autocomplete="off" style="border-radius: .5em; font-size: x-large; width: inherit;"></textarea>
+                    <br>
+        </form>
+        <div class="col" id="done">
+            <button href="#"  type="button"  onclick="submit_tdat()" id="done" class="btn btn-primary" style="font-size: xx-large;">Finish</button>
+        </div>
 
-    <script>
-            function submit_tdat(){
-            response['feedback'] = $("#trial_text").val();
-            $.ajax({
-                type: "POST",
-                url:window.location.pathname,
-                data: JSON.stringify(response),
-                traditional: true,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function(){window.location.href = "https://app.prolific.co/submissions/complete?cc={{ cc }}"}
-            })
-            }
-
-
-
-</script>
+        <script>
+                function submit_tdat(){
+                response['feedback'] = $("#trial_text").val();
+                $.ajax({
+                    type: "POST",
+                    url:window.location.pathname,
+                    data: JSON.stringify(response),
+                    traditional: true,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(){
+                        //window.location.href = "https://app.prolific.co/submissions/complete?cc={{ cc }}"
+                        $('#db, #fb').remove()
+                        $('#title p').text('Thank you')
+                        $('#debrief').text('You may now close this window.')
+                    }
+                })
+                }
+        </script>
     </div>
 
 {% endblock %}

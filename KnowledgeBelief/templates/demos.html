@@ -13,6 +13,7 @@
         for (i = 0; i<=6; i++){$(".race").append($('<option></option>').val(race_options[i]).html(race_options[i]))}
 
         for (i = 0; i<=8; i++){$(".education").append($('<option></option>').val(edu_options[i]).html(edu_options[i]))}
+        for (i = 0; i<=2; i++){$(".diag").append($('<option></option>').val(diag_options[i]).html(diag_options[i]))}
 
     });
     // Make drop down
@@ -22,12 +23,15 @@
     edu_options = ["Grammar school/ Elementary", "High School or equivalent", "Vocational/Technical School(2 year)",
         "Some College", "College Graduate(4 year)", "Master's Degree (MS)", "Doctoral Degree (PhD)",
         "Professional Degree (MD, JD, etc.)", "Other"]
+    diag_options = ["yes", "no", "prefer not to disclose"]
 
     var response = {
         age:null,
         gender:null,
         race:null,
-        education:null
+        education:null,
+        email: null,
+        diag:null
     }
 
     function get_answers(){
@@ -35,6 +39,8 @@
             vname = $(this).attr('class')
             response[vname] = $(this).val() || 0
         })
+        // get email input
+        response["email"] = $('#email').val() || 0
     }
 
     function submit_tdat(){
@@ -70,7 +76,7 @@
 {% block stage %}
     <div class="row justify-content-center align-self-center" style="height: 50vh;">
         <div class="row justify-content-center align-self-center">
-            <div class="col-lg-4">
+            <div class="col-lg-5">
                 <p class="text-right" style="font-size:x-large; ">Age:</p>
             </div>
             <div class="col">
@@ -78,7 +84,7 @@
             </div>
         </div>
         <div class="row justify-content-center align-self-center">
-            <div class="col-lg-4">
+            <div class="col-lg-5">
                 <p class="text-right" style="font-size:x-large; ">Gender:</p>
             </div>
             <div class="col">
@@ -87,7 +93,7 @@
         </div>
 
         <div class="row justify-content-center align-self-center">
-            <div class="col-lg-4">
+            <div class="col-lg-5">
                 <p class="text-right" style="font-size:x-large; ">Race/Ethnicity:</p>
             </div>
             <div class="col">
@@ -95,11 +101,28 @@
             </div>
         </div>
         <div class="row justify-content-center align-self-center">
-            <div class="col-lg-4">
+            <div class="col-lg-5">
                 <p class="text-right" style="font-size:x-large; ">Highest Education Attained:</p>
             </div>
             <div class="col">
                 <select class="education"><option disabled selected value> -- select an option -- </option></select>
+            </div>
+        </div>
+        <div class="row justify-content-center align-self-center">
+            <div class="col-lg-5">
+                <p class="text-right" style="font-size:x-large; ">Have you been diagnosed with ASD by a clinician before?:</p>
+            </div>
+            <div class="col">
+               <select class="diag"><option disabled selected value> -- select an option -- </option></select>
+            </div>
+        </div>
+
+        <div class="row justify-content-center align-self-center">
+            <div class="col-lg-5">
+                <p class="text-right" style="font-size:x-large; ">Email Address (for payment purposes only):</p>
+            </div>
+            <div class="col">
+                <input id="email"  style="width: 28vw;">
             </div>
         </div>
     </div>
