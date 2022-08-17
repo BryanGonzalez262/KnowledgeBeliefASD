@@ -6,6 +6,8 @@ import json
 from flask import redirect, url_for, render_template, request, make_response
 from datetime import datetime
 from ast import literal_eval
+import random
+import string
 
 
 json_fp = 'KnowledgeBelief/static/stim_data/KB_stim.json'
@@ -19,8 +21,8 @@ comp_code = "XXXX"
 @app.route('/')
 def index():
     # replace random with comments on prolific
-    prolific_id = np.random.random()  # request.args.get('PROLIFIC_PID')
-    session_id = np.random.random()  # request.args.get('SESSION_ID')
+    prolific_id = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
+    session_id = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
 
     return redirect(url_for('welcome', PROLIFIC_PID=prolific_id, SESSION_ID=session_id,
                             tf_practice='NotDone', trial_practice='NotDone', trial=0))
