@@ -54,6 +54,7 @@ class Trial(db.Model):
     target_onset = db.Column(db.DateTime)
     response_onset = db.Column(db.DateTime)
     response_key = db.Column(db.VARCHAR(20))
+    ip_addy = db.Column(db.VARCHAR(80))
     prolific_id = db.Column(db.String, db.ForeignKey('subjects.prolific_id'))
 
 
