@@ -1,4 +1,4 @@
-from . import app, db
+from . import app, db, recaptcha
 from .models import Subject, Trial, Felicity, Practice, AutismScore, Demographic
 from .utils import randomize_trials, fel_practice
 import numpy as np
@@ -32,8 +32,19 @@ def index():
 def welcome():
     msg1 = "Welcome!"
     msg2 = "Press the space bar to continue..."
-    next_pg = "/consent"
+    next_pg = "/real"
     return render_template('message.html', msg1=msg1, msg2=msg2, next=next_pg)
+
+
+@app.route('/real', methods=['GET', 'POST'])
+def real():
+    message = '' # Create empty message
+    if request.method == 'POST': # Check to see if flask.request.method is POST
+        if recaptcha.verify(): # Use verify() method to see if ReCaptcha is filled out
+            message = 'Thanks for filling out the form!' # Send success message
+        else:
+            message = 'Please fill out the ReCaptcha!' # Send error message
+    return render_template('real.html', msg1='Please verify', message=message, nxt="/consent")
 
 
 @app.route('/consent', methods=['GET', 'POST'])
