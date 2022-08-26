@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+{% block js %}
+    <script>
+        if ('{{ message }}' === "Thanks for filling out the form!") {
+            window.location.pathname= "{{ nxt }}"
+        }
+    </script>
+
+{% endblock %}
+
+{% block stage %}
+    <div class="row justify-content-center align-self-center">
+        <div class="col">
+            <p class="text-center" style="font-size: xxx-large;">{{ msg1 }}</p>
+        </div>
+    </div>
+    <div class="row justify-content-center" id="realness">
+        <div class="col justify-content-center">
+            <form method="POST"> <!-- Sends POST request to flask server -->
+                {{ recaptcha }} <!-- Refer to 'recaptcha' variable in main.py -->
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <p>{{ message }}</p> <!-- Message to tell user whether or not they have filled out ReCaptcha -->
+    </div>
+
+
+
+
+{% endblock %}
+</html>
