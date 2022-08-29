@@ -11,8 +11,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///knwlg_blf.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 app.config['SESSION_COOKIE_SAMESITE'] = "None"
-app.config['RECAPTCHA_SITE_KEY'] = 'XXXXX-B--M'
-app.config['RECAPTCHA_SECRET_KEY'] = 'XXXXXXZy_'
+app.config['RECAPTCHA_SITE_KEY'] = 'XXX'
+app.config['RECAPTCHA_SECRET_KEY'] = 'XXXX'
 
 
 db = SQLAlchemy(app)

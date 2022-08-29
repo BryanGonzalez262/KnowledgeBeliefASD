@@ -2,7 +2,15 @@
 <html lang="en">
 {% extends "base.html" %}
 {% block js %}
+    <script type="text/javascript">
+      var onloadCallback = function() {
+        grecaptcha.render('html_element', {
+          'sitekey' : '<site key>'
+        });
+      };
+    </script>
     <script>
+
         if ('{{ message }}' === "Thanks for filling out the form!") {
             window.location.pathname= "{{ nxt }}"
         }
@@ -18,10 +26,12 @@
     </div>
     <div class="row justify-content-center" id="realness">
         <div class="col justify-content-center">
-            <form method="POST"> <!-- Sends POST request to flask server -->
-                {{ recaptcha }} <!-- Refer to 'recaptcha' variable in main.py -->
+            <form action="?" method="POST">
+                <div id="html_element"></div>
+                <br>
                 <input type="submit" value="Submit">
             </form>
+            <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
         </div>
         <p>{{ message }}</p> <!-- Message to tell user whether or not they have filled out ReCaptcha -->
     </div>

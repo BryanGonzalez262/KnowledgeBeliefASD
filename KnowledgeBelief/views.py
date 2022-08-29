@@ -8,6 +8,7 @@ from datetime import datetime
 from ast import literal_eval
 import random
 import string
+import requests
 
 
 json_fp = 'KnowledgeBelief/static/stim_data/KB_stim.json'
@@ -40,7 +41,16 @@ def welcome():
 def real():
     message = '' # Create empty message
     if request.method == 'POST': # Check to see if flask.request.method is POST
-        if recaptcha.verify(): # Use verify() method to see if ReCaptcha is filled out
+        r = requests.post('https://www.google.com/recaptcha/api/siteverify',
+                          data={'secret': '<secret>',
+                                'response': request.form['g-recaptcha-response']})
+
+        google_response = json.loads(r.text)
+        print('JSON: ', google_response)
+
+        if google_response['success']:
+            print('SUCCESS')
+        #if recaptcha.verify(): # Use verify() method to see if ReCaptcha is filled out
             message = 'Thanks for filling out the form!' # Send success message
         else:
             message = 'Please fill out the ReCaptcha!' # Send error message
@@ -57,11 +67,14 @@ def consent():
 
 @app.route('/new_subject')
 def new_subject():
+    prolific_id = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
+    session_id = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
+
     s_prac, s_trls, s_fel = randomize_trials()
     print('You have a new Subject')
     ua = request.user_agent
-    subj = Subject(prolific_id=request.args.get('PROLIFIC_PID'),
-                   session_id=request.args.get('SESSION_ID'),
+    subj = Subject(prolific_id=prolific_id,
+                   session_id=session_id,
                    participation_date=datetime.now(),
                    browser=ua.browser,
                    browser_version=ua.version,
@@ -88,11 +101,11 @@ def new_subject():
                                         prompt=str(s_prac.prompt[i]), target=s_prac.target[i],
                                         correct_answer=s_prac.correct_answer[i], prolific_id=subj.prolific_id))
     # Add Autism & Demos Entry
-    db.session.add(Demographic(prolific_id=request.args.get('PROLIFIC_PID')))
-    db.session.add(AutismScore(prolific_id=request.args.get('PROLIFIC_PID')))
+    db.session.add(Demographic(prolific_id=prolific_id))
+    db.session.add(AutismScore(prolific_id=prolific_id))
     db.session.commit()
     return redirect(url_for('instructions',
-                            PROLIFIC_PID=request.args.get('PROLIFIC_PID'), SESSION_ID=request.args.get('SESSION_ID'),
+                            PROLIFIC_PID=prolific_id, SESSION_ID=session_id, tf_practice='NotDone', trial_practice='NotDone',
                             exp_state="TF_PRACTICE", trial=1))
 
 
