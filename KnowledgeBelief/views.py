@@ -9,7 +9,8 @@ from ast import literal_eval
 import random
 import string
 import requests
-
+from urllib.request import urlopen
+from json import load
 
 json_fp = 'KnowledgeBelief/static/stim_data/KB_stim.json'
 with open(json_fp, 'r') as j:
@@ -18,6 +19,8 @@ with open(json_fp, 'r') as j:
 n_trials = 24
 n_fel_trials = 12
 comp_code = "XXXX"
+cap_site_k = "YYYY"
+cap_secret = "ZZZZZ"
 
 @app.route('/')
 def index():
@@ -42,7 +45,7 @@ def real():
     message = '' # Create empty message
     if request.method == 'POST': # Check to see if flask.request.method is POST
         r = requests.post('https://www.google.com/recaptcha/api/siteverify',
-                          data={'secret': '<secret>',
+                          data={'secret': cap_secret,
                                 'response': request.form['g-recaptcha-response']})
 
         google_response = json.loads(r.text)
@@ -54,12 +57,25 @@ def real():
             message = 'Thanks for filling out the form!' # Send success message
         else:
             message = 'Please fill out the ReCaptcha!' # Send error message
-    return render_template('real.html', msg1='Please verify', message=message, nxt="/consent")
+
+    if request.method == 'GET':
+        addr = request.environ.get('HTTP_X_FORWARDED_FOR', request.remote_addr)
+        url = 'https://ipinfo.io/' + addr + '/json'
+        res = urlopen(url)
+        # response from url(if res==None then check connection)
+        data = load(res)
+        # check if english speaking country
+        if data['country'] in ['AG', 'AU', 'BS', 'BB', 'BZ', 'CA', 'DM' 'GD', 'GY', 'IE', 'JM', 'MT', 'NZ', 'KN', 'LC', 'VC', 'TT', 'GB']:
+            return render_template('real.html', msg1='Please verify', message=message, nxt="/consent")
+        else:
+            return render_template('message.html', msg1='Sorry',
+                                   msg2='This is experiment is not available in your country. Please close this window now.', next="/real")
 
 
 @app.route('/consent', methods=['GET', 'POST'])
 def consent():
     if request.method == 'GET':
+        print(request.headers.getlist("X-Forwarded-For"))
         return render_template('consent.html')
     if request.method == 'POST':
         return make_response("200")
@@ -287,11 +303,12 @@ def story():
 
     if request.method == 'POST':
         sub_dat = request.get_json()
+        # If it's not a practice trial
         if sub_dat['trl_type'] != 'story_practice':
             t_dat = Trial.query.filter_by(prolific_id=sub_dat['PROLIFIC_PID'],
                                           trial_num=int(sub_dat['trl'])).first()
             t_dat.correct = [True if sub_dat['keys_pressed'][-1].lower() == t_dat.correct_answer else False][0]
-            t_dat.ip_addy = str(request.remote_addr)
+            t_dat.ip_addy = request.environ.get('HTTP_X_FORWARDED_FOR', request.remote_addr) # str(request.remote_addr)
         else:
             t_dat = Practice.query.filter_by(prolific_id=sub_dat['PROLIFIC_PID'],
                                              trial_num=int(sub_dat['trl'])).first()
