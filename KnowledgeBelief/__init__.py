@@ -4,15 +4,23 @@ from flask_cors import CORS
 from flask_bootstrap import Bootstrap
 from flask_recaptcha import ReCaptcha
 from flask_migrate import Migrate
+import json
+
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'dfkjfsdlf'
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///knwlg_blf.db"
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
+config_dir = "config.json"
+
+with open(config_dir) as config_file:
+    config = json.load(config_file)
+
+app.config['SECRET_KEY'] = config.get("SECRET_KEY")
+app.config['SQLALCHEMY_DATABASE_URI'] = config.get("SQLALCHEMY_DATABASE_URI")
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = "False"
+app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = "False"
 app.config['SESSION_COOKIE_SAMESITE'] = "None"
-app.config['RECAPTCHA_SITE_KEY'] = 'XXX'
-app.config['RECAPTCHA_SECRET_KEY'] = 'XXXX'
+app.config['RECAPTCHA_SITE_KEY'] = config.get("RECAPTCHA_SITE_KEY")
+app.config['RECAPTCHA_SECRET_KEY'] = config.get("RECAPTCHA_SECRET_KEY")
+
 
 
 db = SQLAlchemy(app)

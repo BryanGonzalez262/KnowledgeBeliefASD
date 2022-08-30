@@ -3,7 +3,7 @@ from .models import Subject, Trial, Felicity, Practice, AutismScore, Demographic
 from .utils import randomize_trials, fel_practice
 import numpy as np
 import json
-from flask import redirect, url_for, render_template, request, make_response
+from flask import redirect, url_for, render_template, request, make_response, current_app
 from datetime import datetime
 from ast import literal_eval
 import random
@@ -19,8 +19,9 @@ with open(json_fp, 'r') as j:
 n_trials = 24
 n_fel_trials = 12
 comp_code = "XXXX"
-cap_site_k = "YYYY"
-cap_secret = "ZZZZZ"
+cap_site_k = current_app.config["RECAPTCHA_SITE_KEY"]
+cap_secret = current_app.config["RECAPTCHA_SECRET_KEY"]
+
 
 @app.route('/')
 def index():
@@ -66,7 +67,7 @@ def real():
         data = load(res)
         # check if english speaking country
         if data['country'] in ['AG', 'AU', 'BS', 'BB', 'BZ', 'CA', 'DM' 'GD', 'GY', 'IE', 'JM', 'MT', 'NZ', 'KN', 'LC', 'VC', 'TT', 'GB']:
-            return render_template('real.html', msg1='Please verify', message=message, nxt="/consent")
+            return render_template('real.html', msg1='Please verify', message=message, nxt="/consent", sk=cap_site_k)
         else:
             return render_template('message.html', msg1='Sorry',
                                    msg2='This is experiment is not available in your country. Please close this window now.', next="/real")
