@@ -66,6 +66,7 @@ class Demographic(db.Model):
     ethnicity = db.Column(db.VARCHAR(80))
     education = db.Column(db.VARCHAR(80))
     diag = db.Column(db.VARCHAR(100))
+    autism_exp = db.Column(db.VARCHAR(500))
     prolific_id = db.Column(db.String, db.ForeignKey('subjects.prolific_id'))
 
 

@@ -435,7 +435,10 @@ def debrief():
         t_dat = Subject.query.filter_by(prolific_id=s_dat['prolific_id']).first()
         t_dat.feedback = s_dat['feedback']
         t_dat.completion_code = comp_code
+        d_dat = Demographic.query.filter_by(prolific_id=s_dat['prolific_id']).first()
+        d_dat.autism_exp = s_dat['autist_experience']
         db.session.add(t_dat)
+        db.session.add(d_dat)
         db.session.commit()
         return make_response("200")
 
