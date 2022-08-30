@@ -10,7 +10,7 @@ import json
 app = Flask(__name__)
 config_dir = "config.json"
 
-with open(config_dir) as config_file:
+with open("KnowledgeBelief/config.json") as config_file:
     config = json.load(config_file)
 
 app.config['SECRET_KEY'] = config.get("SECRET_KEY")

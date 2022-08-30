@@ -19,8 +19,8 @@ with open(json_fp, 'r') as j:
 n_trials = 24
 n_fel_trials = 12
 comp_code = "XXXX"
-cap_site_k = current_app.config["RECAPTCHA_SITE_KEY"]
-cap_secret = current_app.config["RECAPTCHA_SECRET_KEY"]
+cap_site_k = app.config["RECAPTCHA_SITE_KEY"]
+cap_secret = app.config["RECAPTCHA_SECRET_KEY"]
 
 
 @app.route('/')
@@ -54,19 +54,21 @@ def real():
 
         if google_response['success']:
             print('SUCCESS')
-        #if recaptcha.verify(): # Use verify() method to see if ReCaptcha is filled out
             message = 'Thanks for filling out the form!' # Send success message
         else:
             message = 'Please fill out the ReCaptcha!' # Send error message
+        return render_template('real.html', msg1='Please verify', message=message, nxt="/consent", sk=cap_site_k)
 
     if request.method == 'GET':
+
         addr = request.environ.get('HTTP_X_FORWARDED_FOR', request.remote_addr)
         url = 'https://ipinfo.io/' + addr + '/json'
         res = urlopen(url)
         # response from url(if res==None then check connection)
         data = load(res)
+        print(data['country'])
         # check if english speaking country
-        if data['country'] in ['AG', 'AU', 'BS', 'BB', 'BZ', 'CA', 'DM' 'GD', 'GY', 'IE', 'JM', 'MT', 'NZ', 'KN', 'LC', 'VC', 'TT', 'GB']:
+        if data['country'] in ['GB', 'US', 'AG', 'AU', 'BS', 'BB', 'BZ', 'CA', 'DM' 'GD', 'GY', 'IE', 'JM', 'MT', 'NZ', 'KN', 'LC', 'VC', 'TT']:
             return render_template('real.html', msg1='Please verify', message=message, nxt="/consent", sk=cap_site_k)
         else:
             return render_template('message.html', msg1='Sorry',
@@ -76,7 +78,6 @@ def real():
 @app.route('/consent', methods=['GET', 'POST'])
 def consent():
     if request.method == 'GET':
-        print(request.headers.getlist("X-Forwarded-For"))
         return render_template('consent.html')
     if request.method == 'POST':
         return make_response("200")
