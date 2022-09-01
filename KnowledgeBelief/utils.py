@@ -2,6 +2,22 @@ import pandas as pd
 import numpy as np
 import json
 import random
+from .models import UniqueId
+from . import db
+import string
+
+
+# Add subject IDs to database
+def add_subjects(n=20):
+    for i in range(n):
+        pid = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
+        db.session.add(UniqueId(unique_code=pid, used=False))
+    db.session.commit()
+    return print(f'{n} new access IDs have been added to the database for use. ')
+
+
+def get_access_code():
+    return UniqueId.query.filter_by(used=False).all()
 
 
 # practice
