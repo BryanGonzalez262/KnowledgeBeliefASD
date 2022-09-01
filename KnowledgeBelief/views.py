@@ -1,5 +1,5 @@
 from . import app, db, recaptcha
-from .models import Subject, Trial, Felicity, Practice, AutismScore, Demographic
+from .models import Subject, Trial, Felicity, Practice, AutismScore, Demographic, UniqueId
 from .utils import randomize_trials, fel_practice
 import numpy as np
 import json
@@ -23,14 +23,25 @@ cap_site_k = app.config["RECAPTCHA_SITE_KEY"]
 cap_secret = app.config["RECAPTCHA_SECRET_KEY"]
 
 
-@app.route('/')
-def index():
+@app.route('/user/<yewneek>')
+def index(yewneek):
     # replace random with comments on prolific
     prolific_id = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
     session_id = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
-
-    return redirect(url_for('welcome', PROLIFIC_PID=prolific_id, SESSION_ID=session_id,
-                            tf_practice='NotDone', trial_practice='NotDone', trial=0))
+    yoonique = UniqueId.query.filter_by(unique_code=yewneek).first()
+    if yoonique is None:
+        m2 = "Participation in this study is invite only. Contact the study coordinator at" \
+             " bryan.s.gonzalez.gr@dartmouth.edu  (subject:\'True-False Study New Participant\') if you would like to " \
+             "participate."
+        return render_template('message.html', msg1="Sorry", msg2=m2, next="/"+yewneek)
+    else:
+        if yoonique.used is False:
+            return redirect(url_for('welcome', AccessID=yewneek, PROLIFIC_PID=prolific_id, SESSION_ID=session_id, tf_practice='NotDone',
+                                    trial_practice='NotDone', trial=0))
+        else:
+            return render_template('message.html', msg1="Error",
+                                   msg2="This access link has already been used. Contact the study coordinator if you think you received this message in error.",
+                                   next="/"+yewneek)
 
 
 @app.route('/welcome', methods=['GET', 'POST'])
@@ -45,6 +56,7 @@ def welcome():
 def real():
     message = '' # Create empty message
     if request.method == 'POST': # Check to see if flask.request.method is POST
+
         r = requests.post('https://www.google.com/recaptcha/api/siteverify',
                           data={'secret': cap_secret,
                                 'response': request.form['g-recaptcha-response']})
@@ -54,13 +66,12 @@ def real():
 
         if google_response['success']:
             print('SUCCESS')
-            message = 'Thanks for filling out the form!' # Send success message
+            message = 'Thanks for filling out the form!'  # Send success message
         else:
             message = 'Please fill out the ReCaptcha!' # Send error message
         return render_template('real.html', msg1='Please verify', message=message, nxt="/consent", sk=cap_site_k)
 
     if request.method == 'GET':
-
         addr = request.environ.get('HTTP_X_FORWARDED_FOR', request.remote_addr)
         url = 'https://ipinfo.io/' + addr + '/json'
         res = urlopen(url)
@@ -69,6 +80,11 @@ def real():
         print(data['country'])
         # check if english speaking country
         if data['country'] in ['GB', 'US', 'AG', 'AU', 'BS', 'BB', 'BZ', 'CA', 'DM' 'GD', 'GY', 'IE', 'JM', 'MT', 'NZ', 'KN', 'LC', 'VC', 'TT']:
+            # mark access code as used
+            yoonique = UniqueId.query.filter_by(unique_code=request.args.get('AccessID')).first()
+            yoonique.used = True
+            db.session.add(yoonique)
+            db.session.commit()
             return render_template('real.html', msg1='Please verify', message=message, nxt="/consent", sk=cap_site_k)
         else:
             return render_template('message.html', msg1='Sorry',
