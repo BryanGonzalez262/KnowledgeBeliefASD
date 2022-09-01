@@ -40,7 +40,6 @@ class Practice(db.Model):
     prolific_id = db.Column(db.String, db.ForeignKey('subjects.prolific_id'))
 
 
-
 class Trial(db.Model):
     __tablename__ = 'trials'
     id = db.Column(db.Integer, primary_key=True)
@@ -86,9 +85,6 @@ class AutismScore(db.Model):
     prolific_id = db.Column(db.String, db.ForeignKey('subjects.prolific_id'))
 
 
-
-
-
 class Felicity(db.Model):
     __tablename__ = 'felicities'
     id = db.Column(db.Integer, primary_key=True)
@@ -100,3 +96,12 @@ class Felicity(db.Model):
     felicity_rating = db.Column(db.Integer)
     prolific_id = db.Column(db.String, db.ForeignKey('subjects.prolific_id'))
 
+
+class UniqueId(db.Model):
+    __tablename__: 'uniqueids'
+    id = db.Column(db.Integer, primary_key=True)
+    unique_code = db.Column(db.VARCHAR(20), unique=True)
+    used = db.Column(db.Boolean)
+
+    def __repr__(self):
+        return '<UniqueId %r>' % self.unique_code
