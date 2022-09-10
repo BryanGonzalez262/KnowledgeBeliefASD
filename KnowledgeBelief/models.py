@@ -14,6 +14,7 @@ class Subject(db.Model):
     operating_sys_lang = db.Column(db.VARCHAR(80))
     GMT_timestamp = db.Column(db.DateTime)
     email = db.Column(db.VARCHAR(400))
+    recaptcha_complete = db.Column(db.Boolean)
     block1_complete = db.Column(db.Boolean)
     block2_complete = db.Column(db.Boolean)
     block3_complete = db.Column(db.Boolean)

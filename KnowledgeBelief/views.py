@@ -67,6 +67,13 @@ def real():
         if google_response['success']:
             print('SUCCESS')
             message = 'Thanks for filling out the form!'  # Send success message
+            prolific_id = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
+            session_id = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
+            new_subject = Subject(prolific_id=prolific_id, session_id=session_id, recaptcha_complete=True)
+            db.session.add(new_subject)
+            db.session.commit()
+            return redirect(url_for('consent', PROLIFIC_PID=prolific_id, SESSION_ID=session_id, tf_practice='NotDone',
+                             trial_practice='NotDone', trial=0))
         else:
             message = 'Please fill out the ReCaptcha!' # Send error message
         return render_template('real.html', msg1='Please verify', message=message, nxt="/consent", sk=cap_site_k)
@@ -101,46 +108,51 @@ def consent():
 
 @app.route('/new_subject')
 def new_subject():
-    prolific_id = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
-    session_id = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
+    # ADD a Check here for recaptcha complete
 
-    s_prac, s_trls, s_fel = randomize_trials()
-    print('You have a new Subject')
-    ua = request.user_agent
-    subj = Subject(prolific_id=prolific_id,
-                   session_id=session_id,
-                   participation_date=datetime.now(),
-                   browser=ua.browser,
-                   browser_version=ua.version,
-                   operating_sys=ua.platform,
-                   operating_sys_lang=ua.language,
-                   GMT_timestamp=datetime.utcnow(),
-                   block1_complete=False,
-                   block2_complete=False,
-                   block3_complete=False)
-    db.session.add(subj)
-    # Add Trials
-    for i, trl in s_trls.iterrows():
-        db.session.add(Trial(trial_num=trl.trial_num, trial_type=trl.trial_type, scenario=trl.scenario,
-                             belief_type=trl.belief, ascription_type=trl.ascription, correct_answer=trl.crrct_answer,
-                             prolific_id=subj.prolific_id))
+    pid = request.args.get("PROLIFIC_PID")
+    sid = request.args.get("SESSION_ID")
+    subj = Subject.query.filter_by(prolific_id=pid, session_id=sid).first()
+    if subj.recaptcha_complete:
+        s_prac, s_trls, s_fel = randomize_trials()
+        print('You have a new Subject')
+        ua = request.user_agent
+        subj.participation_date = datetime.now()
+        subj.browser=ua.browser
+        subj.browser_version=ua.version
+        subj.operating_sys=ua.platform
+        subj.operating_sys_lang=ua.language
+        subj.GMT_timestamp=datetime.utcnow()
+        subj.block1_complete=False
+        subj.block2_complete=False
+        subj.block3_complete=False
+        db.session.add(subj)
+        # Add Trials
+        for i, trl in s_trls.iterrows():
+            db.session.add(Trial(trial_num=trl.trial_num, trial_type=trl.trial_type, scenario=trl.scenario,
+                                 belief_type=trl.belief, ascription_type=trl.ascription, correct_answer=trl.crrct_answer,
+                                 prolific_id=subj.prolific_id))
 
-        if i <= 11:
-            db.session.add(Felicity(block2_trial_num=int(s_fel.b2_trial_num[i]),
-                                    block1_trial_num=int(s_fel.b1_trial_num[i]),
-                                    fel_scenario=int(s_fel.fel_scenario[i]), fel_belief_type=s_fel.fel_belief_type[i],
-                                    fel_ascription_type=s_fel.fel_ascription_type[i], prolific_id=subj.prolific_id))
-            if i <= 9:
-                db.session.add(Practice(trial_num=int(s_prac.trial_num[i]), trial_type=s_prac.trial_type[i],
-                                        prompt=str(s_prac.prompt[i]), target=s_prac.target[i],
-                                        correct_answer=s_prac.correct_answer[i], prolific_id=subj.prolific_id))
-    # Add Autism & Demos Entry
-    db.session.add(Demographic(prolific_id=prolific_id))
-    db.session.add(AutismScore(prolific_id=prolific_id))
-    db.session.commit()
-    return redirect(url_for('instructions',
-                            PROLIFIC_PID=prolific_id, SESSION_ID=session_id, tf_practice='NotDone', trial_practice='NotDone',
-                            exp_state="TF_PRACTICE", trial=1))
+            if i <= 11:
+                db.session.add(Felicity(block2_trial_num=int(s_fel.b2_trial_num[i]),
+                                        block1_trial_num=int(s_fel.b1_trial_num[i]),
+                                        fel_scenario=int(s_fel.fel_scenario[i]), fel_belief_type=s_fel.fel_belief_type[i],
+                                        fel_ascription_type=s_fel.fel_ascription_type[i], prolific_id=subj.prolific_id))
+                if i <= 9:
+                    db.session.add(Practice(trial_num=int(s_prac.trial_num[i]), trial_type=s_prac.trial_type[i],
+                                            prompt=str(s_prac.prompt[i]), target=s_prac.target[i],
+                                            correct_answer=s_prac.correct_answer[i], prolific_id=subj.prolific_id))
+        # Add Autism & Demos Entry
+        db.session.add(Demographic(prolific_id=pid))
+        db.session.add(AutismScore(prolific_id=pid))
+        db.session.commit()
+        return redirect(url_for('instructions',
+                                PROLIFIC_PID=pid, SESSION_ID=sid, tf_practice='NotDone', trial_practice='NotDone',
+                                exp_state="TF_PRACTICE", trial=1))
+    else:
+        return render_template('message.html', msg1='Sorry',
+                               msg2='You did not verify. Press the space bar to verify',
+                               next="/real")
 
 
 @app.route('/instructions', methods=['GET', 'POST'])
