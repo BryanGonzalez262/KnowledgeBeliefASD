@@ -347,6 +347,7 @@ def story():
         t_dat.target_onset = datetime.fromtimestamp(sub_dat['target_onset'] / 1000.0)
         t_dat.response_key = str(sub_dat['keys_pressed'])
         t_dat.response_onset = datetime.fromtimestamp(sub_dat['rt'][-1] / 1000.0)
+        t_dat.keypress_time = str([datetime.fromtimestamp(sub_dat['rt'][xx] / 1000.0) for xx in range(len(sub_dat['keys_pressed']))])
         db.session.add(t_dat)
         db.session.commit()
 
