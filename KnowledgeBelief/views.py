@@ -120,41 +120,48 @@ def new_subject():
     sid = request.args.get("SESSION_ID")
     subj = Subject.query.filter_by(prolific_id=pid, session_id=sid).first()
     if subj.recaptcha_complete:
-        s_prac, s_trls, s_fel = randomize_trials()
-        print('You have a new Subject')
-        ua = request.user_agent
-        subj.participation_date = datetime.now()
-        subj.browser=ua.browser
-        subj.browser_version=ua.version
-        subj.operating_sys=ua.platform
-        subj.operating_sys_lang=ua.language
-        subj.GMT_timestamp=datetime.utcnow()
-        subj.block1_complete=False
-        subj.block2_complete=False
-        subj.block3_complete=False
-        db.session.add(subj)
-        # Add Trials
-        for i, trl in s_trls.iterrows():
-            db.session.add(Trial(trial_num=trl.trial_num, trial_type=trl.trial_type, scenario=trl.scenario,
-                                 belief_type=trl.belief, ascription_type=trl.ascription, correct_answer=trl.crrct_answer,
-                                 prolific_id=subj.prolific_id))
+        if check_client_net():
+            msg1 = "NETWORK ERROR!"
+            msg2 = "THIS STUDY CAN NOT BE ACCESSED THROUGH A VPN, PROXY, TOR NODE OR RELAY NETWORK. " \
+                   "You must turn these off and refresh this page to continue"
+            next_pg = "/welcome"
+            return render_template('message.html', msg1=msg1, msg2=msg2, next=next_pg)
+        else:
+            s_prac, s_trls, s_fel = randomize_trials()
+            print('You have a new Subject')
+            ua = request.user_agent
+            subj.participation_date = datetime.now()
+            subj.browser=ua.browser
+            subj.browser_version=ua.version
+            subj.operating_sys=ua.platform
+            subj.operating_sys_lang=ua.language
+            subj.GMT_timestamp=datetime.utcnow()
+            subj.block1_complete=False
+            subj.block2_complete=False
+            subj.block3_complete=False
+            db.session.add(subj)
+            # Add Trials
+            for i, trl in s_trls.iterrows():
+                db.session.add(Trial(trial_num=trl.trial_num, trial_type=trl.trial_type, scenario=trl.scenario,
+                                     belief_type=trl.belief, ascription_type=trl.ascription, correct_answer=trl.crrct_answer,
+                                     prolific_id=subj.prolific_id))
 
-            if i <= 11:
-                db.session.add(Felicity(block2_trial_num=int(s_fel.b2_trial_num[i]),
-                                        block1_trial_num=int(s_fel.b1_trial_num[i]),
-                                        fel_scenario=int(s_fel.fel_scenario[i]), fel_belief_type=s_fel.fel_belief_type[i],
-                                        fel_ascription_type=s_fel.fel_ascription_type[i], prolific_id=subj.prolific_id))
-                if i <= 9:
-                    db.session.add(Practice(trial_num=int(s_prac.trial_num[i]), trial_type=s_prac.trial_type[i],
-                                            prompt=str(s_prac.prompt[i]), target=s_prac.target[i],
-                                            correct_answer=s_prac.correct_answer[i], prolific_id=subj.prolific_id))
-        # Add Autism & Demos Entry
-        db.session.add(Demographic(prolific_id=pid))
-        db.session.add(AutismScore(prolific_id=pid))
-        db.session.commit()
-        return redirect(url_for('instructions',
-                                PROLIFIC_PID=pid, SESSION_ID=sid, tf_practice='NotDone', trial_practice='NotDone',
-                                exp_state="TF_PRACTICE", trial=1))
+                if i <= 11:
+                    db.session.add(Felicity(block2_trial_num=int(s_fel.b2_trial_num[i]),
+                                            block1_trial_num=int(s_fel.b1_trial_num[i]),
+                                            fel_scenario=int(s_fel.fel_scenario[i]), fel_belief_type=s_fel.fel_belief_type[i],
+                                            fel_ascription_type=s_fel.fel_ascription_type[i], prolific_id=subj.prolific_id))
+                    if i <= 9:
+                        db.session.add(Practice(trial_num=int(s_prac.trial_num[i]), trial_type=s_prac.trial_type[i],
+                                                prompt=str(s_prac.prompt[i]), target=s_prac.target[i],
+                                                correct_answer=s_prac.correct_answer[i], prolific_id=subj.prolific_id))
+            # Add Autism & Demos Entry
+            db.session.add(Demographic(prolific_id=pid))
+            db.session.add(AutismScore(prolific_id=pid))
+            db.session.commit()
+            return redirect(url_for('instructions',
+                                    PROLIFIC_PID=pid, SESSION_ID=sid, tf_practice='NotDone', trial_practice='NotDone',
+                                    exp_state="TF_PRACTICE", trial=1))
     else:
         return render_template('message.html', msg1='Sorry',
                                msg2='You did not verify. Press the space bar to verify',
