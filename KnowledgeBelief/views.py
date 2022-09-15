@@ -1,6 +1,6 @@
 from . import app, db, recaptcha
 from .models import Subject, Trial, Felicity, Practice, AutismScore, Demographic, UniqueId
-from .utils import randomize_trials, fel_practice
+from .utils import randomize_trials, fel_practice, check_client_net
 import numpy as np
 import json
 from flask import redirect, url_for, render_template, request, make_response, current_app
@@ -46,10 +46,16 @@ def index(yewneek):
 
 @app.route('/welcome', methods=['GET', 'POST'])
 def welcome():
-    msg1 = "Welcome!"
-    msg2 = "Press the space bar to continue..."
-    next_pg = "/real"
-    return render_template('message.html', msg1=msg1, msg2=msg2, next=next_pg)
+    if check_client_net():
+        msg1 = "NETWORK ERROR!"
+        msg2 = "THIS STUDY CAN NOT BE ACCESSED THROUGH A VPN, PROXY, TOR NODE OR RELAY NETWORK. " \
+               "You must turn these off and refresh this page to continue"
+        next_pg = "/welcome"
+    else:
+        msg1 = "Welcome!"
+        msg2 = "Press the space bar to continue..."
+        next_pg = "/real"
+    return render_template('message.html', msg1=msg1, msg2=msg2, next=next_pg) # On this line I'm rendering the HTML
 
 
 @app.route('/real', methods=['GET', 'POST'])
@@ -65,10 +71,10 @@ def real():
         print('JSON: ', google_response)
 
         if google_response['success']:
-            print('SUCCESS')
             message = 'Thanks for filling out the form!'  # Send success message
             prolific_id = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
             session_id = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
+            print(f'SUCCESS subject:  {prolific_id}')
             new_subject = Subject(prolific_id=prolific_id, session_id=session_id, recaptcha_complete=True)
             db.session.add(new_subject)
             db.session.commit()

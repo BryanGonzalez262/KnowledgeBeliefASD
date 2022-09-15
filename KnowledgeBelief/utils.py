@@ -1,10 +1,26 @@
 import pandas as pd
 import numpy as np
 import json
+import requests
 import random
 from .models import UniqueId
 from . import db
 import string
+from flask import request
+
+
+# check VPN
+def check_client_net():
+    api = "XXX"
+    ip_addy = request.environ.get('HTTP_X_FORWARDED_FOR', request.remote_addr)
+    response = requests.get("https://vpnapi.io/api/" + ip_addy + "?key=" + api)
+    data = json.loads(response.text)
+    if sum(data["security"].values()) > 0:
+        print("Someone is attempting to access through hidden network. ")
+        return True
+    else:
+        return False
+
 
 
 # Add subject IDs to database
