@@ -3,7 +3,7 @@ import numpy as np
 import json
 import requests
 import random
-from .models import UniqueId, Subject
+from .models import UniqueId, Subject, AccessCode
 from . import db, mail, app
 import string
 from flask import request, render_template
@@ -14,10 +14,10 @@ from flask_mail import Message
 def send_email(to, subject, template, **kwargs):
     # double check this email hasn't been used
     to = ''.join(to.split()).lower()
-    if UniqueId.query.filter_by(email=to).first() is None:
+    if AccessCode.query.filter_by(email=to).first() is None:
         # create a unique ID
         pid = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
-        db.session.add(UniqueId(unique_code=pid, used=False, sent=True, email=to))
+        db.session.add(AccessCode(unique_code=pid, used=False, sent=True, emailer=to))
         db.session.commit()
         msg = Message(app.config['STUDY_MAIL_SUBJECT'] + subject,
                       sender=app.config['STUDY_MAIL_SENDER'], recipients=[to])
@@ -48,7 +48,7 @@ def check_client_net():
 def add_subjects(n=20):
     for i in range(n):
         pid = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
-        db.session.add(UniqueId(unique_code=pid, used=False))
+        db.session.add(AccessCode(unique_code=pid, used=False))
     db.session.commit()
     return print(f'{n} new access IDs have been added to the database for use. ')
 

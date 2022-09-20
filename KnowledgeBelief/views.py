@@ -1,5 +1,5 @@
 from . import app, db, recaptcha
-from .models import Subject, Trial, Felicity, Practice, AutismScore, Demographic, UniqueId
+from .models import Subject, Trial, Felicity, Practice, AutismScore, Demographic, UniqueId, AccessCode
 from .utils import randomize_trials, fel_practice, check_client_net, send_email
 import numpy as np
 import json
@@ -41,7 +41,7 @@ def interest():
             return render_template('interest_form.html', q_items=q_items)
     if request.method == "POST":
         formdat = request.get_json()
-        ss = Subject.query.filter_by(email=formdat['email']).first()
+        ss = AccessCode.query.filter_by(email=formdat['email']).first()
         if ss is None:
             if sum([x for x in formdat.values()][:-1]) == 4:
                 send_email(to=formdat['email'], subject='', template='mail/accessemail')

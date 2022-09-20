@@ -104,9 +104,21 @@ class UniqueId(db.Model):
     __tablename__: 'uniqueids'
     id = db.Column(db.Integer, primary_key=True)
     unique_code = db.Column(db.VARCHAR(20), unique=True)
-    email = db.Column(db.VARCHAR(100), unique=True)
+    emailer = db.Column(db.VARCHAR(100), unique=True)
     sent = db.Column(db.Boolean)
     used = db.Column(db.Boolean)
 
     def __repr__(self):
         return '<UniqueId %r>' % self.unique_code
+
+
+class AccessCode(db.Model):
+    __tablename__: 'accesscodes'
+    id = db.Column(db.Integer, primary_key=True)
+    unique_code = db.Column(db.VARCHAR(20), unique=True)
+    email = db.Column(db.VARCHAR(100), unique=True)
+    sent = db.Column(db.Boolean)
+    used = db.Column(db.Boolean)
+
+    def __repr__(self):
+        return '<AccessCode %r>' % self.unique_code
