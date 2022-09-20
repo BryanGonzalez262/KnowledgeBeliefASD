@@ -1,6 +1,6 @@
 from . import app, db, recaptcha
 from .models import Subject, Trial, Felicity, Practice, AutismScore, Demographic, UniqueId
-from .utils import randomize_trials, fel_practice, check_client_net
+from .utils import randomize_trials, fel_practice, check_client_net, send_email
 import numpy as np
 import json
 from flask import redirect, url_for, render_template, request, make_response, current_app
@@ -21,6 +21,41 @@ n_fel_trials = 12
 comp_code = "XXXX"
 cap_site_k = app.config["RECAPTCHA_SITE_KEY"]
 cap_secret = app.config["RECAPTCHA_SECRET_KEY"]
+
+
+@app.route('/interest', methods=['GET', 'POST'])
+def interest():
+    if request.method == "GET":
+        if check_client_net():
+            msg1 = "NETWORK ERROR!"
+            msg2 = "THIS STUDY CAN NOT BE ACCESSED THROUGH A VPN, PROXY, TOR NODE OR RELAY NETWORK. " \
+                   "You must turn these off and refresh this page to continue"
+            next_pg = "/interest"
+            return render_template('message.html', msg1=msg1, msg2=msg2, next=next_pg)
+        else:
+            q_items = ["I am at least 18 years old.",
+                       "I am fluent in speaking and reading English.",
+                       "I have received a diagnosis of Autism/Apergers via clinical assessment.",
+                       "If eligible to participate, I have a personal computer from which to complete the study"
+                       ]
+            return render_template('interest_form.html', q_items=q_items)
+    if request.method == "POST":
+        formdat = request.get_json()
+        ss = Subject.query.filter_by(email=formdat['email']).first()
+        if ss is None:
+            if sum([x for x in formdat.values()][:-1]) == 4:
+                send_email(to=formdat['email'], subject='', template='mail/accessemail')
+        else:
+            # this email has already been used.  send message
+            msg1 = "Access Denied!"
+            msg2 = "This email has already been associated with a study participant"
+            next_pg = "/interest"
+            return render_template('message.html', msg1=msg1, msg2=msg2, next=next_pg)
+        return make_response("200")
+
+
+
+
 
 
 @app.route('/user/<yewneek>')
@@ -51,6 +86,7 @@ def welcome():
         msg2 = "THIS STUDY CAN NOT BE ACCESSED THROUGH A VPN, PROXY, TOR NODE OR RELAY NETWORK. " \
                "You must turn these off and refresh this page to continue"
         next_pg = "/welcome"
+        print(request.args.get('AccessID'))
     else:
         msg1 = "Welcome!"
         msg2 = "Press the space bar to continue..."
@@ -125,6 +161,7 @@ def new_subject():
             msg2 = "THIS STUDY CAN NOT BE ACCESSED THROUGH A VPN, PROXY, TOR NODE OR RELAY NETWORK. " \
                    "You must turn these off and refresh this page to continue"
             next_pg = "/welcome"
+            print(request.args.get('AccessID'))
             return render_template('message.html', msg1=msg1, msg2=msg2, next=next_pg)
         else:
             s_prac, s_trls, s_fel = randomize_trials()
