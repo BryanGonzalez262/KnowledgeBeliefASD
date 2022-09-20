@@ -41,21 +41,32 @@ def interest():
             return render_template('interest_form.html', q_items=q_items)
     if request.method == "POST":
         formdat = request.get_json()
+        print(formdat)
         ss = AccessCode.query.filter_by(email=formdat['email']).first()
         if ss is None:
+            print('someone expressed interest')
             if sum([x for x in formdat.values()][:-1]) == 4:
                 send_email(to=formdat['email'], subject='', template='mail/accessemail')
+            else:
+                print('they were not eligible')
         else:
-            # this email has already been used.  send message
+            print("oops")
             msg1 = "Access Denied!"
             msg2 = "This email has already been associated with a study participant"
             next_pg = "/interest"
             return render_template('message.html', msg1=msg1, msg2=msg2, next=next_pg)
+            # this email has already been used.  send message
+
         return make_response("200")
 
 
-
-
+@app.route('/oops', methods=["GET"])
+def oops():
+    if request.method =="GET":
+        msg1 = "Access Denied!"
+        msg2 = "This email has already been associated with a study participant"
+        next_pg = "/interest"
+        return render_template('message.html', msg1=msg1, msg2=msg2, next=next_pg)
 
 
 @app.route('/user/<yewneek>')
@@ -63,7 +74,7 @@ def index(yewneek):
     # replace random with comments on prolific
     prolific_id = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
     session_id = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
-    yoonique = UniqueId.query.filter_by(unique_code=yewneek).first()
+    yoonique = AccessCode.query.filter_by(unique_code=yewneek).first()
     if yoonique is None:
         m2 = "Participation in this study is invite only. Contact the study coordinator at" \
              " bryan.s.gonzalez.gr@dartmouth.edu  (subject:\'True-False Study New Participant\') if you would like to " \
