@@ -3,11 +3,33 @@ import numpy as np
 import json
 import requests
 import random
-from .models import UniqueId
-from . import db
+from .models import UniqueId, Subject
+from . import db, mail, app
 import string
-from flask import request
+from flask import request, render_template
+from flask_mail import Message
 
+
+# send links
+def send_email(to, subject, template, **kwargs):
+    # double check this email hasn't been used
+    to = ''.join(to.split()).lower()
+    if UniqueId.query.filter_by(email=to).first() is None:
+        # create a unique ID
+        pid = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
+        db.session.add(UniqueId(unique_code=pid, used=False, sent=True, email=to))
+        db.session.commit()
+        msg = Message(app.config['STUDY_MAIL_SUBJECT'] + subject,
+                      sender=app.config['STUDY_MAIL_SENDER'], recipients=[to])
+        #msg.body = render_template(template + '.txt', **kwargs)
+        msg.html = render_template(template + '.html', access_code=pid, **kwargs)
+        mail.send(msg)
+    else:
+        # this email has already been used.  send message
+        msg1 = "Access Denied!"
+        msg2 = "This email has already been associated with a study participant"
+        next_pg = "/interest"
+        return render_template('message.html', msg1=msg1, msg2=msg2, next=next_pg)
 
 # check VPN
 def check_client_net():
@@ -20,7 +42,6 @@ def check_client_net():
         return True
     else:
         return False
-
 
 
 # Add subject IDs to database
