@@ -33,40 +33,27 @@ def interest():
             next_pg = "/interest"
             return render_template('message.html', msg1=msg1, msg2=msg2, next=next_pg)
         else:
-            q_items = ["I am at least 18 years old.",
-                       "I am fluent in speaking and reading English.",
-                       "I have received a diagnosis of Autism/Apergers via clinical assessment.",
-                       "If eligible to participate, I have a personal computer from which to complete the study"
+            q_items = ["Are you at least 18 years old or older?",
+                       "Are you completely fluent in speaking and reading in English?",
+                       "Have you participated in this research study before?",
+                       "Have you received a diagnosis of Autism/Apergers via clinical assessment?",
+                       "If eligible to participate, do you have a personal computer from which to complete the study (no phones or tablets)"
                        ]
             return render_template('interest_form.html', q_items=q_items)
     if request.method == "POST":
         formdat = request.get_json()
         print(formdat)
-        ss = AccessCode.query.filter_by(email=formdat['email']).first()
+        em = ''.join(formdat['email'].split()).lower()
+        ss = AccessCode.query.filter_by(email=em).first()
         if ss is None:
             print('someone expressed interest')
-            if sum([x for x in formdat.values()][:-1]) == 4:
+            if [x for x in formdat.values()][:-1] == [1,1,2,1,1]:
                 send_email(to=formdat['email'], subject='', template='mail/accessemail')
             else:
                 print('they were not eligible')
         else:
-            print("oops")
-            msg1 = "Access Denied!"
-            msg2 = "This email has already been associated with a study participant"
-            next_pg = "/interest"
-            return render_template('message.html', msg1=msg1, msg2=msg2, next=next_pg)
-            # this email has already been used.  send message
-
+            print(f"oops, someone entered email {formdat['email']} that was already in db")
         return make_response("200")
-
-
-@app.route('/oops', methods=["GET"])
-def oops():
-    if request.method =="GET":
-        msg1 = "Access Denied!"
-        msg2 = "This email has already been associated with a study participant"
-        next_pg = "/interest"
-        return render_template('message.html', msg1=msg1, msg2=msg2, next=next_pg)
 
 
 @app.route('/user/<yewneek>')
@@ -109,14 +96,10 @@ def welcome():
 def real():
     message = '' # Create empty message
     if request.method == 'POST': # Check to see if flask.request.method is POST
-
-        r = requests.post('https://www.google.com/recaptcha/api/siteverify',
-                          data={'secret': cap_secret,
+        r = requests.post('https://www.google.com/recaptcha/api/siteverify', data={'secret': cap_secret,
                                 'response': request.form['g-recaptcha-response']})
-
         google_response = json.loads(r.text)
         print('JSON: ', google_response)
-
         if google_response['success']:
             message = 'Thanks for filling out the form!'  # Send success message
             prolific_id = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
