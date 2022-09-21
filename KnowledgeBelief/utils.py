@@ -10,6 +10,11 @@ from flask import request, render_template
 from flask_mail import Message
 
 
+from threading import Thread
+def send_async_email(app, msg):
+    with app.app_context():
+        mail.send(msg)
+
 # send links
 def send_email(to, subject, template, **kwargs):
     # double check this email hasn't been used
@@ -17,13 +22,17 @@ def send_email(to, subject, template, **kwargs):
     if AccessCode.query.filter_by(email=to).first() is None:
         # create a unique ID
         pid = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
-        db.session.add(AccessCode(unique_code=pid, used=False, sent=True, emailer=to))
+        db.session.add(AccessCode(unique_code=pid, used=False, sent=True, email=to))
         db.session.commit()
         msg = Message(app.config['STUDY_MAIL_SUBJECT'] + subject,
                       sender=app.config['STUDY_MAIL_SENDER'], recipients=[to])
         #msg.body = render_template(template + '.txt', **kwargs)
         msg.html = render_template(template + '.html', access_code=pid, **kwargs)
         mail.send(msg)
+        #thr = Thread(target=send_async_email, args=[app, msg])
+        #thr.start()
+        #return thr
+
     else:
         # this email has already been used.  send message
         msg1 = "Access Denied!"
@@ -33,8 +42,8 @@ def send_email(to, subject, template, **kwargs):
 
 # check VPN
 def check_client_net():
-    api = "XXX"
-    ip_addy = request.environ.get('HTTP_X_FORWARDED_FOR', request.remote_addr)
+    api = "f49b46146fdf4dc9a8d192a02fc4eef2"
+    ip_addy = "73.143.122.22" #request.environ.get('HTTP_X_FORWARDED_FOR', request.remote_addr)
     response = requests.get("https://vpnapi.io/api/" + ip_addy + "?key=" + api)
     data = json.loads(response.text)
     if sum(data["security"].values()) > 0:
