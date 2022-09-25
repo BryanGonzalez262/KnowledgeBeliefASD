@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+{% block js %}
+    <script>
+    // Add the 5-second timer
+    setTimeout(function (){
+        window.location.pathname = "/next_trial"
+    }, 27000)
+
+    // store response
+    var response = {
+        PROLIFIC_PID: new URLSearchParams(window.location.search).get('PROLIFIC_PID'),
+        SESSION_ID: new URLSearchParams(window.location.search).get('SESSION_ID'),
+        trl: {{ trl }},
+        trl_type: "{{ ttype }}",
+        keys_pressed: [],
+        rt: [],
+        target_onset: '',
+    };
+
+
+    function submit_tdat(){
+        $.ajax({
+            type: "POST",
+            url:window.location.pathname,
+            data: JSON.stringify(response),
+            traditional: true,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(){
+                if (new URLSearchParams(window.location.search).get('exp_state') === 'TF_TRIAL'){
+                    window.location.pathname = "/next_trial";
+                } else{setTimeout(function(){window.location.pathname = "/next_trial"; console.log('data sent from client')
+                }, 1000)}
+                }
+        })
+    }
+
+    function subjectResponse(e){
+        response.keys_pressed.push(e.key)
+        response.rt.push(Date.now())
+        submit_tdat()
+        if (new URLSearchParams(window.location.search).get('exp_state') === "TRIAL_PRACTICE"){
+            if (e.key === correct){$('#story p').text("Correct");
+            }else { $('#story p').text("That's not right! Please read more carefully!")}
+        }
+    }
+
+    var prompt = "{{ prompt }}"
+    var correct = "{{ correct }}"
+
+
+    setTimeout(function(){$('#story p').text(' ')}, 4500)  //stim 4.5 seconds later
+    setTimeout(function(){$('#story p').text({{ s2|tojson }})}, 5100) //ISI 600ms later
+    setTimeout(function(){$('#story p').text(' ')}, 9600)//stim 4.5 seconds later
+    setTimeout(function(){$('#story p').text({{ s3|tojson }})}, 10200) //ISI 600ms later
+    setTimeout(function(){$('#story p').text(' ')}, 14700) //stim 4.5 seconds later
+    setTimeout(function(){$('#story p').text({{ s4|tojson }})}, 15300)  //ISI 600ms later
+    setTimeout(function(){$('#story p').text(' ')}, 19800) //stim 4.5 seconds later
+    setTimeout(function(){$('#story p').text('True or False...')}, 20400) //ISI 600ms later
+    setTimeout(function(){$('#story p').text(' ')}, 21400)//stim 1 seconds later
+
+    //setTimeout(function(){$('#s3').text({{ s3|tojson }})}, 9000)
+    //setTimeout(function(){$('#s4').text({{ s4|tojson }})}, 13500)
+
+    //setTimeout(function(){$('#story p').remove();}, 18000)
+    //setTimeout(function(){$('#story').append('<p class="text-center" style="font-size: xxx-large;"> True or False..</p>');}, 18600)
+    setTimeout(function(){
+        response.target_onset = Date.now();
+        $('#story p').text({{ target|tojson }});
+        document.body.addEventListener("keydown", subjectResponse);
+        }, 22000)
+
+    </script>
+{% endblock %}
+
+{% block stage %}
+    <div class="row justify-content-center align-self-center">
+        <div class="col-lg-11" id="story">
+            <p class="text-center" id="s1" style="font-size: calc(1rem + 1vw); height:13vh;"> {{ s1 }}</p>
+
+        </div>
+    </div>
+
+{% endblock %}
+</html>
