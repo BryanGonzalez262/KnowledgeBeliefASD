@@ -42,8 +42,8 @@ def send_email(to, subject, template, **kwargs):
 
 # check VPN
 def check_client_net():
-    api = "f49b46146fdf4dc9a8d192a02fc4eef2"
-    ip_addy = "73.143.122.22" #request.environ.get('HTTP_X_FORWARDED_FOR', request.remote_addr)
+    api = "XXX"
+    ip_addy = request.environ.get('HTTP_X_FORWARDED_FOR', request.remote_addr)
     response = requests.get("https://vpnapi.io/api/" + ip_addy + "?key=" + api)
     data = json.loads(response.text)
     if sum(data["security"].values()) > 0:

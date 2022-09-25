@@ -124,7 +124,7 @@ def real():
         # check if english speaking country
         if data['country'] in ['GB', 'US', 'AG', 'AU', 'BS', 'BB', 'BZ', 'CA', 'DM' 'GD', 'GY', 'IE', 'JM', 'MT', 'NZ', 'KN', 'LC', 'VC', 'TT']:
             # mark access code as used
-            yoonique = UniqueId.query.filter_by(unique_code=request.args.get('AccessID')).first()
+            yoonique = AccessCode.query.filter_by(unique_code=request.args.get('AccessID')).first()
             yoonique.used = True
             db.session.add(yoonique)
             db.session.commit()
@@ -517,6 +517,23 @@ def debrief():
         return make_response("200")
 
 
+
+@app.route('/storyA', methods=["GET"])
+def storyA():
+    story = stim['test'][str(3)]['belief_manip']['FB']
+    ascrip = stim['test'][str(3)]['ascription']['Thinks']
+    return render_template('storyA.html', s1=story[0], s2=story[1], s3=story[2], s4=story[3],
+                                   target=ascrip['target'], correct=ascrip['crrct_answr'],
+                                   trl=int(0), ttype='test')
+
+
+@app.route('/storyB', methods=["GET"])
+def storyB():
+    story = stim['test'][str(3)]['belief_manip']['FB']
+    ascrip = stim['test'][str(3)]['ascription']['Thinks']
+    return render_template('storyB.html', s1=story[0], s2=story[1], s3=story[2], s4=story[3],
+                                   target=ascrip['target'], correct=ascrip['crrct_answr'],
+                                   trl=int(0), ttype='test')
 
 if __name__ == '__main__':
     app.run()
