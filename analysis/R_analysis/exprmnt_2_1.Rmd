@@ -1,0 +1,199 @@
+---
+title: "Experiment 2"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+```{r imports, echo=FALSE, warning=FALSE}
+library(lme4)
+library(emmeans)
+
+
+df <- read.csv('/Users/bryangonzalez/KnowledgeBeliefASD/analysis/Data/full_sample_clean.csv', header=T)
+df <- df[df$in_sample == "True" & df$correct == "True",]
+NT <- df[df$group == "neurotypical",]
+ASD <- df[df$group == "autism",]
+
+aqdf <- read.csv("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/Data/aqrtdiffs.csv", header=T)
+```
+
+```{r}
+# Infelicity Models
+## 3-way interaction
+#mb0 = lmer('infelicity ~ group*agent_state*ascription + (agent_state + ascription|item) + (agent_state|subject)', data=df, REML=FALSE)
+#mb1 = lmer('infelicity ~ group:agent_state + group:ascription + agent_state:ascription + (agent_state + ascription|item) + (agent_state|subject)', data=df, REML=FALSE)
+#grpxagntxascrpt <- anova(mb0, mb1)
+#saveRDS(grpxagntxascrpt, 'grpxagntxascrpt_fel.rda')
+grpxagntxascrpt <- readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/grpxagntxascrpt_fel.rda")
+
+## Group x Agent state interaction
+#mb2 = lmer('infelicity ~ group:ascription + agent_state:ascription + (agent_state + ascription|item) + (agent_state|subject)', data=df, REML=FALSE)
+#grpxagnt <- anova(mb1, mb2)
+#saveRDS(grpxagnt, "grpxagnt_fel.rda")
+grpxagnt <- readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/grpxagnt_fel.rda")
+## Post-hoc tests for the interaction of group and agent 
+#mb1_post <- emmeans(mb1, specs=pairwise ~ group:agent_state, pbkrtest.limit = 6120)
+#mb1_cntrst <- mb1_post$contrast
+#saveRDS(mb1_cntrst, "grpxagent_fel_post.rda")
+mb1_cntrst <- as.data.frame(readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/grpxagent_fel_post.rda"))
+
+## Agent x Ascription
+#mb3 = lmer('infelicity ~ group:agent_state + group:ascription  + (agent_state + ascription|item) + (agent_state|subject)', data=df, REML=FALSE)
+#agntxascrpt<- anova(mb1, mb3)
+#saveRDS(agntxascrpt, "agntxascript_fel.rda")
+agntxascrpt <- readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/agntxascript_fel.rda")
+#mb1_post <- emmeans(mb1, specs=pairwise ~ agent_state:ascription, pbkrtest.limit = 6120)
+#agntxascrpt_post <- mb1_post$contrast
+#saveRDS(agntxascrpt_post, "agntxascrpt_fel_post.rda")
+agntxascrpt_post <- as.data.frame(readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/agntxascrpt_fel_post.rda"))
+
+## Group X Ascription
+#mb4 = lmer('infelicity ~ group:agent_state + agent_state:ascription + (agent_state + ascription|item) + (agent_state|subject)', data=df, REML=FALSE)
+#grpxascrpt <- anova(mb1, mb4)
+#saveRDS(grpxascrpt, "/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/grpxascrpt_fel.rda")
+grpxascrpt <- readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/grpxascrpt_fel.rda")
+```
+
+```{r }
+## Infelicity x Ascription
+#mb5 <- lmer('infelicity ~ agent_state + ascription + (agent_state + ascription|item) + (agent_state|subject)', data=df, REML=FALSE)
+#mb6 <- lmer('infelicity ~ agent_state + (agent_state + ascription|item) + (agent_state|subject)', data=df, REML=FALSE)
+#ascrpt <- anova(mb5, mb6)
+#saveRDS(ascrpt, "/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/ascrpt_fel.rda")
+ascrpt <- readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/ascrpt_fel.rda")
+
+## Infelicity x agent state
+#mb7 <-lmer('infelicity ~  ascription + (agent_state + ascription|item) + (agent_state|subject)', data=df, REML=FALSE)
+#agnt <- anova(mb5, mb7)
+#saveRDS(agnt,"/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/agnt_fel.rda")
+agnt <- readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/agnt_fel.rda")
+
+# Infelicity x RT
+infelxrt_asd <- cor.test(df[df$group=="autism",]$infelicity, df[df$group=="autism",]$rt, method=c("pearson", "kendall","spearman"))
+infelxrt_nt <- cor.test(df[df$group=="neurotypical",]$infelicity, df[df$group=="neurotypical",]$rt, method=c("pearson", "kendall", "spearman"))
+
+# AQ 10
+#aqm <- lm('rt_diff ~ aq_score', data=aqdf)
+#aqmod <- summary(aqm)
+#saveRDS(aqmod,"/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/rtDiff_AQmod.rda")
+aqmod <- readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/rtDiff_AQmod.rda")
+aq_grpdiff <- t.test(aqdf[aqdf$group=="neurotypical", ]$aq_score, aqdf[aqdf$group=="autism", ]$aq_score, paired=FALSE )
+f <- aqmod$fstatistic
+p <- pf(f[1],f[2],f[3],lower.tail=F)
+
+# RT Models
+## 3-way interaction
+#mb0 = lmer('rt ~ group*agent_state*ascription + infelicity + (agent_state + ascription|item) + (agent_state|subject)', data=df, REML=FALSE)
+#mb1 = lmer('rt ~ group:agent_state + group:ascription + agent_state:ascription + infelicity + (agent_state + ascription|item) + (agent_state|subject)', data=df, REML=FALSE)
+#grpxagntxascrpt <- anova(mb0, mb1)
+#saveRDS(grpxagntxascrpt, 'grpxagntxascrpt.rda')
+threeway_rt <- readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/grpxagntxascrpt.rda")
+
+## Agent x Ascription
+### Neurotypicals
+#mn0 <- lmer('rt ~ ascription*agent_state + infelicity + (agent_state + ascription|item) + (agent_state|subject) ', data=NT, REML=FALSE)
+#mn1 <- lmer('rt ~ ascription + agent_state + infelicity + (agent_state + ascription|item) + (agent_state|subject) ', data=NT, REML=FALSE)
+#ascrptxagnt_nt <- anova(mn0, mn1)
+#saveRDS(ascrptxagnt_nt, "ascrptxagnt_nt.rda")
+ascrptxagnt_nt <- readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/ascrptxagnt_nt.rda")
+#mn0_post <- emmeans(mn0, specs=pairwise ~ ascription:agent_state, pbkrtest.limit = 4049)
+#saveRDS(mn0_post$contrasts, "/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/agntxascrpt_nt_post.rda")
+agntxascrpt_nt_post <-as.data.frame(readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/agntxascrpt_nt_post.rda"))
+
+### ASD
+#ma0 <- lmer('rt ~ ascription*agent_state + infelicity + (agent_state + ascription|item) + (agent_state|subject) ', data=ASD, REML=FALSE)
+#ma1 <- lmer('rt ~ ascription + agent_state + infelicity + (agent_state + ascription|item) + (agent_state|subject) ', data=ASD, REML=FALSE)
+
+#ascrptxagnt_asd <- anova(ma0, ma1)
+#saveRDS(ascrptxagnt_asd, "ascrptxagnt_asd.rda")
+agntxascrpt_asd <- readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/ascrptxagnt_asd.rda")
+
+
+## Group x Agent State
+#mb2 = lmer('rt ~ group:ascription + agent_state:ascription + infelicity + (agent_state + ascription|item) + (agent_state|subject)', data=df, REML=FALSE)
+#grpxagnt <- anova(mb1, mb2)
+#saveRDS(grpxagnt, "grpxagnt.rda")
+grpxagnt_rt <-readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/grpxagnt.rda")
+# Post-hoc tests for the interaction of group and agent 
+#mb1_post <- emmeans(mb1, specs=pairwise ~ group:agent_state, pbkrtest.limit = 6120)
+#grpxagnt_rt_post <- mb1_post$contrast
+#saveRDS(grpxagnt_rt_post, "/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/grpxagnt_rt_post.rda")
+grpxagnt_rt_post <- as.data.frame(readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/grpxagnt_rt_post.rda"))
+
+## Group x Ascription
+#mb3 <- lmer('rt ~ group:agent_state + agent_state:ascription + infelicity + (agent_state + ascription|item) + (agent_state|subject)', data=df, REML=FALSE)
+#grpxascrpt <- anova(mb1, mb3)
+#saveRDS(grpxascrpt, "grpxascrpt.rda")
+grpxascrpt_rt <-readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/grpxascrpt.rda")
+# Post-hoc tests for the interaction of group and ascription 
+#grpxascript_pw <- emmeans(mb1, specs=pairwise ~ group:ascription, pbkrtest.limit = 6120)
+#grpxascrpt_rt_post <- grpxascript_pw$contrast
+#saveRDS(grpxascrpt_rt_post, "/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/grpxascrpt_rt_post.rda")
+grpxascrpt_rt_post <- as.data.frame(readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/grpxascrpt_rt_post.rda"))
+
+```
+# Experiment 2
+
+There is much debate concerning the link between mind-reading ability and linguistic pragmatics (CITE). Some have argued that mind-reading abilities underpin the development of language skills involving comprehension of pragmatic Gricean implicatures (CITE). Others have argued that, while socio-cognitive skills can play a role in facilitating the development of some forms of linguistic pragmatics, these two abilities need not be dependent on one another (CITE). Studying individuals on the autism spectrum provides an opportunity to shed light on this debate. The delayed linguistic development of autistic children has been used to promote the role of mentalizing in the emergence of pragmatic language (Voldon & Phillips, 2010). However, other work has demonstrated that people with autism can develop linguistic competence of pragmatic processes _despite_ their known impairments in social abilities, suggesting that mind-reading and pragmatic abilities may not be intrinsically linked (Kissine, 2021). A long line of research on autism has demonstrated impaired mentalizing abilities as assessed through classic false-belief paradigms. Furthermore, recent work has suggested that individuals with autism may also show impairments understanding specific kinds implicatures that refer to another agent's mental state (Hochstein, 2018).  In this experiment, we aimed to determine whether the response time patterns found in experiment 1 might be explained by linguistic theories of pragmatic implicature. If violations of epistemic pragmatics, rather than distinct processes of mentalizing, are responsible for the relative delay observed in attributing beliefs to agents, we expect the response time patterns to be diminished in participants with autism, since some mental state ascriptions may be not be understood as pragmatic violations by this group. Alternatively, if the pattern of response times found in experiment 1 are instead the results of conceptually distinct forms of mentalizing, we expect participants with autism to demonstrate the same, or more extreme differences in response times for knowledge vs belief attribution. While pragmatic theories do not strictly predict a difference in the felicity of knowledge and belief ascriptions when the agent is ignorant or has a false belief (as belief ascriptions in these cases are simply false), we decided to collect felicity judgments for all of the sentences used in the previous experiment. That is, we collected ratings of the felicity of the belief and knowledge ascriptions in each of the three belief conditions for all twelve of the scenarios. We then first used these ratings to ask whether we find the difference in felicity that is predicted by pragmatic theories in the case of true belief, and then additionally asked whether the overall response time effect observed in Experiment 1 can be accounted for by differences in felicity. 
+
+## Participants
+Inclusion criteria required participants to be adults, fluent in English, and complete the experiment on a personal computer or laptop with a standard keyboard. `r length(unique(df$subject))` Participants included in subsequent analyses each had of a mean accuracy $\geq$ 67% and a mean response time $>1000ms$ and $< 4000ms$. `r length(unique(df[df$group=="neurotypical", ]$subject))` participants were recruited from Prolific (app.prolific.co) to the neurotypical group, (*M*~age~ = `r round(mean(df[df$group=="neurotypical" & df$trial_num==1,]$age), digits=2)`, *SD*~age~=`r round(sd(df[df$group=="neurotypical" & df$trial_num==1,]$age), digits=2)`, `r round((length(unique(df[df$group == "neurotypical" & df$gender=="female",]$subject))/389)*100, digits=2)`% female, `r round((length(unique(df[df$group == "neurotypical" & df$gender=="male",]$subject))/389)*100)`% male, `r round((length(unique(df[df$group == "neurotypical" & df$gender=="other",]$subject))/389)*100, digits=2)`% other, `r round( (length(unique(df[df$group == "neurotypical" & df$gender=="prefer not to disclose",]$subject))/389)*100, digits=2)`% not disclosed). 
+
+
+Crowdsourcing marketplaces such as Amazon's Mechanical Turk or Prolific do not provide segmented participant pools based on an autism diagnosis. Therefore, recruitment of participants in this group came from study advertisements posted in various online forums and websites of organizations dedicated to the autism community during the period from August-October 2022. Given this open recruitment strategy, advanced security measures were secured to ensure the data collected from this group were provided by earnest participants. First, a short screener required participants to endorse eligibility criteria, including fluency in English,  being at least 18 years of age, a computer or laptop to complete the experiment (no phones/tablets, etc.), and an autism diagnosis via clinical assessment. Eligible participants then received an automated email invitation to participate containing a unique study access link that could only be used once. The experiment was served to eligible participants from a custom-built encrypted server secured with a firewall and other security precautions. Connections to the experiment server were tested to ensure that the experiment was not accessed through a virtual privacy network, proxy, relay network, or tor node. Experiment access was also restricted to connections from English-speaking countries according to ISO-639 standards. Finally, two unrelated open-ended free text response questions were required items in the experiment and manually screened for nonsensical or suspicious responses. Overall, `r length(unique(df[df$group=="autism", ]$subject))` participants  recruited to the autism group met the same accuracy and mean response time criteria described above for neurotypicals, (*M*~age~ = `r round(mean(df[df$group=="autism" & df$trial_num==1,]$age), digits=2)`, *SD*~age~=`r round(sd(df[df$group=="autism" & df$trial_num==1,]$age), digits=2)`, `r round((length(unique(df[df$group == "autism" & df$gender=="female",]$subject))/222)*100, digits=2)`% female, `r round((length(unique(df[df$group == "autism" & df$gender=="male",]$subject))/222)*100)`% male, `r round((length(unique(df[df$group == "autism" & df$gender=="other",]$subject))/222)*100, digits=2)`% other, `r round( (length(unique(df[df$group == "autism" & df$gender=="prefer not to disclose",]$subject))/222)*100, digits=2)`% not disclosed).   
+
+## Stimuli and procedures
+For all participants, the experiment was conducted in two blocks. The first block consisted of the same stimuli and procedures as Experiment 1a-b, in which the 3 (agent state: Ignorance, True Information, False Information) x 2 (mental state ascription: Knowledge, Belief) design conditions were randomized and counterbalanced across 12 unique vignette contexts. Response times were recorded while participants evaluated mental state ascriptions as true or false. The second block consisted of the same conditions, such that the 12 vignettes and mental state ascriptions in the first block were presented a second time in randomized order and participants judged the felicity of each mental state ascription. Following completion of the first two blocks, participants completed a 10-item Autism Quotient scale, provided demographic information, and were debriefed.
+
+## Results
+
+
+### Infelicity  
+![](/Users/bryangonzalez/KnowledgeBeliefASD/analysis/Figures/grpxagntxascrpt_fel.png)
+_Effect of Agent State Infelicity Judgments_  
+Collapsing across groups, there was a significant main effect of agent state on infelicity judgments, $\chi^2(2)$ = `r round(agnt$Chisq[2],digits=3)`, *p* < `r format(max(round(agnt$'Pr(>Chisq)'[2],digits=3), .0001), scientific=F)`. This was driven by autism group. There were clear differences in infelicity judgments between autism and neurotypical groups. First, neurotypical participants seem to better grasp that false statements may still be felicitous, whereas participants in the autism group judged false mental state ascriptions of both knowledge and beliefs as relatively infelicitous.  
+
+_Group x Agent State Interaction Effect on Infelicity Judgments_  
+This pattern is evidenced by a significant group by agent state interaction effect on infelicity judgements $\chi^2(2)$ = `r round(grpxagnt$Chisq[2],digits=3)`, *p* < `r format(max(round(grpxagnt$'Pr(>Chisq)'[2],digits=3), .0001), scientific=F)`. When agents are described as ignorant, participants in the autism group rated mental state ascriptions (of both knowledge and beliefs) more infelicitous (*M*~infelicity~=`r round(mean(df[df$group == "autism" & df$agent_state =="Ignorance",]$infelicity), digits = 2)`, *SD*~infelicity~=`r round(sd(df[df$group == "autism" & df$agent_state =="Ignorance",]$infelicity),digits = 2)`) than participants in the neurotypical group (*M*~infelicity~=`r round(mean(df[df$group == "neurotypical" & df$agent_state =="Ignorance",]$infelicity), digits = 2)`, *SD*~infelicity~=`r round(sd(df[df$group == "neurotypical" & df$agent_state =="Ignorance",]$infelicity),digits = 2)`),  *t*(`r round(mb1_cntrst[mb1_cntrst$contrast == "autism,Ignorance - neurotypical,Ignorance",]$df, digits=2)`) =  `r round(mb1_cntrst[mb1_cntrst$contrast == "autism,Ignorance - neurotypical,Ignorance",]$t.ratio, digits=2)`, *p* < `r format(max(round(mb1_cntrst[mb1_cntrst$contrast == "autism,False Info - neurotypical,False Info",]$p.value, digits=2), .0001), scientific=F)`. 
+Similarly, when agents are described as having false information, participants in the autism group judged mental state ascriptions more infelicitous (*M*~infelicity~=`r round(mean(df[df$group == "autism" & df$agent_state =="False Info",]$infelicity), digits = 2)`, *SD*~infelicity~=`r round(sd(df[df$group == "autism" & df$agent_state =="False Info",]$infelicity),digits = 2)`) than neurotypical participants (*M*~infelicity~=`r round(mean(df[df$group == "neurotypical" & df$agent_state =="False Info",]$infelicity), digits = 2)`, *SD*~infelicity~=`r round(sd(df[df$group == "neurotypical" & df$agent_state =="False Info",]$infelicity),digits = 2)`), *t*(`r round(mb1_cntrst[mb1_cntrst$contrast == "autism,False Info - neurotypical,False Info",]$df, digits=2)`) =  `r round(mb1_cntrst[mb1_cntrst$contrast == "autism,False Info - neurotypical,False Info",]$t.ratio, digits=2)`, *p* < `r format(max(round(mb1_cntrst[mb1_cntrst$contrast == "autism,False Info - neurotypical,False Info",]$p.value, digits=2), .0001), scientific=F)`.
+There was no group difference, however, in infelicity judgments for agents described as having true information, *t*(`r round(mb1_cntrst[mb1_cntrst$contrast == "autism,True Info - neurotypical,True Info",]$df, digits=2)`) =  `r round(mb1_cntrst[mb1_cntrst$contrast == "autism,True Info - neurotypical,True Info",]$t.ratio, digits=2)`, *p* = `r max(round(mb1_cntrst[mb1_cntrst$contrast == "autism,True Info - neurotypical,True Info",]$p.value, digits=2), .0001)`.  
+
+_Group x Ascription Interaction Effect on Infelicity Judgments_  
+  Despite the above difference in the effect of agent state on infelicity judgements between groups, we found no group x ascription interaction effect on infelicity judgments, $\chi^2(2)$ = `r round(grpxascrpt$Chisq[2],digits=3)`, *p* = `r round(grpxascrpt$'Pr(>Chisq)'[2],digits=3)`.  
+
+_Agent State x Ascription Interaction Effect on Infelicity Judgments_  
+  In line with pragmatic theories, we found a significant overall interaction of agent state x ascription on infelicity judgements, $\chi^2(2)$ = `r round(agntxascrpt$Chisq[2],digits=3)`, *p* < `r format(max(round(agntxascrpt$'Pr(>Chisq)'[2],digits=3), .0001), scientific=F)`, such that, across autism and neurotypical groups, belief attributions (*M*~infelicity~=`r round(mean(df[df$ascription == "Thinks" & df$agent_state =="True Info",]$infelicity), digits = 2)`, *SD*~infelicity~=`r round(sd(df[df$ascription == "Thinks" & df$agent_state =="True Info",]$infelicity),digits = 2)`) were judged significantly more infelicitous than knowledge attributions (*M*~infelicity~=`r round(mean(df[df$ascription == "Knows" & df$agent_state =="True Info",]$infelicity), digits = 2)`, *SD*~infelicity~=`r round(sd(df[df$ascription == "Knows" & df$agent_state =="True Info",]$infelicity),digits = 2)`) for contexts in which agents have true information, *t*(`r round(agntxascrpt_post[agntxascrpt_post$contrast== "True Info,Knows - True Info,Thinks",]$df, digits=2)`) = `r round(agntxascrpt_post[agntxascrpt_post$contrast== "True Info,Knows - True Info,Thinks",]$t.ratio, digits=2)` *p* < `r format(max(round(agntxascrpt_post[agntxascrpt_post$contrast== "True Info,Knows - True Info,Thinks",]$p.value, digits=2), .0001), scientific=F)`.  
+  
+_Effect of Ascription on Infelicity Judgments_  
+There was no overall main effect of ascription type on infelicity judgments, $\chi^2(2)$ = `r round(ascrpt$Chisq[2],digits=3)`, *p* = `r round(ascrpt$'Pr(>Chisq)'[2],digits=3)`.  
+ 
+### Infelicity & Response Time  
+  Furthermore, we find a significant correlation between infelicity judgement and response times in the neurotypical group such that mental state ascriptions judged as more infelicitous took longer to evaluate,*r* = .056, *p*=.0004.  This relationship was not found in the autism group *r*=-.04, *p*=.101. Critically, we can control for possible effects of infelicity in subsequent response time analysis because we collected these data for each mental state ascription within subjects.  
+
+### Response Times  
+![](/Users/bryangonzalez/KnowledgeBeliefASD/analysis/Figures/groupxascrip_rt.png)  
+
+_Group x Agent State x Ascription_    
+  Controlling for the individual and pairwise effects of agent state and ascription type, as well as infelicity judgements, there is a marginally significant three-way interaction of group, agent state, and ascription on response times, $\chi^2(2)$ = `r round(threeway_rt$Chisq[2],digits=3)`, *p* = `r round(threeway_rt$'Pr(>Chisq)'[2],digits=3)`. This three-way interaction can be explained by examining agent state x ascription interactions within each group.  
+  
+_Agent State x Ascription within Groups_  
+  In the neurotypical group, knowledge attributions were significantly faster (*M*~rt~=`r round(mean(df[df$group=="neurotypical" & df$ascription == "Knows" & df$agent_state =="Ignorance",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(df[df$group=="neurotypical" & df$ascription == "Knows" & df$agent_state =="Ignorance",]$rt),digits = 2)`)  than attributions of beliefs (*M*~rt~=`r round(mean(df[df$group=="neurotypical" & df$ascription == "Thinks" & df$agent_state =="Ignorance",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(df[df$group=="neurotypical" & df$ascription == "Thinks" & df$agent_state =="Ignorance",]$rt),digits = 2)`) for agents that are ignorant, *t*(`r agntxascrpt_nt_post[agntxascrpt_nt_post$contrast == "Knows,Ignorance - Thinks,Ignorance",]$df`) = `r agntxascrpt_nt_post[agntxascrpt_nt_post$contrast == "Knows,Ignorance - Thinks,Ignorance",]$t.ratio`, *p* < `r format(max(agntxascrpt_nt_post[agntxascrpt_nt_post$contrast == "Knows,Ignorance - Thinks,Ignorance",]$p.value, .0001), scientific=F)`. Participants in the autism group did not show the same interaction effect, $\chi^2(2)$ = `r round(agntxascrpt_asd$Chisq[2],digits=3)`, *p* = `r round(agntxascrpt_asd$'Pr(>Chisq)'[2],digits=3)`.  
+
+_Group x Agent State_  
+  Controlling for the interaction of agent x ascription and the effect of infelicity, there is a significant interaction effect of group x agent state on response times, $\chi^2(2)$ = `r round(grpxagnt_rt$Chisq[2],digits=3)`, *p* = `r round(grpxagnt_rt$'Pr(>Chisq)'[2],digits=3)`. Post hoc tests reveal that participants in the autism group (*M*~rt~=`r round(mean(df[df$group=="autism" & df$agent_state=="True Info",]$rt), digits=2)`ms, *SD*~rt~=`r round(sd(df[df$group=="autism" & df$agent_state=="True Info",]$rt), digits=2)`) are significantly faster than neurotypicals (*M*~rt~=`r round(mean(df[df$group=="neurotypical" & df$agent_state=="True Info",]$rt), digits=2)`ms, *SD*~rt~=`r round(sd(df[df$group=="neurotypical" & df$agent_state=="True Info",]$rt), digits=2)`) at attributing mental states to agents with true information, *t*(`r round(grpxagnt_rt_post[grpxagnt_rt_post$contrast=="autism,True Info - neurotypical,True Info",]$df, digits=2)`) = `r round(grpxagnt_rt_post[grpxagnt_rt_post$contrast=="autism,True Info - neurotypical,True Info",]$t.ratio, digits=2)`, *p* = `r format(max(round(grpxagnt_rt_post[grpxagnt_rt_post$contrast=="autism,True Info - neurotypical,True Info",]$p.value, digits=2), .0001), scientific=F)`.  
+
+_Group x Ascription_  
+Finally, there was no interaction of group x ascription type on response time,$\chi^2(2)$ = `r round(grpxascrpt_rt$Chisq[2],digits=3)`, *p* = `r round(grpxascrpt_rt$'Pr(>Chisq)'[2],digits=3)`, suggesting that the significant main effect of ascription type on response times exists for both neurotypicals and autistic participants equally. Collapsing across agents described as having True, False, and No information, participants in the neurotypical group were significantly faster at attributing knowledge (*M*~rt~=`r round(mean(df[df$ascription == "Knows" & df$group =="neurotypical",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(df[df$ascription == "Knows" & df$group =="neurotypical",]$rt),digits = 2)`) than beliefs (*M*~rt~=`r round(mean(df[df$ascription == "Thinks" & df$group =="neurotypical",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(df[df$ascription == "Thinks" & df$group =="neurotypical",]$rt),digits = 2)`), *t*(`r round(grpxascrpt_rt_post[grpxascrpt_rt_post$contrast == "neurotypical,Knows - neurotypical,Thinks",]$df, digits=2)`) = `r round(grpxascrpt_rt_post[grpxascrpt_rt_post$contrast == "neurotypical,Knows - neurotypical,Thinks",]$t.ratio, digits=2)`, *p* < `r format(max( round(grpxascrpt_rt_post[grpxascrpt_rt_post$contrast == "neurotypical,Knows - neurotypical,Thinks",]$p.value, digits=2), .0001), scientific=F)`.
+Similarly, across agents described as having True, False, and No information, participants in the autism group were significantly faster at attributing knowledge (*M*~rt~=`r round(mean(df[df$ascription == "Knows" & df$group =="autism",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(df[df$ascription == "Knows" & df$group =="autism",]$rt),digits = 2)`) than beliefs (*M*~rt~=`r round(mean(df[df$ascription == "Thinks" & df$group =="autism",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(df[df$ascription == "Thinks" & df$group =="autism",]$rt),digits = 2)`), *t*(`r round(grpxascrpt_rt_post[grpxascrpt_rt_post$contrast == "autism,Knows - autism,Thinks",]$df, digits=2)`) = `r round(grpxascrpt_rt_post[grpxascrpt_rt_post$contrast == "autism,Knows - autism,Thinks",]$t.ratio, digits=2)`, *p* < `r format(max( round(grpxascrpt_rt_post[grpxascrpt_rt_post$contrast == "autism,Knows - autism,Thinks",]$p.value, digits=2), .0001), scientific=F)`.
+
+### Autism Quotient
+![](/Users/bryangonzalez/KnowledgeBeliefASD/analysis/Figures/rt_diffxAQ.png)
+
+Both groups of participants completed the 10-item psychometric Autism Quotient scale (AQ-10) to assess traits associated with the autism spectrum (Allison C, Auyeung B, and Baron-Cohen S, 2012). Persons scoring 6 or above on the AQ-10 are recommended for a more comprehensive assessment for autism(https://www.nice.org.uk/guidance/cg142/chapter/Recommendations#identification-and-assessment-2). As expected, participants in the autism group scored significantly higher on the AQ-10 (*M*~AQ-10~ = `r round(mean(aqdf[aqdf$group == "autism",]$aq_score), digits=2)`, *SD*~AQ-10~= `r round(sd(aqdf[aqdf$group=="autism",]$aq_score), digits=2)`) than participants in the neurotypical group  (*M*~AQ-10~ = `r round(mean(aqdf[aqdf$group == "neurotypical",]$aq_score), digits=2)`, *SD*~AQ-10~= `r round(sd(aqdf[aqdf$group=="neurotypical",]$aq_score), digits=2)`), _t_(`r round(aq_grpdiff$parameter, digits=2)`) = `r round(aq_grpdiff$statistic, digits=2)`, p < `r format(max(aq_grpdiff$p.value, .0001), scientific=F)`. 
+
+To examine a more continuous relationship between autism symptomology and mental state ascription, we computed the difference between each subject's average response time for belief and knowledge attributions respectively, such that more positive values indicate that knowledge attributions were faster than belief attributions while more negative values indicate that belief attributions were faster. We computed a linear model to determine the regressed effect of autism symptoms on these response time differences within subject. This model was not significant, *F*(`r aqmod$fstatistic[2]`, `r aqmod$fstatistic[3]`)=`r round(aqmod$fstatistic[1], digits=2)`, p=`r round(p, digits=3)`, suggesting that autism symptoms, as measured by the AQ-10, does not impact the difference in speed with which knowledge and beliefs are attributed.
+
+
+## Discussion
+Provocative and impressive musings on implications of this study.
