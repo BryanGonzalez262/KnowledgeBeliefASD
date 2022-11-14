@@ -1,0 +1,212 @@
+---
+title: "Response Time Analysis"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+```{r imports, echo=FALSE, warning=FALSE}
+library(lme4)
+library(dplyr)
+library(emmeans)
+
+
+df <- read.csv('/Users/bryangonzalez/KnowledgeBeliefASD/analysis/Data/full_sample_clean.csv', header=T)
+
+
+df <- df[df$in_sample == "True",]
+df <- df[df$correct == "True",]
+
+```
+
+# Between Groups Analysis
+## 3-way Interaction of Group x Agent State x Ascription
+![](/Users/bryangonzalez/KnowledgeBeliefASD/analysis/Figures/groupxascrip_rt.png) 
+
+```{r }
+#mb0 = lmer('rt ~ group*agent_state*ascription + infelicity + (agent_state + ascription|item) + (agent_state|subject)', data=df, REML=FALSE)
+mb1 = lmer('rt ~ group:agent_state + group:ascription + agent_state:ascription + infelicity + (agent_state + ascription|item) + (agent_state|subject)', data=df, REML=FALSE)
+#grpxagntxascrpt <- anova(mb0, mb1)
+#saveRDS(grpxagntxascrpt, 'grpxagntxascrpt.rda')
+grpxagntxascrpt <- readRDS('grpxagntxascrpt.rda')
+grpxagntxascrpt
+```
+### Result
+Controlling for their isolated effects and all pairwise 2-way interactions, there is a marginally significant 3 way interaction of group, agent_state, and ascription,  $\chi^2(2)$ = `r round(grpxagntxascrpt$Chisq[2],digits=3)`, *p* = `r round(grpxagntxascrpt$'Pr(>Chisq)'[2],digits=3)`. 
+```{r}
+
+```
+
+## Interaction of Group x Agent State
+![](/Users/bryangonzalez/KnowledgeBeliefASD/analysis/Figures/agentxgroup.png)
+```{r}
+#mb2 = lmer('rt ~ group:ascription + agent_state:ascription + infelicity + (agent_state + ascription|item) + (agent_state|subject)', data=df, REML=FALSE)
+#grpxagnt <- anova(mb1, mb2)
+#saveRDS(grpxagnt, "grpxagnt.rda")
+grpxagnt <- readRDS("grpxagnt.rda")
+grpxagnt
+```
+```{r }
+# Post-hoc tests for the interaction of group and agent 
+mb1_post <- emmeans(mb1, specs=pairwise ~ group:agent_state, pbkrtest.limit = 6120)
+grpxagnt_rt_post <- mb1_post$contrast
+saveRDS(grpxagnt_rt_post, "/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/grpxagnt_rt_post.rda")
+#grpxagnt_rt_post <- readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/grpxagnt_rt_post.rda")
+grpxagnt_rt_post
+```
+### Result
+Controling for the interaction of group x ascription, and the interaction of agent x ascription, there is a significant interaction of group x agent state, $\chi^2(2)$ = `r round(grpxagnt$Chisq[2],digits=3)`, *p* = `r round(grpxagnt$'Pr(>Chisq)'[2],digits=3)`. Post hoc tests reveal that participants in the autism group (*M*~rt~=`r round(mean(df[df$group == "autism" & df$agent_state =="True Info",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(df[df$group == "autism" & df$agent_state =="True Info",]$rt),digits = 2)`) are significantly faster than neurotypicals (*M*~rt~=`r round(mean(df[df$group == "neurotypical" & df$agent_state =="True Info",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(df[df$group == "neurotypical" & df$agent_state =="True Info",]$rt),digits = 2)`) at attributing knowledge to agents with true information, t(623.1)=-4.363, p=.0002. 
+
+
+## Interaction of Group x Ascription 
+![](/Users/bryangonzalez/KnowledgeBeliefASD/analysis/Figures/groupxascript.png)
+
+```{r }
+#mb3 <- lmer('rt ~ group:agent_state + agent_state:ascription + infelicity + (agent_state + ascription|item) + (agent_state|subject)', data=df, REML=FALSE)
+#grpxascrpt <- anova(mb1, mb3)
+#saveRDS(grpxascrpt, "grpxascrpt.rda")
+grpxascrpt <- readRDS("grpxascrpt.rda")
+grpxascrpt
+```
+
+### Result
+Controlling for the interaction of agent state x group, and the interaction of agent state x ascription,  there is no significant interaction of group x  ascription, $\chi^2(2)$ = `r round(grpxascrpt$Chisq[2],digits=3)`, *p* = `r round(grpxascrpt$'Pr(>Chisq)'[2],digits=3)`
+
+```{r}
+# Post-hoc tests for the interaction of group and ascription 
+grpxascript_pw <- emmeans(mb1, specs=pairwise ~ group:ascription, pbkrtest.limit = 6120)
+grpxascrpt_rt_post <- grpxascript_pw$contrast
+saveRDS(grpxascrpt_rt_post, "/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/grpxascrpt_rt_post.rda")
+#grpxascrpt_rt_post <- readRDS("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/grpxascrpt_rt_post.rda")
+grpxascrpt_rt_post
+```
+```
+
+## Interaction of Agent State & Ascription across groups
+![](/Users/bryangonzalez/KnowledgeBeliefASD/analysis/Figures/agentxascript.png) 
+```{r }
+#mb4 <- lmer('rt ~ group:agent_state + group:ascription + infelicity + (agent_state + ascription|item) + (agent_state|subject) ', data=df, REML=FALSE)
+#agntxascrpt<-anova(mb1, mb4)
+#saveRDS(agntxascrpt, 'agntxascrpt.rda')
+
+agntxascrpt <- readRDS('agntxascrpt.rda')
+agntxascrpt
+```
+### Result
+Controlling for the interaction of group x agent state, and the interaction of group x ascription, there is a significant interaction of agent state and ascription across groups, $\chi^2(2)$ = `r round(agntxascrpt$Chisq[2],digits=3)`, *p* = `r round(agntxascrpt$'Pr(>Chisq)'[2],digits=4)`.
+
+# Within Group - Neurotypical
+```{r}
+NT<- df[df$group == "neurotypical",]
+```
+## Interaction of Agent State x Ascription in Neurotypical Group
+![](/Users/bryangonzalez/KnowledgeBeliefASD/analysis/Figures/agentxascript_nt.png)
+```{r}
+mn0 <- lmer('rt ~ ascription*agent_state + infelicity + (agent_state + ascription|item) + (agent_state|subject) ', data=NT, REML=FALSE)
+#mn1 <- lmer('rt ~ ascription + agent_state + infelicity + (agent_state + ascription|item) + (agent_state|subject) ', data=NT, REML=FALSE)
+
+#ascrptxagnt_nt <- anova(mn0, mn1)
+#saveRDS(ascrptxagnt_nt, "ascrptxagnt_nt.rda")
+ascrptxagnt_nt <- readRDS("ascrptxagnt_nt.rda")
+ascrptxagnt_nt
+
+
+library(emmeans)
+library(magrittr)
+mn0_post <- emmeans(mn0, specs=pairwise ~ ascription:agent_state, pbkrtest.limit = 4049)
+saveRDS(mn0_post$contrasts, "/Users/bryangonzalez/KnowledgeBeliefASD/analysis/R_analysis/agntxascrpt_nt_post.rda")
+```
+### Result
+Controlling for their isolated effects, there is a significant interaction of ascription x agent state in the neurotypical group, $\chi^2(2)$ = `r round(ascrptxagnt_nt$Chisq[2],digits=3)`, *p* = `r round(ascrptxagnt_nt$'Pr(>Chisq)'[2],digits=3)`. 
+
+Post-Hoc tests reveal the participants in the neurotypical group are significantly faster at evaluating attributions of knowledge (*M*~rt~=`r round(mean(NT[NT$ascription == "Knows" & NT$agent_state =="Ignorance",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(NT[NT$ascription == "Knows" & NT$agent_state =="Ignorance",]$rt),digits = 2)`) than attributions of beliefs (*M*~rt~=`r round(mean(NT[NT$ascription == "Thinks" & NT$agent_state =="Ignorance",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(NT[NT$ascription == "Thinks" & NT$agent_state =="Ignorance",]$rt),digits = 2)`) for agents that are ignorant,  *t*(35.8)=-7.288, *p*<.0001. 
+
+Furthermore, knowledge attributions to ignorant agents were also significantly faster than knowledge (*M*~rt~=`r round(mean(NT[NT$ascription == "Knows" & NT$agent_state =="True Info",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(NT[NT$ascription == "Knows" & NT$agent_state =="True Info",]$rt),digits = 2)`) and belief (*M*~rt~=`r round(mean(NT[NT$ascription == "Thinks" & NT$agent_state =="True Info",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(NT[NT$ascription == "Thinks" & NT$agent_state =="True Info",]$rt),digits = 2)`) attributions for agents with true information, t(23.2)=-3.21, p=.048 & t(14.2)=-4.16, p=.009 respectively.
+
+Although this suggests an effect of ignorance on response times in this  group, knowledge attributions to agents with true information (*M*~rt~=`r round(mean(NT[NT$ascription == "Knows" & NT$agent_state =="True Info",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(NT[NT$ascription == "Knows" & NT$agent_state =="True Info",]$rt),digits = 2)`) were, nonetheless, faster than belief attributions to ignorant agents (*M*~rt~=`r round(mean(NT[NT$ascription == "Thinks" & NT$agent_state =="Ignorance",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(NT[NT$ascription == "Thinks" & NT$agent_state =="Ignorance",]$rt),digits = 2)`), t(15.1)=3.24, p=.05.
+
+
+## Main Effect of Agent State in Neurotypical Group
+![](/Users/bryangonzalez/KnowledgeBeliefASD/analysis/Figures/agent_nt.png)
+```{r}
+#mn2 <- lmer('rt ~ ascription  + infelicity + (agent_state + ascription|item) + (agent_state|subject) ', data=NT, REML=FALSE)
+#agnt_nt <- anova(mn1, mn2)
+#saveRDS(agnt_nt, "agnt_nt.rda")
+agnt_nt <- readRDS("agnt_nt.rda")
+agnt_nt
+```
+### Result 
+There is no main effect of agent state on response times in the neurotypical group, $\chi^2(2)$ = `r round(agnt_nt$Chisq[2],digits=3)`, *p* = `r round(agnt_nt$'Pr(>Chisq)'[2],digits=3)`
+
+## Main Effect of Ascription in Neurotypical Group
+![](/Users/bryangonzalez/KnowledgeBeliefASD/analysis/Figures/ascript_nt.png)
+
+```{r}
+#mn3 <- lmer('rt ~ agent_state  + infelicity + (agent_state + ascription|item) + (agent_state|subject) ', data=NT, REML=FALSE)
+#ascrpt_nt <- anova(mn1, mn3)
+#saveRDS(ascrpt_nt, "ascrpt_nt.rda")
+ascrpt_nt <- readRDS("ascrpt_nt.rda")
+ascrpt_nt
+```
+### Result
+Controlling for agent state and infelicity, participants in the neurotypical group are faster at attributing knowledge (*M*~rt~=`r round(mean(NT[NT$ascription == "Knows",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(NT[NT$ascription == "Knows",]$rt),digits = 2)`) than beliefs (*M*~rt~=`r round(mean(NT[NT$ascription == "Thinks",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(NT[NT$ascription == "Thinks",]$rt),digits = 2)`) to other  agents,  $\chi^2(2)$ = `r round(ascrpt_nt$Chisq[2],digits=3)`, *p* = `r round(ascrpt_nt$'Pr(>Chisq)'[2],digits=3)`
+
+# Within Group - Autism
+
+```{r}
+ASD <- df[df$group == "autism",]
+```
+## Interaction of Agent State x Ascription - Autism
+![](/Users/bryangonzalez/KnowledgeBeliefASD/analysis/Figures/agentxasript_asd.png)
+```{r}
+#ma0 <- lmer('rt ~ ascription*agent_state + infelicity + (agent_state + ascription|item) + (agent_state|subject) ', data=ASD, REML=FALSE)
+#ma1 <- lmer('rt ~ ascription + agent_state + infelicity + (agent_state + ascription|item) + (agent_state|subject) ', data=ASD, REML=FALSE)
+
+#ascrptxagnt_asd <- anova(ma0, ma1)
+#saveRDS(ascrptxagnt_asd, "ascrptxagnt_asd.rda")
+ascrptxagnt_asd <- readRDS("ascrptxagnt_asd.rda")
+ascrptxagnt_asd
+
+
+#library (emmeans)
+#library(magrittr)
+#ma0_post <- emmeans(ma0, specs=pairwise ~ ascription:agent_state, pbkrtest.limit = 4049)
+#ma0_post$contrasts
+
+```
+
+### Result
+Controlling for infelicity, there is no agent state x ascription interaction in the autism group,  $\chi^2(2)$ = `r round(ascrptxagnt_asd$Chisq[2],digits=3)`, *p* = `r round(ascrptxagnt_asd$'Pr(>Chisq)'[2],digits=3)`
+
+
+## Main Effect of Agent State in ASD Group
+![](/Users/bryangonzalez/KnowledgeBeliefASD/analysis/Figures/agent_asd.png)
+```{r}
+#ma2 <- lmer('rt ~ ascription  + infelicity + (agent_state + ascription|item) + (agent_state|subject) ', data=ASD, REML=FALSE)
+#agnt_asd <- anova(ma1, ma2)
+#saveRDS(agnt_asd, "agnt_asd.rda")
+agnt_asd <- readRDS("agnt_asd.rda")
+agnt_asd
+```
+### Result
+Controlling for infelicity, there is no effect of agent state on RT in the autism group,  $\chi^2(2)$ = `r round(agnt_asd$Chisq[2],digits=3)`, *p* = `r round(agnt_asd$'Pr(>Chisq)'[2],digits=3)`
+
+## Main Effect of Ascription in Autism Group
+![](/Users/bryangonzalez/KnowledgeBeliefASD/analysis/Figures/ascript_asd.png)
+
+```{r}
+#ma3 <- lmer('rt ~ agent_state  + infelicity + (agent_state + ascription|item) + (agent_state|subject) ', data=ASD, REML=FALSE)
+#ascrpt_asd <- anova(ma1, ma3)
+#saveRDS(ascrpt_asd, "ascrpt_asd.rda")
+ascrpt_asd <- readRDS("ascrpt_asd.rda")
+ascrpt_asd
+```
+### Result 
+Controlling for agent state and infelicity, there is a significant effect of ascription in the autism group such that knowledge ascriptions  (*M*~rt~=`r round(mean(ASD[ASD$ascription == "Knows",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(ASD[ASD$ascription == "Knows",]$rt),digits = 2)`) are made significantly faster than belief ascriptions  (*M*~rt~=`r round(mean(ASD[ASD$ascription == "Thinks",]$rt), digits = 2)`ms, *SD*~rt~=`r round(sd(ASD[ASD$ascription == "Thinks",]$rt),digits = 2)`),   $\chi^2(2)$ = `r round(ascrpt_asd$Chisq[2],digits=3)`, *p* = `r round(ascrpt_asd$'Pr(>Chisq)'[2],digits=3)`
+
+## RT Difference x AQscore
+```{r }
+aqdf <- read.csv("/Users/bryangonzalez/KnowledgeBeliefASD/analysis/Data/aqrtdiffs.csv", header=T)
+mbAQ <- lm('rt_diff ~ aq_score ', data=aqdf)
+mbAQ
+```

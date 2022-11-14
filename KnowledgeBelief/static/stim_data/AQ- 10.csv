@@ -1,0 +1,11 @@
+type,head,body,responseType,responseOptions,separator
+form,"I often notice small sounds when others do not.",,radio,"Definitely Agree;Slightly Agree;Slightly Disagree;Definitely Disagree",1
+form,"I usually concentrate more on the whole picture rather than the small details.",,radio,"Definitely Agree;Slightly Agree;Slightly Disagree;Definitely Disagree",1
+form,"I find it easy to do more than one thing at once.",,radio,"Definitely Agree;Slightly Agree;Slightly Disagree;Definitely Disagree",1
+form,"If there is an interruption, I can switch back to what I was doing very quickly.",,radio,"Definitely Agree;Slightly Agree;Slightly Disagree;Definitely Disagree",1
+form,"I find it easy to “read between the lines” when someone is talking to me.",,radio,"Definitely Agree;Slightly Agree;Slightly Disagree;Definitely Disagree",1
+form,"I know how to tell if someone listening to me is getting bored.",,radio,"Definitely Agree;Slightly Agree;Slightly Disagree;Definitely Disagree",1
+form,"When I’m reading a story I find it difficult to work out the characters’ intentions.",,radio,"Definitely Agree;Slightly Agree;Slightly Disagree;Definitely Disagree",1
+form,"I like to collect information about characters of things (e.g. types of car, types of bird, types of train, types of plant, etc.)",,radio,"Definitely Agree;Slightly Agree;Slightly Disagree;Definitely Disagree",1
+form,"I find it easy to work out what someone is thinking or feeling just by looking at their face.",,radio,"Definitely Agree;Slightly Agree;Slightly Disagree;Definitely Disagree",1
+form,"I find it difficult to work out people’s intentions.",,radio,"Definitely Agree;Slightly Agree;Slightly Disagree;Definitely Disagree",1
